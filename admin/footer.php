@@ -94,7 +94,7 @@
     </script>
     <!-- script for banner file preview -->
     <script>
-        function imgPreview(input) {
+        function bannerPreview(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
                 reader.onload = function (e) {
@@ -105,12 +105,12 @@
             }
             }
             $("#banner-file-img").change(function () {
-                imgPreview(this);
+                bannerPreview(this);
             });
     </script>
     <!-- script for about file preview -->
     <script>
-        function imgAboutPreview(input) {
+        function aboutPreview(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
                 reader.onload = function (e) {
@@ -121,7 +121,7 @@
             }
             }
             $("#about-file-img").change(function () {
-                imgPreview(this);
+                aboutPreview(this);
             });
     </script>
      <script>

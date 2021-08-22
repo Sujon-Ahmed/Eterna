@@ -33,7 +33,7 @@
         ?>
         <!-- form start -->
         <div class="col-lg-10 m-auto">
-            <form action="create_brand.php" method="POST" id="add_image" enctype="multipart/form-data">
+            <form action="insert_brand.php" method="POST" id="add_image" enctype="multipart/form-data">
                 <div class="card position-relative shadow-sm">
                     <div class="card-header py-3">
                         <div class="d-flex justify-content-between">
