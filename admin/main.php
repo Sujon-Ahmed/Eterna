@@ -441,6 +441,26 @@
                 return false;
             }
         }
+        // get brands id
+        public function get_brand_id($brand_id){
+            $this->sql = "SELECT * FROM `brands` WHERE brand_id = '$brand_id'";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return $this->result;
+            }else{
+                return false;
+            }
+        }
+         // dwlete brands id
+         public function delete_brand($brand_id){
+            $this->sql = "DELETE FROM `brands` WHERE brand_id = '$brand_id'";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return true;
+            }else{
+                return false;
+            }
+        }
 
         // close connection
         public function __destruct()
