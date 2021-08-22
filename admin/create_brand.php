@@ -38,7 +38,7 @@
                     <div class="card-header py-3">
                         <div class="d-flex justify-content-between">
                             <h6 class="m-0 font-weight-bold text-primary">Clients Brand</h6>
-                            <a href="view_desc.php" class="btn btn-primary btn-sm">View</a>
+                            <a href="view_brand.php" class="btn btn-primary btn-sm">View</a>
                         </div>
                     </div>
                     <div class="card-body m-auto text-center">

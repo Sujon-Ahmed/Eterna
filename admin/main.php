@@ -421,6 +421,26 @@
                 return false;
             }
         }
+        // insert brands image
+        public function insert_brands($fileNewName,$auth_id){
+            $this->sql = "INSERT INTO `brands`( `author_id`, `brand_img`) VALUES ('$auth_id','$fileNewName')";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return $this->result;
+            }else{
+                return false;
+            }
+        }
+        // get brands data 
+        public function get_brands($id){
+            $this->sql = "SELECT * FROM brands";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return $this->result;
+            }else{
+                return false;
+            }
+        }
 
         // close connection
         public function __destruct()
