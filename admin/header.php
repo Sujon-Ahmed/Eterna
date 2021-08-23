@@ -191,6 +191,22 @@
                 </div>
             </li>
             <!-- Divider -->
+            <hr class="sidebar-divider">
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSeven"
+                    aria-expanded="true" aria-controls="collapseSeven">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Manage About Card</span>
+                </a>
+                <div id="collapseSeven" class="collapse <?php if($page == 'abs'){echo 'show';} ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">About Card</h6>
+                        <a class="collapse-item <?php if($sub_page == 'create_abs'){echo 'active';} ?>" href="create_abs.php">Create</a>
+                        <a class="collapse-item <?php if($sub_page == 'view_abs'){echo 'active';} ?>" href="view_abs.php">View</a>
+                    </div>
+                </div>
+            </li>
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>

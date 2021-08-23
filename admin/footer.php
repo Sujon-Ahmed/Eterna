@@ -263,5 +263,45 @@
             });
         });
     </script>
+       <!-- script for about page card required validation -->
+       <script>
+        $(document).ready(function () {
+            $('#abs').validate({
+                rules: {
+                    abs_icon: {
+                        required: true
+                    },
+                    abs_value: {
+                        required: true
+                    },
+                    abs_title: {
+                        required: true
+                    },
+                },
+                    messages: {
+                    abs_icon: {
+                    required: ""
+                    },
+                    abs_value: {
+                    required: ""
+                    },
+                    abs_title: {
+                    required: ""
+                    },
+                },
+                errorElement: 'span',
+                errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+                },
+                highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+                },
+                unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

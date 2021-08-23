@@ -506,6 +506,18 @@
                 return false;
             }
         }
+        // =============== about page ================
+        // abs insert
+        public function insert_abs($icon,$value,$title,$body)
+        {
+            $this->sql = "INSERT INTO `abs`(`ab_icon`, `ab_max_value`, `ab_title`, `ab_desc`) VALUES ('$icon','$value','$title','$body')";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return $this->result;
+            }else{
+                return false;
+            }
+        }
 
         // close connection
         public function __destruct()
