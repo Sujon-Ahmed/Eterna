@@ -432,7 +432,7 @@
             }
         }
         // get brands data 
-        public function get_brands($id){
+        public function get_brands(){
             $this->sql = "SELECT * FROM brands";
             $this->result = $this->con->query($this->sql);
             if($this->result == true){

@@ -130,14 +130,17 @@
 
         <div class="clients-slider swiper-container">
           <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-2.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-5.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-6.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid" alt=""></div>
+            <?php
+              if($brand->num_rows > 0){
+                $si = 1;
+                while($row = $brand->fetch_object()){
+                  ?>
+                    <div class="swiper-slide"><img src="<?php echo 'admin/uploads/brands/'.$row->brand_img; ?>" class="img-fluid" alt=""></div>
+                  <?php
+                  $si++;
+                }
+              }
+            ?>
           </div>
           <div class="swiper-pagination"></div>
         </div>

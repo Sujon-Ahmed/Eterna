@@ -17,7 +17,7 @@
   $about_details = $obj->get_about_data();
   $service_details = $obj->get_service_limit();
   $description = $obj->catch_desc();
-
+  $brand = $obj->get_brands();
     
 ?>
 <!DOCTYPE html>
