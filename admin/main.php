@@ -473,6 +473,39 @@
                 return false;
             }
         }
+        // get subscribers
+        public function get_subscriber()
+        {
+            $this->sql = "SELECT * FROM subscribers";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return $this->result;
+            }else{
+                return false;
+            }
+        }
+        // get subscriber id
+        public function get_sub_id($id)
+        {
+            $this->sql = "SELECT * FROM subscribers WHERE sub_id = '$id'";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return $this->result;
+            }else{
+                return false;
+            }
+        }
+        // delete subscriber
+        public function delete_sub($id)
+        {
+            $this->sql = "DELETE FROM subscribers WHERE sub_id = '$id'";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return true;
+            }else{
+                return false;
+            }
+        }
 
         // close connection
         public function __destruct()
