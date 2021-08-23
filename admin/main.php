@@ -461,6 +461,18 @@
                 return false;
             }
         }
+        // subscribers
+        // insert
+        public function add_sub($email)
+        {
+            $this->sql = "INSERT INTO `subscribers`(`sub_email`) VALUES ('$email')";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return $this->result;
+            }else{
+                return false;
+            }
+        }
 
         // close connection
         public function __destruct()

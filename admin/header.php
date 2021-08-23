@@ -175,6 +175,22 @@
                 </div>
             </li>
             <!-- Divider -->
+            <hr class="sidebar-divider">
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSix"
+                    aria-expanded="true" aria-controls="collapseSix">
+                    <i class="fas fa-fw fa-users"></i>
+                    <span>Manage Subscribers</span>
+                </a>
+                <div id="collapseSix" class="collapse <?php if($page == 'subscribe'){echo 'show';} ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Subscribers</h6>
+                        <a class="collapse-item <?php if($sub_page == 'subscribers'){echo 'active';} ?>" href="view_subscriber.php">Subscribers</a>
+                    </div>
+                </div>
+            </li>
+            <!-- Divider -->
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>

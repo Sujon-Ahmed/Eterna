@@ -2034,7 +2034,8 @@ section {
 }
 
 #footer .footer-newsletter form input[type="email"] {
-  border: 0;
+  border: none;
+  outline: none;
   padding: 8px;
   width: calc(100% - 140px);
 }
