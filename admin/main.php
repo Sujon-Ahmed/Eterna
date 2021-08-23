@@ -518,6 +518,17 @@
                 return false;
             }
         }
+        // get about data 
+        public function get_abs_card()
+        {
+            $this->sql = "SELECT * FROM `abs`";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return $this->result;
+            }else{
+                return false;
+            }
+        }
 
         // close connection
         public function __destruct()
