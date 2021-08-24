@@ -551,6 +551,17 @@
                 return false;
             }
         }
+        // update about card
+        public function update_abs($id,$icon,$value,$title,$desc)
+        {
+            $this->sql = "UPDATE `abs` SET `ab_icon`='$icon',`ab_max_value`='$value',`ab_title`='$title',`ab_desc`='$desc' WHERE `ab_id` = '$id'";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return true;
+            }else{
+                return false;
+            }
+        }
 
 
 
