@@ -124,6 +124,7 @@
                 aboutPreview(this);
             });
     </script>
+    <!-- script for brands -->
      <script>
             function imgPreview(input) {
                 if (input.files && input.files[0]) {
@@ -137,6 +138,22 @@
                 }
                 $("#add_img").change(function () {
                     imgPreview(this);
+                });
+        </script>
+        <!-- script for testimonial img preview -->
+        <script>
+            function testimonialPreview(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                    $('#testimonial + img').remove();
+                    $('#testimonial-test-img').html('<img class="img-fluid img-thumbnail" src="'+e.target.result+'" width="600px" height="auto" />');
+                }
+                reader.readAsDataURL(input.files[0]);
+                }
+                }
+                $("#testimonial-file-img").change(function () {
+                    testimonialPreview(this);
                 });
         </script>
     <!-- script for banner required validation -->

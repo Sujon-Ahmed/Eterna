@@ -573,6 +573,29 @@
                 return false;
             }
         }
+        // ================== testimonial ====================
+        // insert testimonial
+        public function insert_testimonial($name,$profession,$message,$fileNewName)
+        {
+            $this->sql = "INSERT INTO `testimonials`(`test_img`, `test_name`, `test_profession`, `test_msg`) VALUES ('$fileNewName','$name','$profession','$message')";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        // get testimonial
+        public function get_testimonial()
+        {
+            $this->sql = "SELECT * FROM `testimonials` LIMIT 6";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return $this->result;
+            }else{
+                return false;
+            }
+        }
 
 
         // close connection

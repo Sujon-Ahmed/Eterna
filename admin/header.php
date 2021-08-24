@@ -196,7 +196,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSeven"
                     aria-expanded="true" aria-controls="collapseSeven">
-                    <i class="fas fa-fw fa-users"></i>
+                    <i class="fas fa-fw fa-address-card"></i>
                     <span>Manage About Card</span>
                 </a>
                 <div id="collapseSeven" class="collapse <?php if($page == 'abs'){echo 'show';} ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -204,6 +204,23 @@
                         <h6 class="collapse-header">About Card</h6>
                         <a class="collapse-item <?php if($sub_page == 'create_abs'){echo 'active';} ?>" href="create_abs.php">Create</a>
                         <a class="collapse-item <?php if($sub_page == 'view_abs'){echo 'active';} ?>" href="view_abs.php">View</a>
+                    </div>
+                </div>
+            </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEight"
+                    aria-expanded="true" aria-controls="collapseEight">
+                    <i class="fas fa-fw fa-comment-dots"></i>
+                    <span>Manage Testimonials</span>
+                </a>
+                <div id="collapseEight" class="collapse <?php if($page == 'testimonials'){echo 'show';} ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Testimonials</h6>
+                        <a class="collapse-item <?php if($sub_page == 'create_testimonial'){echo 'active';} ?>" href="create_testimonial.php">Create</a>
+                        <a class="collapse-item <?php if($sub_page == 'view_testimonial'){echo 'active';} ?>" href="view_testimonial.php">View</a>
                     </div>
                 </div>
             </li>
