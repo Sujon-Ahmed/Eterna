@@ -629,6 +629,17 @@
                  return false;
              }
          }
+          // delete testimonial
+          public function delete_testimonial($id)
+          {
+              $this->sql = "DELETE FROM `testimonials` WHERE test_id = '$id'";
+              $this->result = $this->con->query($this->sql);
+              if($this->result == true){
+                  return true;
+              }else{
+                  return false;
+              }
+          }
 
         // close connection
         public function __destruct()

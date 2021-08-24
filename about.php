@@ -105,21 +105,29 @@
         </div>
 
         <div class="row">
+          <?php
+            if($testimonial->num_rows > 0){
+              while($row_test = $testimonial->fetch_object()){
+                ?>
+                  <div class="col-lg-6">
+                    <div class="testimonial-item mt-4">
+                      <img src="<?php echo 'admin/uploads/testimonial/'.$row_test->test_img; ?>" class="testimonial-img" alt="">
+                      <h3><?php echo $row_test->test_name; ?></h3>
+                      <h4><?php echo $row_test->test_profession; ?></h4>
+                      <p>
+                        <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                        <?php if(!empty($row_test->test_msg)){echo $row_test->test_msg;} ?>
+                        <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                      </p>
+                    </div>
+                  </div>
+                <?php
+              }
+            }
+          ?>
+         
 
-          <div class="col-lg-6">
-            <div class="testimonial-item">
-              <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-              <h3>Saul Goodman</h3>
-              <h4>Ceo &amp; Founder</h4>
-              <p>
-                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-              </p>
-            </div>
-          </div>
-
-          <div class="col-lg-6">
+          <!-- <div class="col-lg-6">
             <div class="testimonial-item mt-4 mt-lg-0">
               <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
               <h3>Sara Wilsson</h3>
@@ -182,7 +190,7 @@
                 <i class="bx bxs-quote-alt-right quote-icon-right"></i>
               </p>
             </div>
-          </div>
+          </div> -->
 
         </div>
 

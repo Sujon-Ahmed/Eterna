@@ -19,6 +19,7 @@
   $description = $obj->catch_desc();
   $brand = $obj->get_brands();
   $abs_card = $obj->get_card_limit();
+  $testimonial = $obj->get_testimonial();
     
 ?>
 <!DOCTYPE html>
