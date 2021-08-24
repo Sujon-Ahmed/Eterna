@@ -529,6 +529,30 @@
                 return false;
             }
         }
+        // get card with limit 
+        public function get_card_limit()
+        {
+            $this->sql = "SELECT * FROM `abs` LIMIT 4";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return $this->result;
+            }else{
+                return false;
+            }
+        }
+        // get card details
+        public function get_abs_card_details($id)
+        {
+            $this->sql = "SELECT * FROM `abs` WHERE ab_id = '$id'";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return $this->result;
+            }else{
+                return false;
+            }
+        }
+
+
 
         // close connection
         public function __destruct()

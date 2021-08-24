@@ -37,7 +37,10 @@
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">View Card</h6>
+                    <div class="d-flex justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">View Card</h6>
+                        <a href="create_abs.php" class="btn btn-primary btn-sm">Create</a>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -72,7 +75,7 @@
                                                         <a href="edit_abs.php?id=<?php echo $row->ab_id; ?>" class="btn btn-primary btn-sm">Edit</a>
                                                     </td>
                                                     <td>
-                                                        <a href="view_abs.php?id=<?php echo $row->ab_id; ?>" class="btn btn-success btn-sm">View</a>
+                                                        <a href="view_abs_details.php?id=<?php echo $row->ab_id; ?>" class="btn btn-success btn-sm">View</a>
                                                     </td>
                                                     <td>
                                                         <a href="delete_abs.php?id=<?php echo $row->ab_id; ?>" class="btn btn-danger btn-sm">Delete</a>

@@ -18,6 +18,7 @@
   $service_details = $obj->get_service_limit();
   $description = $obj->catch_desc();
   $brand = $obj->get_brands();
+  $abs_card = $obj->get_card_limit();
     
 ?>
 <!DOCTYPE html>

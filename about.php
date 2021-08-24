@@ -45,17 +45,27 @@
       <div class="container">
 
         <div class="row no-gutters">
+            <?php
+            if($abs_card->num_rows > 0){
+              $si = 1;
+              while($abs_row = $abs_card->fetch_object()){
+                ?>
+                  <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+                    <div class="count-box">
+                      <i style="color: #e6573f;" class="<?php echo $abs_row->ab_icon; ?> fa-2x"></i>
+                      <span data-purecounter-start="0" data-purecounter-end="<?php echo $abs_row->ab_max_value; ?>" data-purecounter-duration="1" class="purecounter"></span>
+                      <p><strong><?php echo $abs_row->ab_title; ?></strong> <?php echo $abs_row->ab_desc; ?></p>
+                      <a href="#">Find out more &raquo;</a>
+                    </div>
+                  </div>
+                <?php
+                $si++;
+              }
+            }
+            ?>
+          
 
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
-            <div class="count-box">
-              <i class="bi bi-emoji-smile"></i>
-              <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-              <p><strong>Happy Clients</strong> consequuntur quae qui deca rode</p>
-              <a href="#">Find out more &raquo;</a>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+          <!-- <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
             <div class="count-box">
               <i class="bi bi-journal-richtext"></i>
               <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
@@ -80,7 +90,7 @@
               <p><strong>Hard Workers</strong> rerum asperiores dolor molestiae doloribu</p>
               <a href="#">Find out more &raquo;</a>
             </div>
-          </div>
+          </div> -->
 
         </div>
 
