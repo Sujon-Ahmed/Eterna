@@ -596,7 +596,17 @@
                 return false;
             }
         }
-
+        // details testimonial
+        public function details_testimonial($id)
+        {
+            $this->sql = "SELECT * FROM `testimonials` WHERE test_id = '$id'";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return $this->result;
+            }else{
+                return false;
+            }
+        }
 
         // close connection
         public function __destruct()
