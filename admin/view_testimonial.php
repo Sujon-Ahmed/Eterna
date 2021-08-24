@@ -29,8 +29,8 @@
     ?>
 
 <!-- Page Heading -->
-<h1 class="h3 mb-1 text-gray-800">View Banner</h1>
-<p class="mb-4">Dashboard / View Banner</p>
+<h1 class="h3 mb-1 text-gray-800">View Testimonials</h1>
+<p class="mb-4">Dashboard / View Testimonials</p>
 
 <!-- Content Row -->
 <div class="row">
@@ -42,7 +42,7 @@
 <div class="card shadow mb-4">
     <div class="card-header py-3">
         <div class="d-flex justify-content-between">
-            <h6 class="m-0 font-weight-bold text-primary">View Banner</h6>
+            <h6 class="m-0 font-weight-bold text-primary">View Testimonials</h6>
             <a href="create_testimonial.php" class="btn btn-primary btn-sm">Create</a>
         </div>
     </div>

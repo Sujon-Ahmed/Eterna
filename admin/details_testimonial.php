@@ -15,8 +15,8 @@
 ?>
 <div class="container-fluid mb-5">
     <!-- Page Heading -->
-    <h1 class="h3 mb-1 text-gray-800">View Details Service</h1>
-    <p class="mb-4">Dashboard / Service / Details</p>
+    <h1 class="h3 mb-1 text-gray-800">View Details Testimonials</h1>
+    <p class="mb-4">Dashboard / Testimonials / Details</p>
     <!-- Content Row -->
     <div class="row">
         <!-- Begin Page Content -->

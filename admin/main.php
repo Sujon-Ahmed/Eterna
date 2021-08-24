@@ -607,6 +607,28 @@
                 return false;
             }
         }
+        // update with testimonial
+        public function update_with_photo($test_id,$name,$profession,$message,$fileNewName)
+        {
+            $this->sql = "UPDATE `testimonials` SET `test_img`='$fileNewName',`test_name`='$name',`test_profession`='$profession',`test_msg`='$message' WHERE `test_id` = '$test_id'";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return true;
+            }else{
+                return false;
+            }
+        }
+         // update without testimonial
+         public function update_without_photo($test_id,$name,$profession,$message,$oldphoto)
+         {
+             $this->sql = "UPDATE `testimonials` SET `test_img`='$oldphoto',`test_name`='$name',`test_profession`='$profession',`test_msg`='$message' WHERE `test_id` = '$test_id'";
+             $this->result = $this->con->query($this->sql);
+             if($this->result == true){
+                 return true;
+             }else{
+                 return false;
+             }
+         }
 
         // close connection
         public function __destruct()
