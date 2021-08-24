@@ -562,7 +562,17 @@
                 return false;
             }
         }
-
+        // delete about card
+        public function delete_abs($id)
+        {
+            $this->sql = "DELETE FROM `abs` WHERE ab_id = '$id'";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return true;
+            }else{
+                return false;
+            }
+        }
 
 
         // close connection

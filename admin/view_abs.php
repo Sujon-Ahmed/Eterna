@@ -78,7 +78,7 @@
                                                         <a href="view_abs_details.php?id=<?php echo $row->ab_id; ?>" class="btn btn-success btn-sm">View</a>
                                                     </td>
                                                     <td>
-                                                        <a href="delete_abs.php?id=<?php echo $row->ab_id; ?>" class="btn btn-danger btn-sm">Delete</a>
+                                                        <a onclick="javascript:return confirm('Are You Sure?')" href="delete_abs.php?id=<?php echo $row->ab_id; ?>" class="btn btn-danger btn-sm">Delete</a>
                                                     </td>
                                                 </tr>
                                             <?php
