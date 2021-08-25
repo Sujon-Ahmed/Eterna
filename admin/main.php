@@ -738,6 +738,16 @@
                 return false;
             }
         }
+         // update our skill desc 
+         public function update_skill_desc($id,$author,$desc){
+            $this->sql = "UPDATE `skill_desc` SET `author_id`='$author',`skill_desc`='$desc' WHERE skill_desc_id = '$id'";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return true;
+            }else{
+                return false;
+            }
+        }
 
         // close connection
         public function __destruct()
