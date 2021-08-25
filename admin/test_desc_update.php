@@ -3,22 +3,22 @@
     include 'flash_data.php';
     include 'main.php';
     $obj = new Main();
-    // condition check  
+
     if(!isset($_POST['submit'])){
-        header('location:view_desc.php');
+        header('location:view_testimonial.php');
     }else{
         $author = $_SESSION['id'];
         $id = $_POST['id'];
-        $desc = $_POST['client_desc'];
+        $desc = $_POST['test_desc'];
         // status
         $status = $obj->update_testimonial_desc($id,$author,$desc);
         // status check
         if($status == true){
             Flash_data::success('Description Update Successfully');
-            header('location:desc_edit.php?id='.$id);
+            header('location:edit_test_desc.php?id='.$id);
         }else{
             Flash_data::error('Something Went Wrong!');
-            header('location:desc_edit.php?id='.$id);
+            header('location:edit_test_desc.php?id='.$id);
         }
     }
 

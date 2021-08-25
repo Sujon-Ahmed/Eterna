@@ -219,6 +219,7 @@
                 <div id="collapseEight" class="collapse <?php if($page == 'testimonials'){echo 'show';} ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Testimonials</h6>
+                        <a class="collapse-item <?php if($sub_page == 'desc_testimonial'){echo 'active';} ?>" href="create_testimonial_desc.php">Description</a>
                         <a class="collapse-item <?php if($sub_page == 'create_testimonial'){echo 'active';} ?>" href="create_testimonial.php">Create</a>
                         <a class="collapse-item <?php if($sub_page == 'view_testimonial'){echo 'active';} ?>" href="view_testimonial.php">View</a>
                     </div>

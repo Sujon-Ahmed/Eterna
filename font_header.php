@@ -20,6 +20,7 @@
   $brand = $obj->get_brands();
   $abs_card = $obj->get_card_limit();
   $testimonial = $obj->get_testimonial();
+  $testimonial_description = $obj->get_testimonial_desc_with_limit();
     
 ?>
 <!DOCTYPE html>

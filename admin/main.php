@@ -451,7 +451,7 @@
                 return false;
             }
         }
-         // dwlete brands id
+         // delete brands id
          public function delete_brand($brand_id){
             $this->sql = "DELETE FROM `brands` WHERE brand_id = '$brand_id'";
             $this->result = $this->con->query($this->sql);
@@ -574,6 +574,62 @@
             }
         }
         // ================== testimonial ====================
+        // insert testimonial description
+        public function insert_test_desc($author,$body)
+        {
+            $this->sql = "INSERT INTO `testimonials_desc`(`author_id`, `testimonial_desc`) VALUES ('$author','$body')";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return true;
+            }else{
+                return false;
+            }
+        }
+        // get data of description
+        public function get_testimonial_desc_with_author()
+        {
+            $this->sql = "SELECT testimonials_desc.*,admin.admin_id,admin.admin_name FROM testimonials_desc JOIN admin ON testimonials_desc.author_id = admin.admin_id";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return $this->result;
+            }else{
+                return false;
+            }
+        }
+        // details
+         // get data of description
+         public function get_testimonial_desc_with_limit()
+         {
+             $this->sql = "SELECT * FROM testimonials_desc  LIMIT 1";
+             $this->result = $this->con->query($this->sql);
+             if($this->result == true){
+                 return $this->result;
+             }else{
+                 return false;
+             }
+         }
+         // get data of description
+         public function get_testimonial_desc_with_author_id($id)
+         {
+             $this->sql = "SELECT testimonials_desc.*,admin.admin_id,admin.admin_name FROM testimonials_desc JOIN admin ON testimonials_desc.author_id = admin.admin_id WHERE testimonial_desc_id = '$id'";
+             $this->result = $this->con->query($this->sql);
+             if($this->result == true){
+                 return $this->result;
+             }else{
+                 return false;
+             }
+         }
+        //  update description
+        public function update_testimonial_desc($id,$author,$desc)
+        {
+            $this->sql = "UPDATE `testimonials_desc` SET `author_id`='$author',`testimonial_desc`='$desc' WHERE testimonial_desc_id = '$id'";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return true;
+            }else{
+                return false;
+            }
+        }
         // insert testimonial
         public function insert_testimonial($name,$profession,$message,$fileNewName)
         {
