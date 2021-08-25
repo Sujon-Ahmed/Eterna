@@ -708,6 +708,16 @@
                 return false;
             }
         }
+        // get our skill desc with author
+         public function get_skill_desc_with_author(){
+            $this->sql = "SELECT skill_desc.*,admin.admin_id,admin.admin_name FROM skill_desc JOIN admin ON skill_desc.author_id = admin.admin_id";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return $this->result;
+            }else{
+                return false;
+            }
+        }
 
         // close connection
         public function __destruct()
