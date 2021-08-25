@@ -21,7 +21,7 @@
   $abs_card = $obj->get_card_limit();
   $testimonial = $obj->get_testimonial();
   $testimonial_description = $obj->get_testimonial_desc_with_limit();
-    
+  $skill_desc = $obj->get_skill_desc_limit();  
 ?>
 <!DOCTYPE html>
 <html lang="en">

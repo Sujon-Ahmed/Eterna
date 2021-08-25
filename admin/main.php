@@ -718,6 +718,26 @@
                 return false;
             }
         }
+         // get our skill desc with author id
+         public function get_skill_desc_with_author_id($id){
+            $this->sql = "SELECT skill_desc.*,admin.admin_id,admin.admin_name FROM skill_desc JOIN admin ON skill_desc.author_id = admin.admin_id WHERE skill_desc_id = '$id'";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return $this->result;
+            }else{
+                return false;
+            }
+        }
+         // get our skill desc with limit
+         public function get_skill_desc_limit(){
+            $this->sql = "SELECT * FROM skill_desc LIMIT 1";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return $this->result;
+            }else{
+                return false;
+            }
+        }
 
         // close connection
         public function __destruct()
