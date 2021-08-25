@@ -630,6 +630,17 @@
                 return false;
             }
         }
+         //  delete description
+         public function delete_test_desc($id)
+         {
+             $this->sql = "DELETE FROM `testimonials_desc` WHERE testimonial_desc_id = '$id'";
+             $this->result = $this->con->query($this->sql);
+             if($this->result == true){
+                 return true;
+             }else{
+                 return false;
+             }
+         }
         // insert testimonial
         public function insert_testimonial($name,$profession,$message,$fileNewName)
         {
