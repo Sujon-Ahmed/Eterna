@@ -696,6 +696,18 @@
                   return false;
               }
           }
+        //   ==================== our skill section ======================
+        // insert our skill desc
+        public function insert_skill_desc($author,$desc)
+        {
+            $this->sql = "INSERT INTO `skill_desc`(`author_id`, `skill_desc`) VALUES ('$author','$desc')";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return true;
+            }else{
+                return false;
+            }
+        }
 
         // close connection
         public function __destruct()
