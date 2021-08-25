@@ -69,7 +69,7 @@
                                                     <td><?php echo date('M-d-Y h:i A',strtotime($row->created_at)); ?></td>
                                                     <td><a href="skill_desc_edit.php?id=<?php echo $row->skill_desc_id; ?>" class="btn btn-primary btn-sm">Edit</a></td>
                                                     <td><a href="skill_desc_details.php?id=<?php echo $row->skill_desc_id; ?>" class="btn btn-success btn-sm">View</a></td>
-                                                    <td><a onclick="javascript:return confirm('Are You Sure?')" href="desc_delete.php?id=<?php echo $row->skill_desc_id; ?>" class="btn btn-danger btn-sm">Delete</a></td>
+                                                    <td><a onclick="javascript:return confirm('Are You Sure?')" href="skill_desc_delete.php?id=<?php echo $row->skill_desc_id; ?>" class="btn btn-danger btn-sm">Delete</a></td>
                                                 </tr>
                                             <?php
                                             $si++;

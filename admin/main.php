@@ -748,6 +748,16 @@
                 return false;
             }
         }
+         // delete our skill desc 
+         public function delete_skill_desc($id){
+            $this->sql = "DELETE FROM `skill_desc` WHERE skill_desc_id = '$id'";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return true;
+            }else{
+                return false;
+            }
+        }
 
         // close connection
         public function __destruct()
