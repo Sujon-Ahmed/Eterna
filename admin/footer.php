@@ -156,6 +156,22 @@
                     testimonialPreview(this);
                 });
         </script>
+        <!-- script for testimonial img preview -->
+        <script>
+            function testContentPreview(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                    $('#test-content + img').remove();
+                    $('#content-test-img').html('<img class="img-fluid img-thumbnail" src="'+e.target.result+'" width="600px" height="auto" />');
+                }
+                reader.readAsDataURL(input.files[0]);
+                }
+                }
+                $("#content-file-img").change(function () {
+                    testContentPreview(this);
+                });
+        </script>
     <!-- script for banner required validation -->
     <script>
         $(document).ready(function () {
@@ -305,6 +321,34 @@
                     abs_title: {
                     required: ""
                     },
+                },
+                errorElement: 'span',
+                errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+                },
+                highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+                },
+                unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+                }
+            });
+        });
+    </script>
+    <!-- script for about page card required validation -->
+    <script>
+        $(document).ready(function () {
+            $('#test-content').validate({
+                rules: {
+                    content_title: {
+                        required: true
+                    }
+                },
+                    messages: {
+                    content_title: {
+                    required: ""
+                    }
                 },
                 errorElement: 'span',
                 errorPlacement: function (error, element) {

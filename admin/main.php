@@ -769,6 +769,17 @@
                 return false;
             }
         }
+        // skill content insert
+        public function insert_content($title,$body,$fileNewName)
+        {
+            $this->sql = "INSERT INTO `skill_content`(`content_title`, `content_image`, `content_desc`) VALUES ('$title','$fileNewName','$body')";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return true;
+            }else{
+                return false;
+            }
+        }
 
         // close connection
         public function __destruct()
