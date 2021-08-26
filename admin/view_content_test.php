@@ -68,7 +68,7 @@
                                                     <td><?php echo date('M-d-Y h:I A',strtotime($row->content_created_at)); ?></td>
                                                     <td><a class="btn btn-primary btn-sm" href="edit_content.php?id=<?php echo $row->content_id; ?>">Edit</a></td>
                                                     <td><a class="btn btn-success btn-sm" href="details_content.php?id=<?php echo $row->content_id; ?>">View</a></td>
-                                                    <td><a class="btn btn-danger btn-sm" href="delete_content.php?id=<?php echo $row->content_id; ?>">Delete</a></td>
+                                                    <td><a onclick="javascript:return confirm('Are You Sure?')" class="btn btn-danger btn-sm" href="delete_content.php?id=<?php echo $row->content_id; ?>">Delete</a></td>
                                                 </tr>
                                             <?php
                                             $si++;

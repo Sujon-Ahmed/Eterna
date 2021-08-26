@@ -832,6 +832,17 @@
                  return false;
              }
          }
+          // skill content delete
+          public function delete_content($id)
+          {
+              $this->sql = "DELETE FROM `skill_content` WHERE content_id = '$id'";
+              $this->result = $this->con->query($this->sql);
+              if($this->result == true){
+                  return true;
+              }else{
+                  return false;
+              }
+          }
 
         // close connection
         public function __destruct()
