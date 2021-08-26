@@ -23,6 +23,7 @@
   $testimonial_description = $obj->get_testimonial_desc_with_limit();
   $skill_desc = $obj->get_skill_desc_limit();  
   $skill_content = $obj->get_skill_content_limit();
+  $skill_progress = $obj->get_progress();
 ?>
 <!DOCTYPE html>
 <html lang="en">

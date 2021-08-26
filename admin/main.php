@@ -843,6 +843,29 @@
                   return false;
               }
           }
+          // skill progress insert
+          public function insert_progress($name,$value)
+          {
+              $this->sql = "INSERT INTO `skill_category`(`skill_cat_name`, `skill_cat_mx_val`) VALUES ('$name','$value')";
+              $this->result = $this->con->query($this->sql);
+              if($this->result == true){
+                  return true;
+              }else{
+                  return false;
+              }
+          }
+          // get skill progress
+          public function get_progress()
+          {
+              $this->sql = "SELECT * FROM `skill_category`";
+              $this->result = $this->con->query($this->sql);
+              if($this->result == true){
+                  return $this->result;
+              }else{
+                  return false;
+              }
+          }
+
 
         // close connection
         public function __destruct()

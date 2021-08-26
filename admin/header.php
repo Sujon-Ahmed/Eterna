@@ -239,7 +239,7 @@
                         <h6 class="collapse-header">Skills</h6>
                         <a class="collapse-item <?php if($sub_page == 'skill_desc'){echo 'active';} ?>" href="skill_desc.php">Description</a>
                         <a class="collapse-item <?php if($sub_page == 'content_test'){echo 'active';} ?>" href="content_create_test.php">Content</a>
-                        <a class="collapse-item <?php if($sub_page == 'view_testimonial'){echo 'active';} ?>" href="view_testimonial.php">View</a>
+                        <a class="collapse-item <?php if($sub_page == 'skill_progress'){echo 'active';} ?>" href="create_progress.php">Progress</a>
                     </div>
                 </div>
             </li>

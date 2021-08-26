@@ -1,8 +1,8 @@
 <?php
     $page = 'skill';
-    $sub_page = 'content_test';
+    $sub_page = 'skill_progress';
     include 'header.php';
-    $get_content_data = $obj->get_content();
+    $result = $obj->get_progress();
 ?>
 <!-- Begin Page Content -->
 <div class="container-fluid mb-5">
@@ -27,8 +27,8 @@
         }
     ?>
     <!-- Page Heading -->
-    <h1 class="h3 mb-1 text-gray-800">View Content</h1>
-    <p class="mb-4">Dashboard / View Content</p>
+    <h1 class="h3 mb-1 text-gray-800">View Progress</h1>
+    <p class="mb-4">Dashboard / View Progress</p>
     <!-- Content Row -->
     <div class="row">
         <!-- Begin Page Content -->
@@ -37,38 +37,36 @@
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <div class="d-flex justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">View Content</h6>
-                        <a href="content_create_test.php" class="btn btn-primary btn-sm">Create</a>
-                    </div>                   
+                        <h6 class="m-0 font-weight-bold text-primary">View Progress</h6>
+                        <a href="create_progress.php" class="btn btn-primary btn-sm">Create</a>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="datatablesSimple" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                     <th>SI</th>
-                                    <th>Image</th>
-                                    <th>Title</th>
+                                    <th>Name</th>
+                                    <th>Value</th>
                                     <th>Created_at</th>
                                     <th>Edit</th>
-                                    <th>View</th>
                                     <th>Delete</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                    if($get_content_data->num_rows > 0){
+                                    if($result->num_rows > 0){
                                         $si = 1;
-                                        while($row = $get_content_data->fetch_object()){
+                                        while($row = $result->fetch_object()){
                                             ?>
                                                 <tr>
                                                     <td><?php echo $si; ?></td>
-                                                    <td><img class="img-fluid" src="<?php echo 'uploads/skill/'.$row->content_image; ?>" width="100" height="100" alt=""></td>
-                                                    <td><?php echo $row->content_title; ?></td>
-                                                    <td><?php echo date('M-d-Y h:i A',strtotime($row->content_created_at)); ?></td>
-                                                    <td><a class="btn btn-primary btn-sm" href="edit_content.php?id=<?php echo $row->content_id; ?>">Edit</a></td>
-                                                    <td><a class="btn btn-success btn-sm" href="details_content.php?id=<?php echo $row->content_id; ?>">View</a></td>
-                                                    <td><a onclick="javascript:return confirm('Are You Sure?')" class="btn btn-danger btn-sm" href="delete_content.php?id=<?php echo $row->content_id; ?>">Delete</a></td>
+                                                    <td class="text-uppercase"><?php echo $row->skill_cat_name; ?></td>
+                                                    <td><?php echo $row->skill_cat_mx_val; ?></td>
+                                                    <td><?php echo date('M-d-Y h:i A',strtotime($row->skill_cat_created)); ?></td>
+                                                    <td><a class="btn btn-primary btn-sm" href="edit_progress.php?id=<?php echo $row->skill_cat_id;?>">Edit</a></td>
+                                                    <td><a class="btn btn-danger btn-sm" href="delete_progress.php?id=<?php echo $row->skill_cat_id;?>">Delete</a></td>
                                                 </tr>
                                             <?php
                                             $si++;
