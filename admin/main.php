@@ -865,6 +865,28 @@
                   return false;
               }
           }
+            // get skill progress with id
+            public function get_progress_id($id)
+            {
+                $this->sql = "SELECT * FROM `skill_category` WHERE skill_cat_id = '$id'";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return $this->result;
+                }else{
+                    return false;
+                }
+            }
+             // update skill progress with id
+             public function update_progress($id,$name,$value)
+             {
+                 $this->sql = "UPDATE `skill_category` SET `skill_cat_name`='$name',`skill_cat_mx_val`='$value' WHERE `skill_cat_id` = '$id'";
+                 $this->result = $this->con->query($this->sql);
+                 if($this->result == true){
+                     return true;
+                 }else{
+                     return false;
+                 }
+             }
 
 
         // close connection
