@@ -66,7 +66,7 @@
                                                     <td><?php echo $row->skill_cat_mx_val; ?></td>
                                                     <td><?php echo date('M-d-Y h:i A',strtotime($row->skill_cat_created)); ?></td>
                                                     <td><a class="btn btn-primary btn-sm" href="edit_progress.php?id=<?php echo $row->skill_cat_id;?>">Edit</a></td>
-                                                    <td><a class="btn btn-danger btn-sm" href="delete_progress.php?id=<?php echo $row->skill_cat_id;?>">Delete</a></td>
+                                                    <td><a onclick="javascript:return confirm('Are you sure?')" class="btn btn-danger btn-sm" href="delete_progress.php?id=<?php echo $row->skill_cat_id;?>">Delete</a></td>
                                                 </tr>
                                             <?php
                                             $si++;

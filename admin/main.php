@@ -887,6 +887,17 @@
                      return false;
                  }
              }
+              // delete skill progress with id
+              public function delete_progress($id)
+              {
+                  $this->sql = "DELETE FROM `skill_category` WHERE `skill_cat_id` = '$id'";
+                  $this->result = $this->con->query($this->sql);
+                  if($this->result == true){
+                      return true;
+                  }else{
+                      return false;
+                  }
+              }
 
 
         // close connection
