@@ -57,13 +57,17 @@
         </div>
 
         <div class="row">
-          <div class="col-lg-6">
-            <img src="assets/img/skills-img.jpg" class="img-fluid" alt="">
-          </div>
+          <?php
+            if($skill_content->num_rows > 0){
+              while($row_content = $skill_content->fetch_object()){
+                ?>
+                  <div class="col-lg-6">
+                    <img src="<?php echo 'admin/uploads/skill/'.$row_content->content_image; ?>" class="img-fluid" alt="">
+                  </div>
           <div class="col-lg-6 pt-4 pt-lg-0 content">
-            <h3>Voluptatem dignissimos provident quasi corporis voluptates</h3>
+            <h3><?php echo $row_content->content_title; ?></h3>
             <p class="fst-italic">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt direna past reda
+              <?php echo $row_content->content_desc; ?>
             </p>
 
             <div class="skills-content">
@@ -99,6 +103,10 @@
             </div>
 
           </div>
+                <?php
+              }
+            }
+          ?>
         </div>
 
       </div>

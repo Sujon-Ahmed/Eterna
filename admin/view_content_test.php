@@ -36,7 +36,10 @@
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">View Content</h6>
+                    <div class="d-flex justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">View Content</h6>
+                        <a href="content_create_test.php" class="btn btn-primary btn-sm">Create</a>
+                    </div>                   
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">

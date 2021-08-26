@@ -790,6 +790,48 @@
                 return false;
             }
         }
+        // get content data with id 
+        public function get_content_details($id){
+            $this->sql = "SELECT * FROM skill_content WHERE content_id = '$id'";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return $this->result;
+            }else{
+                return false;
+            }
+        }
+        // get content data with limit for service page
+        public function get_skill_content_limit(){
+            $this->sql = "SELECT * FROM skill_content LIMIT 1";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return $this->result;
+            }else{
+                return false;
+            }
+        }
+         // skill content update with photo
+         public function update_content_with_photo($id,$title,$body,$fileNewName)
+         {
+             $this->sql = "UPDATE `skill_content` SET `content_title`='$title',`content_image`='$fileNewName',`content_desc`='$body' WHERE `content_id` = '$id'";
+             $this->result = $this->con->query($this->sql);
+             if($this->result == true){
+                 return true;
+             }else{
+                 return false;
+             }
+         }
+         // skill content update with photo
+         public function update_content_without_photo($id,$title,$body,$oldphoto)
+         {
+             $this->sql = "UPDATE `skill_content` SET `content_title`='$title',`content_image`='$oldphoto',`content_desc`='$body' WHERE `content_id` = '$id'";
+             $this->result = $this->con->query($this->sql);
+             if($this->result == true){
+                 return true;
+             }else{
+                 return false;
+             }
+         }
 
         // close connection
         public function __destruct()
