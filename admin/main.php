@@ -780,6 +780,16 @@
                 return false;
             }
         }
+        // get content data
+        public function get_content(){
+            $this->sql = "SELECT * FROM skill_content";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return $this->result;
+            }else{
+                return false;
+            }
+        }
 
         // close connection
         public function __destruct()
