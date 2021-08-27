@@ -243,6 +243,22 @@
                     </div>
                 </div>
             </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTen"
+                    aria-expanded="true" aria-controls="collapseTen">
+                    <i class="fas fa-fw fa-image"></i>
+                    <span>Manage Portfolio</span>
+                </a>
+                <div id="collapseTen" class="collapse <?php if($page == 'portfolio'){echo 'show';} ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Portfolio</h6>
+                        <a class="collapse-item <?php if($sub_page == 'create_port_category'){echo 'active';} ?>" href="cr_port_cat.php">Category</a>
+                    </div>
+                </div>
+            </li>
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>

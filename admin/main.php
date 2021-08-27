@@ -898,6 +898,18 @@
                       return false;
                   }
               }
+            //   ==================== portfolio ================
+            // insert category
+            public function insert_port_cat($port_cat_name,$slug)
+            {
+                $this->sql = "INSERT INTO `portfolio_cat`(`cat_name`, `slag`) VALUES ('$port_cat_name','$slug')";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
 
 
         // close connection
