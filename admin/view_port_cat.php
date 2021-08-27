@@ -27,8 +27,8 @@
         }
     ?>
     <!-- Page Heading -->
-    <h1 class="h3 mb-1 text-gray-800">View About Card</h1>
-    <p class="mb-4">Dashboard / View Card</p>
+    <h1 class="h3 mb-1 text-gray-800">View Portfolio Category</h1>
+    <p class="mb-4">Dashboard / Portfolio Category</p>
     <!-- Content Row -->
     <div class="row">
         <!-- Begin Page Content -->
@@ -37,7 +37,7 @@
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
                     <div class="d-flex justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">View Card</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">View Category</h6>
                         <a href="cr_port_cat.php" class="btn btn-primary btn-sm">Create</a>
                     </div>
                 </div>

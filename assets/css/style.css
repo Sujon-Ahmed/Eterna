@@ -1473,7 +1473,6 @@ section {
   color: #fff;
   transition: 0.4s;
 }
-
 .contact .php-email-form button[type="submit"]:hover {
   background: #e6573f;
 }
