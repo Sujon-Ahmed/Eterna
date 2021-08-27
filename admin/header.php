@@ -256,6 +256,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Portfolio</h6>
                         <a class="collapse-item <?php if($sub_page == 'create_port_category'){echo 'active';} ?>" href="cr_port_cat.php">Category</a>
+                        <a class="collapse-item <?php if($sub_page == 'port_image'){echo 'active';} ?>" href="port_image.php">Image</a>
                     </div>
                 </div>
             </li>

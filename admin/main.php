@@ -910,6 +910,28 @@
                     return false;
                 }
             }
+            // get portfolio category
+            public function get_port_cat()
+            {
+                $this->sql = "SELECT * FROM `portfolio_cat`";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return $this->result;
+                }else{
+                    return false;
+                }
+            }
+            // insert portfolio image
+            public function insert_image($port_title,$port_cat,$fileNewName)
+            {
+                $this->sql = "INSERT INTO `portfolio_tbl`(`portfolio_title`, `portfolio_image`, `portfolio_cat_id`) VALUES ('$port_title','$fileNewName','$port_cat')";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
 
 
         // close connection
