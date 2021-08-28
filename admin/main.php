@@ -943,6 +943,28 @@
                     return false;
                 }
             }
+             // get portfolio category with id
+             public function get_port_cat_with_id($id)
+             {
+                 $this->sql = "SELECT * FROM `portfolio_cat` WHERE portfolio_cat_id = '$id'";
+                 $this->result = $this->con->query($this->sql);
+                 if($this->result == true){
+                     return $this->result;
+                 }else{
+                     return false;
+                 }
+             }
+              // update portfolio category with id
+              public function update_port_cat($id,$name,$slug)
+              {
+                  $this->sql = "UPDATE `portfolio_cat` SET `cat_name`='$name',`slag`='$slug' WHERE `portfolio_cat_id` = '$id'";
+                  $this->result = $this->con->query($this->sql);
+                  if($this->result == true){
+                      return true;
+                  }else{
+                      return false;
+                  }
+              }
 
 
         // close connection
