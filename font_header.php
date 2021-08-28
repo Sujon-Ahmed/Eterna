@@ -24,6 +24,7 @@
   $skill_desc = $obj->get_skill_desc_limit();  
   $skill_content = $obj->get_skill_content_limit();
   $skill_progress = $obj->get_progress();
+  $team = $obj->get_team_limit();
 ?>
 <!DOCTYPE html>
 <html lang="en">

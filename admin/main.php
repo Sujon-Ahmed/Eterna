@@ -1053,6 +1053,39 @@
                     return false;
                 }
             }
+            // get team data details
+            public function team_details($id)
+            {
+                $this->sql = "SELECT * FROM `team` WHERE team_m_id = '$id'";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return $this->result;
+                }else{
+                    return false;
+                }
+            }
+             // get team data limit
+             public function get_team_limit()
+             {
+                 $this->sql = "SELECT * FROM `team` LIMIT 3";
+                 $this->result = $this->con->query($this->sql);
+                 if($this->result == true){
+                     return $this->result;
+                 }else{
+                     return false;
+                 }
+             }
+              // get team data limit
+              public function update_team_photo($id,$name,$profession,$about,$fileNewName)
+              {
+                  $this->sql = "UPDATE `team` SET `team_m_img`='$fileNewName',`team_m_name`='$name',`team_m_profession`='$profession',`team_m_about`='$about' WHERE `team_m_id` = '$id'";
+                  $this->result = $this->con->query($this->sql);
+                  if($this->result == true){
+                      return true;
+                  }else{
+                      return false;
+                  }
+              }
 
         // close connection
         public function __destruct()
