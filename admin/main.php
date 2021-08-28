@@ -935,7 +935,7 @@
             // get data 
             public function get_port_cat_data()
             {
-                $this->sql = "SELECT portfolio_tbl.*,portfolio_cat.cat_name FROM portfolio_tbl JOIN portfolio_cat ON portfolio_tbl.portfolio_cat_id = portfolio_cat.portfolio_cat_id";
+                $this->sql = "SELECT portfolio_tbl.*,portfolio_cat.portfolio_cat_id,portfolio_cat.cat_name FROM portfolio_tbl JOIN portfolio_cat ON portfolio_tbl.portfolio_cat_id = portfolio_cat.portfolio_cat_id ORDER BY portfolio_id DESC";
                 $this->result = $this->con->query($this->sql);
                 if($this->result == true){
                     return $this->result;
@@ -1031,7 +1031,17 @@
                     return false;
                 }
             }
-
+            // ===================== team ==================
+            // insert team member
+            public function insert_team($name,$profession,$about,$fileNewName){
+                $this->sql = "INSERT INTO `team`(`team_m_img`, `team_m_name`, `team_m_profession`, `team_m_about`) VALUES ('$fileNewName','$name','$profession','$about')";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
 
         // close connection
         public function __destruct()

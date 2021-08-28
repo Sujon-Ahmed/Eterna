@@ -188,6 +188,22 @@
                     portfolioPreview(this);
                 });
         </script>
+      <!-- script for portfolio img preview -->
+      <script>
+            function teamPreview(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                    $('#team + img').remove();
+                    $('#team-test-img').html('<img class="img-fluid img-thumbnail" src="'+e.target.result+'" width="600px" height="auto" />');
+                }
+                reader.readAsDataURL(input.files[0]);
+                }
+                }
+                $("#team-file-img").change(function () {
+                    teamPreview(this);
+                });
+        </script>
     <!-- script for banner required validation -->
     <script>
         $(document).ready(function () {
