@@ -1042,6 +1042,17 @@
                     return false;
                 }
             }
+            // get team data
+            public function get_team()
+            {
+                $this->sql = "SELECT * FROM `team`";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return $this->result;
+                }else{
+                    return false;
+                }
+            }
 
         // close connection
         public function __destruct()
