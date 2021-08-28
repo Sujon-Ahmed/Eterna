@@ -976,6 +976,17 @@
                        return false;
                    }
                }
+            // get portfolio data for details
+            public function get_port_image_details($id)
+            {
+                $this->sql = "SELECT portfolio_tbl.*,portfolio_cat.cat_name FROM portfolio_tbl JOIN portfolio_cat ON portfolio_tbl.portfolio_cat_id = portfolio_cat.portfolio_cat_id WHERE `portfolio_id` = '$id'";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return $this->result;
+                }else{
+                    return false;
+                }
+            }   
 
 
         // close connection
