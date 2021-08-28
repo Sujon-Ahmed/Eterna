@@ -935,7 +935,7 @@
             // get data 
             public function get_port_cat_data()
             {
-                $this->sql = "SELECT portfolio_tbl.*,portfolio_cat.portfolio_cat_id,portfolio_cat.cat_name FROM portfolio_tbl JOIN portfolio_cat ON portfolio_tbl.portfolio_cat_id = portfolio_cat.portfolio_cat_id ORDER BY portfolio_id DESC";
+                $this->sql = "SELECT portfolio_tbl.*,portfolio_cat.portfolio_cat_id,portfolio_cat.cat_name,portfolio_cat.slag FROM portfolio_tbl JOIN portfolio_cat ON portfolio_tbl.portfolio_cat_id = portfolio_cat.portfolio_cat_id ORDER BY portfolio_id DESC";
                 $this->result = $this->con->query($this->sql);
                 if($this->result == true){
                     return $this->result;
@@ -1086,6 +1086,28 @@
                       return false;
                   }
               }
+            //   =============== contact =====================
+            public function add_msg($name,$email,$subject,$message)
+            {
+                $this->sql = "INSERT INTO `messages`(`msg_name`, `msg_email`, `msg_sub`, `msg_message`) VALUES ('$name','$email','$subject','$message')";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+            // get all data 
+            public function get_msg_data()
+            {
+                $this->sql = "SELECT * FROM `messages`";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return $this->result;
+                }else{
+                    return false;
+                }
+            }
 
         // close connection
         public function __destruct()

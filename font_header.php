@@ -25,6 +25,8 @@
   $skill_content = $obj->get_skill_content_limit();
   $skill_progress = $obj->get_progress();
   $team = $obj->get_team_limit();
+  $get_portfolio = $obj->get_port_cat_data();
+  $get_port_image = $obj->get_port_cat_data();
 ?>
 <!DOCTYPE html>
 <html lang="en">

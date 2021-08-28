@@ -266,7 +266,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEleven"
                     aria-expanded="true" aria-controls="collapseEleven">
-                    <i class="fas fa-fw fa-image"></i>
+                    <i class="fas fa-fw fa-user-friends"></i>
                     <span>Manage Team</span>
                 </a>
                 <div id="collapseEleven" class="collapse <?php if($page == 'team'){echo 'show';} ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -274,6 +274,21 @@
                         <h6 class="collapse-header">Team</h6>
                         <a class="collapse-item <?php if($sub_page == 'create_team'){echo 'active';} ?>" href="create_team.php">Create</a>
                         <a class="collapse-item <?php if($sub_page == 'view_team'){echo 'active';} ?>" href="view_team.php">View</a>
+                    </div>
+                </div>
+            </li>
+            <hr class="sidebar-divider">
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwelve"
+                    aria-expanded="true" aria-controls="collapseTwelve">
+                    <i class="fas fa-fw fa-envelope"></i>
+                    <span>Manage Massage</span>
+                </a>
+                <div id="collapseTwelve" class="collapse <?php if($page == 'msg'){echo 'show';} ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Message</h6>
+                        <a class="collapse-item <?php if($sub_page == 'view_msg'){echo 'active';} ?>" href="view_msg.php">View</a>
                     </div>
                 </div>
             </li>
