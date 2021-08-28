@@ -987,6 +987,39 @@
                     return false;
                 }
             }   
+            // get portfolio data for details
+            public function get_port_details($id)
+            {
+                $this->sql = "SELECT * FROM portfolio_tbl WHERE `portfolio_id` = '$id'";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return $this->result;
+                }else{
+                    return false;
+                }
+            } 
+             // update portfolio data with photo
+             public function update_portfolio_with_photo($id,$title,$category,$fileNewName)
+             {
+                 $this->sql = "UPDATE `portfolio_tbl` SET `portfolio_title`='$title',`portfolio_image`='$fileNewName',`portfolio_cat_id`='$category' WHERE `portfolio_id` = '$id'";
+                 $this->result = $this->con->query($this->sql);
+                 if($this->result == true){
+                     return true;
+                 }else{
+                     return false;
+                 }
+             } 
+              // update portfolio data with photo
+              public function update_portfolio_with_out_photo($id,$title,$category,$oldphoto)
+              {
+                  $this->sql = "UPDATE `portfolio_tbl` SET `portfolio_title`='$title',`portfolio_image`='$oldphoto',`portfolio_cat_id`='$category' WHERE `portfolio_id` = '$id'";
+                  $this->result = $this->con->query($this->sql);
+                  if($this->result == true){
+                      return true;
+                  }else{
+                      return false;
+                  }
+              } 
 
 
         // close connection
