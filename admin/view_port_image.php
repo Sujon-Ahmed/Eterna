@@ -73,7 +73,7 @@
                                                     <a href="details_port_img.php?id=<?php echo $row->portfolio_id;?>" class="btn btn-success btn-sm">View</a>
                                                 </td>
                                                 <td>
-                                                    <a href="delete_port_img.php?id=<?php echo $row->portfolio_id;?>" class="btn btn-danger btn-sm">Delete</a>
+                                                    <a onclick="javascript:return confirm('Are You Sure?')" href="delete_port_img.php?id=<?php echo $row->portfolio_id;?>" class="btn btn-danger btn-sm">Delete</a>
                                                 </td>
                                             </tr>
                                         <?php

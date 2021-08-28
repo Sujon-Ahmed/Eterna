@@ -1020,6 +1020,17 @@
                       return false;
                   }
               } 
+            // delete portfolio data with photo
+            public function delete_portfolio($id)
+            {
+                $this->sql = "DELETE FROM `portfolio_tbl` WHERE `portfolio_id` = '$id'";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
 
 
         // close connection
