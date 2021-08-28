@@ -66,7 +66,7 @@
                                                 <td><?php echo $row->slag; ?></td>
                                                 <td><?php echo date('M-d-Y h:i A',strtotime($row->cat_created)); ?></td>
                                                 <td><a href="edit_port_cat.php?id=<?php echo $row->portfolio_cat_id; ?>" class="btn btn-primary btn-sm">Edit</a></td>
-                                                <td><a href="delete_port_cat.php?id=<?php echo $row->portfolio_cat_id; ?>" class="btn btn-danger btn-sm">Delete</a></td>
+                                                <td><a onclick="javascript:return confirm('Are you Sure?')" href="delete_port_cat.php?id=<?php echo $row->portfolio_cat_id; ?>" class="btn btn-danger btn-sm">Delete</a></td>
                                             </tr>
                                         <?php
                                         $si++;

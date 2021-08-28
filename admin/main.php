@@ -965,6 +965,17 @@
                       return false;
                   }
               }
+               // delete portfolio category with id
+               public function delete_port_cat($id)
+               {
+                   $this->sql = "DELETE FROM `portfolio_cat` WHERE `portfolio_cat_id` = '$id'";
+                   $this->result = $this->con->query($this->sql);
+                   if($this->result == true){
+                       return true;
+                   }else{
+                       return false;
+                   }
+               }
 
 
         // close connection
