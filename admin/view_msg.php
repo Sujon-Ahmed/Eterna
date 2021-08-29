@@ -66,7 +66,7 @@
                                                         <a href="details_msg.php?id=<?php echo $row->msg_id; ?>" class="btn btn-success btn-sm">View</a>
                                                     </td>
                                                     <td>
-                                                        <a href="delete_msg.php?id=<?php echo $row->msg_id; ?>" class="btn btn-danger btn-sm">Delete</a>
+                                                        <a onclick="javascript:return confirm('Are You Sure?')" href="delete_msg.php?id=<?php echo $row->msg_id; ?>" class="btn btn-danger btn-sm">Delete</a>
                                                     </td>
                                                 </tr>
                                             <?php

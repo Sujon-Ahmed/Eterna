@@ -1108,7 +1108,7 @@
                     return false;
                 }
             }
-             // get all data 
+             // get all message details
              public function get_contact_msg($id)
              {
                  $this->sql = "SELECT * FROM `messages` WHERE msg_id = '$id'";
@@ -1119,6 +1119,17 @@
                      return false;
                  }
              }
+              // delete contact message
+              public function delete_con_msg($id)
+              {
+                  $this->sql = "DELETE FROM `messages` WHERE msg_id = '$id'";
+                  $this->result = $this->con->query($this->sql);
+                  if($this->result == true){
+                      return true;
+                  }else{
+                      return false;
+                  }
+              }
 
         // close connection
         public function __destruct()
