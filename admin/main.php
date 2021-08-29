@@ -1108,6 +1108,17 @@
                     return false;
                 }
             }
+             // get all data 
+             public function get_contact_msg($id)
+             {
+                 $this->sql = "SELECT * FROM `messages` WHERE msg_id = '$id'";
+                 $this->result = $this->con->query($this->sql);
+                 if($this->result == true){
+                     return $this->result;
+                 }else{
+                     return false;
+                 }
+             }
 
         // close connection
         public function __destruct()

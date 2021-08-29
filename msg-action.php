@@ -13,7 +13,7 @@
             $status = $obj->add_msg($name,$email,$subject,$message);
             // status check
             if($status == true){
-                Flash_data::success('Your Record Submitted');
+                Flash_data::success('Some Record Submitted');
                 header('location:contact.php');
             }
         }

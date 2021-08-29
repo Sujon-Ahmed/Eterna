@@ -47,7 +47,6 @@
                                     <th>Name</th>
                                     <th>Email</th>
                                     <th>Time</th>
-                                    <th>Edit</th>
                                     <th>View</th>
                                     <th>Delete</th>
                                 </tr>
@@ -63,6 +62,12 @@
                                                     <td><?php echo $row->msg_name; ?></td>
                                                     <td><?php echo $row->msg_email; ?></td>
                                                     <td><?php echo date('M-d-Y h:i A',strtotime($row->msg_created)); ?></td>
+                                                    <td>
+                                                        <a href="details_msg.php?id=<?php echo $row->msg_id; ?>" class="btn btn-success btn-sm">View</a>
+                                                    </td>
+                                                    <td>
+                                                        <a href="delete_msg.php?id=<?php echo $row->msg_id; ?>" class="btn btn-danger btn-sm">Delete</a>
+                                                    </td>
                                                 </tr>
                                             <?php
                                             $si++;
