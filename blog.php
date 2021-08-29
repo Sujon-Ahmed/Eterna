@@ -9,7 +9,7 @@
       <div class="container">
 
         <ol>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="index.php">Home</a></li>
           <li>Blog</li>
         </ol>
         <h2>Blog</h2>
@@ -213,20 +213,19 @@
 
               </div><!-- End sidebar recent posts-->
 
-              <h3 class="sidebar-title">Tags</h3>
+              <h3 class="sidebar-title">Category</h3>
               <div class="sidebar-item tags">
                 <ul>
-                  <li><a href="#">App</a></li>
-                  <li><a href="#">IT</a></li>
-                  <li><a href="#">Business</a></li>
-                  <li><a href="#">Mac</a></li>
-                  <li><a href="#">Design</a></li>
-                  <li><a href="#">Office</a></li>
-                  <li><a href="#">Creative</a></li>
-                  <li><a href="#">Studio</a></li>
-                  <li><a href="#">Smart</a></li>
-                  <li><a href="#">Tips</a></li>
-                  <li><a href="#">Marketing</a></li>
+                  <?php 
+                    if($get_blog_category->num_rows > 0){
+                      while($row = $get_blog_category->fetch_object()){
+                        ?>
+                          <li><a href="#"><?php echo $row->blog_cat_name; ?></a></li>
+                        <?php
+                      }
+                    }
+                  ?>
+                  
                 </ul>
               </div><!-- End sidebar tags-->
 

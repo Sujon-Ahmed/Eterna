@@ -279,6 +279,23 @@
                     </div>
                 </div>
             </li>
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBlog"
+                    aria-expanded="true" aria-controls="collapseBlog">
+                    <i class="fas fa-fw fa-blog"></i>
+                    <span>Manage Blog</span>
+                </a>
+                <div id="collapseBlog" class="collapse <?php if($page == 'blog'){echo 'show';} ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Blog</h6>
+                        <a class="collapse-item <?php if($sub_page == 'create_blog_category'){echo 'active';} ?>" href="cr_blog_cat.php">Category</a>
+                    </div>
+                </div>
+            </li>
+              <!-- Divider -->
             <hr class="sidebar-divider">
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">

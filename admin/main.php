@@ -1130,6 +1130,29 @@
                       return false;
                   }
               }
+            //   ====================== blog =======================
+            //insert blog category
+            public function insert_b_cat($cat_name)
+            {
+                $this->sql = "INSERT INTO `blog_category`(`blog_cat_name`) VALUES ('$cat_name')";
+                  $this->result = $this->con->query($this->sql);
+                  if($this->result == true){
+                      return true;
+                  }else{
+                      return false;
+                  }
+            }
+            // get category 
+            public function get_cat()
+            {
+                $this->sql = "SELECT * FROM `blog_category";
+                  $this->result = $this->con->query($this->sql);
+                  if($this->result == true){
+                      return $this->result;
+                  }else{
+                      return false;
+                  }
+            }
 
         // close connection
         public function __destruct()

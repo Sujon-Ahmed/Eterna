@@ -27,6 +27,7 @@
   $team = $obj->get_team_limit();
   $get_portfolio = $obj->get_port_cat_data();
   $get_port_image = $obj->get_port_cat_data();
+  $get_blog_category = $obj->get_cat();
 ?>
 <!DOCTYPE html>
 <html lang="en">
