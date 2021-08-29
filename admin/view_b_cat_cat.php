@@ -67,7 +67,7 @@
                                                     <a href="edit_blog_cat.php?id=<?php echo $row->blog_cat_id; ?>" class="btn btn-primary btn-sm">Edit</a>
                                                 </td>
                                                 <td>
-                                                    <a href="delete_blog_cat.php?id=<?php echo $row->blog_cat_id; ?>" class="btn btn-danger btn-sm">Delete</a>
+                                                    <a onclick="javascript:return confirm('Are You Sure?')" href="delete_blog_cat.php?id=<?php echo $row->blog_cat_id; ?>" class="btn btn-danger btn-sm">Delete</a>
                                                 </td>
                                             </tr>
                                         <?php
