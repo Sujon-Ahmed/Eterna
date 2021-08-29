@@ -1153,6 +1153,28 @@
                       return false;
                   }
             }
+             // get category with id
+             public function get_b_cat($id)
+             {
+                 $this->sql = "SELECT * FROM `blog_category` WHERE blog_cat_id = '$id'";
+                   $this->result = $this->con->query($this->sql);
+                   if($this->result == true){
+                       return $this->result;
+                   }else{
+                       return false;
+                   }
+             }
+              // get category with id
+              public function update_blog_cat($id,$cat)
+              {
+                  $this->sql = "UPDATE `blog_category` SET `blog_cat_name`='$cat' WHERE `blog_cat_id` = '$id'";
+                    $this->result = $this->con->query($this->sql);
+                    if($this->result == true){
+                        return true;
+                    }else{
+                        return false;
+                    }
+              }
 
         // close connection
         public function __destruct()
