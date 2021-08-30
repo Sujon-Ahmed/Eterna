@@ -36,7 +36,10 @@
             <form action="blog_action.php" method="POST" id="blog" enctype="multipart/form-data">
                 <div class="card position-relative shadow-sm">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Create Post</h6>
+                        <div class="d-flex justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Create Post</h6>
+                            <a href="view_b_post.php" class="btn btn-primary btn-sm">View</a>
+                        </div>
                     </div>
                     <div class="card-body">
                         <!-- title -->

@@ -1198,6 +1198,33 @@
                     return false;
                 }
             }
+            // get blog data 
+            public function get_blog($id)
+            {
+                $this->sql = "SELECT * FROM `blog_post`";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return $this->result;
+                }else{
+                    return false;
+                }
+            }
+            // get all data for blog page
+            public function  get_b_post()
+            {
+                $this->sql = "SELECT p.blog_post_id,p.author_id,p.category_id,p.blog_post_title,p.blog_post_desc,p.blog_post_image,p.blog_post_created_at,c.blog_cat_name,a.admin_name
+                FROM blog_post p INNER JOIN blog_category c
+                ON p.category_id = c.blog_cat_id
+                INNER JOIN admin a 
+                ON p.author_id = a.admin_id ORDER BY p.blog_post_id DESC";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return $this->result;
+                }else{
+                    return false;
+                }
+            }
+           
 
         // close connection
         public function __destruct()
