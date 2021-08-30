@@ -204,6 +204,22 @@
                     teamPreview(this);
                 });
         </script>
+        <!-- script for blog img preview -->
+      <script>
+            function blogPreview(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                    $('#blog + img').remove();
+                    $('#blog-test-img').html('<img class="img-fluid img-thumbnail" src="'+e.target.result+'" width="600px" height="auto" />');
+                }
+                reader.readAsDataURL(input.files[0]);
+                }
+                }
+                $("#blog-file-img").change(function () {
+                    blogPreview(this);
+                });
+        </script>
     <!-- script for banner required validation -->
     <script>
         $(document).ready(function () {

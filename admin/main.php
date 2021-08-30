@@ -1186,6 +1186,18 @@
                     return false;
                 }
             }
+            // =============== blog post ================
+            // insert blog post
+            public function insert_blog($author,$title,$category,$desc,$fileNewName)
+            {
+                $this->sql = "INSERT INTO `blog_post`(`author_id`, `category_id`, `blog_post_title`, `blog_post_desc`, `blog_post_image`) VALUES ('$author','$category','$title','$desc','$fileNewName')";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
 
         // close connection
         public function __destruct()

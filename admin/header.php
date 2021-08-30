@@ -292,6 +292,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Blog</h6>
                         <a class="collapse-item <?php if($sub_page == 'create_blog_category'){echo 'active';} ?>" href="cr_blog_cat.php">Category</a>
+                        <a class="collapse-item <?php if($sub_page == 'create_blog_post'){echo 'active';} ?>" href="cr_blog_post.php">Post</a>
                     </div>
                 </div>
             </li>
