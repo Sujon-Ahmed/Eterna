@@ -1224,20 +1224,31 @@
                     return false;
                 }
             }
-             // get single blog data 
-             public function  get_blog_details($id)
-             {
-                 $this->sql = "SELECT p.blog_post_id,p.author_id,p.category_id,p.blog_post_title,p.blog_post_desc,p.blog_post_image,p.blog_post_created_at,a.admin_name
-                 FROM blog_post p 
-                 INNER JOIN admin a 
-                 ON p.author_id = a.admin_id WHERE blog_post_id = '$id'";
-                 $this->result = $this->con->query($this->sql);
-                 if($this->result == true){
-                     return $this->result;
-                 }else{
-                     return false;
-                 }
-             }
+            // get single blog data 
+            public function  get_blog_details($id)
+            {
+                $this->sql = "SELECT p.blog_post_id,p.author_id,p.category_id,p.blog_post_title,p.blog_post_desc,p.blog_post_image,p.blog_post_created_at,a.admin_name
+                FROM blog_post p 
+                INNER JOIN admin a 
+                ON p.author_id = a.admin_id WHERE blog_post_id = '$id'";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return $this->result;
+                }else{
+                    return false;
+                }
+            }
+            // update blog with photo
+            public function  update_blog_photo($author,$id,$title,$category,$desc,$fileNewName)
+            {
+                $this->sql = "UPDATE `blog_post` SET `author_id`='$author',`category_id`='$category',`blog_post_title`='$title',`blog_post_desc`='$desc',`blog_post_image`='$fileNewName' WHERE `blog_post_id` = '$id'";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
            
 
         // close connection
