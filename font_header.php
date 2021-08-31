@@ -30,7 +30,7 @@
   // method for blog category
   $get_blog_category = $obj->get_cat();
   // method for blog post
-  $get_blog_post = $obj->get_b_post();
+ 
   
 ?>
 <!DOCTYPE html>
@@ -57,6 +57,16 @@
   <link href="assets/css/style.css" rel="stylesheet">
   <!-- <link rel="stylesheet" href="assets/css/all.min.css"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    .blog-pagination ul li a{
+      border: 1px solid #ddd;
+    }
+   
+  .blog-pagination ul li a.active{
+      background: #e96b56;
+      color: #fff;
+    }
+  </style>
 </head>
 <body>
   <!-- ======= Top Bar ======= -->
@@ -79,7 +89,7 @@
     <div class="container d-flex justify-content-between align-items-center">
 
       <div class="logo">
-        <h1><a href="index.html">Eterna</a></h1>
+        <h1><a href="index.php">Eterna</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>

@@ -1,5 +1,15 @@
 <?php
   include 'font_header.php';
+  	// pagination code
+	$num_per_page = 02;
+	if(isset($_GET["page"])){
+		$page = $_GET["page"];
+	}else{
+		$page=1;
+	}
+	// echo $page;
+	$start_from = ($page-1)*02;
+  $get_blog_post = $obj->get_b_post($start_from,$num_per_page);
 ?>
   <!-- main section start -->
   <main id="main">
@@ -58,13 +68,46 @@
               }
             ?>
             
-            <div class="blog-pagination">
-              <ul class="justify-content-center">
-                <li><a href="#">1</a></li>
-                <li class="active"><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-              </ul>
-            </div>
+
+           <!-- PAGINATION -->
+		<div class="blog-pagination">
+			<?php
+				$total_record = $obj->get_all_blog();
+				$total_page = ceil($total_record / $num_per_page);
+			?>
+			<ul class="justify-content-center">
+
+				<?php
+
+					if($page>1){
+						?>
+							<li>
+								<a href="blog.php?page=<?php echo $page-1;?>">Prev</a>
+							</li>
+						<?php
+					}
+					
+					for($i=1;$i<$total_page;$i++){
+						?>
+							<li>
+								<a class="<?php if($i == $page){echo 'active';} ?>" href="blog.php?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+							</li>
+						<?php
+					}
+
+					if($i>$page){
+						?>
+							<li>
+								<a href="blog.php?page=<?php echo $page+1;?>">Next</a>
+							</li>
+						<?php
+					}
+
+				?>
+				
+			</ul>
+		</div>
+		<!-- PAGINATION -->
           </div><!-- End blog entries list -->
           <div class="col-lg-4">
             <div class="sidebar">
