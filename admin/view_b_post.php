@@ -43,8 +43,12 @@
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">View Blog Post</h6>
+        <div class="d-flex justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">View Blog Post</h6>
+            <a href="cr_blog_post.php" class="btn btn-primary btn-sm">Create</a>
+        </div>
     </div>
+       
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered" id="datatablesSimple" width="100%" cellspacing="0">
@@ -52,6 +56,7 @@
                     <tr>
                         <th>SI</th>
                         <th>Title</th>
+                        <th>Category</th>
                         <th>Image</th>
                         <th>Created_at</th>
                         <th>Edit</th>
@@ -68,6 +73,7 @@
                                 <tr>
                                     <td><?php echo $si; ?></td>
                                     <td><?php echo $row->blog_post_title; ?></td>
+                                    <td><?php echo $row->blog_cat_name; ?></td>
                                     <td>
                                         <img class="img-fluid" src="<?php echo 'uploads/blog/'.$row->blog_post_image; ?>" width="120" height="120" alt="">
                                     </td>

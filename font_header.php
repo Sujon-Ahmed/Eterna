@@ -31,6 +31,7 @@
   $get_blog_category = $obj->get_cat();
   // method for blog post
   $get_blog_post = $obj->get_b_post();
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">

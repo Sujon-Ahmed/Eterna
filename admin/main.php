@@ -1199,9 +1199,9 @@
                 }
             }
             // get blog data 
-            public function get_blog($id)
+            public function get_blog()
             {
-                $this->sql = "SELECT * FROM `blog_post`";
+                $this->sql = "SELECT * FROM blog_post INNER JOIN blog_category ON blog_post.category_id = blog_category.blog_cat_id";
                 $this->result = $this->con->query($this->sql);
                 if($this->result == true){
                     return $this->result;
@@ -1245,6 +1245,21 @@
                 $this->result = $this->con->query($this->sql);
                 if($this->result == true){
                     return true;
+                }else{
+                    return false;
+                }
+            }
+            // get all data for single blog page
+            public function get_single_blog_post($post_id)
+            {
+                $this->sql = "SELECT p.blog_post_id,p.author_id,p.category_id,p.blog_post_title,p.blog_post_desc,p.blog_post_image,p.blog_post_created_at,c.blog_cat_name,a.admin_name
+                FROM blog_post p INNER JOIN blog_category c
+                ON p.category_id = c.blog_cat_id
+                INNER JOIN admin a 
+                ON p.author_id = a.admin_id WHERE p.blog_post_id = '$post_id'";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return $this->result;
                 }else{
                     return false;
                 }
