@@ -1235,6 +1235,21 @@
                     return false;
                 }
             }
+            // side blog
+            public function get_b_post_side()
+            {
+                $this->sql = "SELECT p.blog_post_id,p.author_id,p.category_id,p.blog_post_title,p.blog_post_desc,p.blog_post_image,p.blog_post_created_at,c.blog_cat_name,a.admin_name
+                FROM blog_post p INNER JOIN blog_category c
+                ON p.category_id = c.blog_cat_id
+                INNER JOIN admin a 
+                ON p.author_id = a.admin_id ORDER BY p.blog_post_id DESC";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return $this->result;
+                }else{
+                    return false;
+                }
+            }
             // get single blog data 
             public function  get_blog_details($id)
             {
@@ -1263,7 +1278,7 @@
             // get all data for single blog page
             public function get_single_blog_post($post_id)
             {
-                $this->sql = "SELECT p.blog_post_id,p.author_id,p.category_id,p.blog_post_title,p.blog_post_desc,p.blog_post_image,p.blog_post_created_at,c.blog_cat_name,a.admin_name
+                $this->sql = "SELECT p.blog_post_id,p.author_id,p.category_id,p.blog_post_title,p.blog_post_desc,p.blog_post_image,p.blog_post_created_at,c.blog_cat_id,c.blog_cat_name,a.admin_name
                 FROM blog_post p INNER JOIN blog_category c
                 ON p.category_id = c.blog_cat_id
                 INNER JOIN admin a 
@@ -1274,6 +1289,17 @@
                 }else{
                     return false;
                 }
+            }
+            // related category wise post
+            public function related_post($cat_id)
+            {
+                $this->sql = "SELECT * FROM `blog_post` WHERE category_id = '$cat_id'";
+                 $this->result = $this->con->query($this->sql);
+                 if($this->result == true){
+                     return $this->result;
+                 }else{
+                     return false;
+                 }
             }
            
 

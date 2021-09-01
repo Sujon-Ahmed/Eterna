@@ -29,7 +29,6 @@
   $get_port_image = $obj->get_port_cat_data();
   // method for blog category
   $get_blog_category = $obj->get_cat();
-  // method for blog post
  
   
 ?>
@@ -61,9 +60,8 @@
     .blog-pagination ul li a{
       border: 1px solid #ddd;
     }
-   
-  .blog-pagination ul li a.active{
-      background: #e96b56;
+    .blog-pagination ul li a.active{
+      background-color: #e96b56;
       color: #fff;
     }
   </style>
