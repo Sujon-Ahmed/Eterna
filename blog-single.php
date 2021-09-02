@@ -49,7 +49,7 @@
               </div>
 
               <h2 class="entry-title">
-                <a href="blog-single.php"></a>
+                <a href="blog-single.php?id=<?php echo $blog_id; ?>"><?php echo $title; ?></a>
               </h2>
 
               <div class="entry-meta">
@@ -131,7 +131,7 @@
                     if($get_blog_category->num_rows > 0){
                       while($cat = $get_blog_category->fetch_object()){
                         ?>
-                          <li><a href="#"><?php echo $cat->blog_cat_name; ?></a></li>
+                          <li><a href="cat_wise_post.php?id=<?php echo $cat->blog_cat_id; ?>"><?php echo $cat->blog_cat_name; ?></a></li>
                         <?php
                       }
                     }

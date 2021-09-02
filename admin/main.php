@@ -1282,7 +1282,7 @@
                 FROM blog_post p INNER JOIN blog_category c
                 ON p.category_id = c.blog_cat_id
                 INNER JOIN admin a 
-                ON p.author_id = a.admin_id WHERE p.blog_post_id = '$post_id'";
+                ON p.author_id = a.admin_id WHERE p.blog_post_id = '$post_id' LIMIT 10";
                 $this->result = $this->con->query($this->sql);
                 if($this->result == true){
                     return $this->result;
@@ -1322,6 +1322,21 @@
                  }else{
                      return false;
                  }
+            }
+            // get all data for category wise
+            public function get_b_wise_post($cat_id)
+            {
+                $this->sql = "SELECT p.blog_post_id,p.author_id,p.category_id,p.blog_post_title,p.blog_post_desc,p.blog_post_image,p.blog_post_created_at,c.blog_cat_name,a.admin_name
+                FROM blog_post p INNER JOIN blog_category c
+                ON p.category_id = c.blog_cat_id
+                INNER JOIN admin a 
+                ON p.author_id = a.admin_id WHERE p.category_id = '$cat_id'";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return $this->result;
+                }else{
+                    return false;
+                }
             }
            
 
