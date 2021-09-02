@@ -1290,6 +1290,17 @@
                     return false;
                 }
             }
+            // blog delete
+            public function blog_delete($id)
+            {
+                $this->sql = "DELETE FROM `blog_post` WHERE blog_post_id = '$id'";
+                 $this->result = $this->con->query($this->sql);
+                 if($this->result == true){
+                     return true;
+                 }else{
+                     return false;
+                 }
+            }
             // related category wise post
             public function related_post($cat_id)
             {
@@ -1297,6 +1308,17 @@
                  $this->result = $this->con->query($this->sql);
                  if($this->result == true){
                      return $this->result;
+                 }else{
+                     return false;
+                 }
+            }
+            // category number
+            public function cat_number()
+            {
+                $this->sql = "SELECT category_id FROM `blog_post`";
+                 $this->result = $this->con->query($this->sql);
+                 if($this->result == true){
+                     return $this->result->num_rows;
                  }else{
                      return false;
                  }

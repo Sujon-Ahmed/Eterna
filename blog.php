@@ -11,6 +11,8 @@
 	$start_from = ($page-1)*02;
   $get_blog_post = $obj->get_b_post($start_from,$num_per_page);
   $get_blog_post_side = $obj->get_b_post_side();
+
+  $get_cat_num = $obj->cat_number();
 ?>
   <!-- main section start -->
   <main id="main">
@@ -119,7 +121,7 @@
                     if($get_blog_category->num_rows > 0){
                       while($row = $get_blog_category->fetch_object()){
                         ?>
-                          <li><a href="#"><?php echo $row->blog_cat_name; ?><span>(0)</span></a></li>
+                          <li><a href="#"><?php echo $row->blog_cat_name; ?><span><?php echo $get_cat_num; ?></span></a></li>
                         <?php
                       }
                     }
@@ -135,7 +137,7 @@
                   <div class="post-item clearfix">
                     <img src="<?php echo 'admin/uploads/blog/'.$rows->blog_post_image; ?>" alt="" class="img-fluid">
                     <h4><a href="blog-single.php?id=<?php echo $rows->blog_post_id; ?>"><?php echo $rows->blog_post_title; ?></a></h4>
-                    <time><a href="blog-single.php?id=<?php echo $row->blog_post_id; ?>"><?php echo date('M-d-Y h:i A',strtotime($rows->blog_post_created_at)); ?></a></time>
+                    <time><a href="blog-single.php?id=<?php echo $rows->blog_post_id; ?>"><?php echo date('M-d-Y h:i A',strtotime($rows->blog_post_created_at)); ?></a></time>
                   </div>
                   <?php
                   }
