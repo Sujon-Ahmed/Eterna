@@ -14,23 +14,34 @@
   $banner = $obj->get_banner_data();
   // card details
   $card_details = $obj->get_data_limit();
+  // about details
   $about_details = $obj->get_about_data();
+  // service details
   $service_details = $obj->get_service_limit();
+  // client description
   $description = $obj->catch_desc();
+  // client brand
   $brand = $obj->get_brands();
+  // about page card
   $abs_card = $obj->get_card_limit();
+  // testimonial section
   $testimonial = $obj->get_testimonial();
+  // testimonial description
   $testimonial_description = $obj->get_testimonial_desc_with_limit();
+  // skill description
   $skill_desc = $obj->get_skill_desc_limit();  
+  // skill content
   $skill_content = $obj->get_skill_content_limit();
+  // skill progress bar
   $skill_progress = $obj->get_progress();
+  // team member
   $team = $obj->get_team_limit();
+  // portfolio section
   $get_portfolio = $obj->get_port_cat();
+  // portfolio image
   $get_port_image = $obj->get_port_cat_data();
   // method for blog category
   $get_blog_category = $obj->get_cat();
- 
-  
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -1313,9 +1313,9 @@
                  }
             }
             // category number
-            public function cat_number()
+            public function count_posts($blog_cat_id)
             {
-                $this->sql = "SELECT category_id FROM `blog_post`";
+                $this->sql = "SELECT category_id FROM `blog_post` WHERE category_id = '$blog_cat_id'";
                  $this->result = $this->con->query($this->sql);
                  if($this->result == true){
                      return $this->result->num_rows;
