@@ -1338,6 +1338,140 @@
                     return false;
                 }
             }
+            // ======================= total data count ===================
+            // total banner
+            public function total_banner()
+            {
+                $this->sql = "SELECT * FROM `banner`";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return $this->result->num_rows;
+                }else{
+                    return false;
+                }
+            }
+            // total card
+            public function total_card()
+            {
+                $this->sql = "SELECT * FROM `card`";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return $this->result->num_rows;
+                }else{
+                    return false;
+                }
+            }
+            // total services
+            public function total_services()
+            {
+                $this->sql = "SELECT * FROM `services`";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return $this->result->num_rows;
+                }else{
+                    return false;
+                }
+            }
+            // total clients
+            public function total_clients()
+            {
+                $this->sql = "SELECT * FROM `brands`";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return $this->result->num_rows;
+                }else{
+                    return false;
+                }
+            }
+            // total subscribers
+            public function total_subscribers()
+            {
+                $this->sql = "SELECT * FROM `subscribers`";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return $this->result->num_rows;
+                }else{
+                    return false;
+                }
+            }
+            // total about cards
+            public function total_ab_card()
+            {
+                $this->sql = "SELECT * FROM `abs`";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return $this->result->num_rows;
+                }else{
+                    return false;
+                }
+            }
+            // total testimonial
+            public function total_testimonials()
+            {
+                $this->sql = "SELECT * FROM `testimonials`";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return $this->result->num_rows;
+                }else{
+                    return false;
+                }
+            }
+            // total skill
+            public function total_skills()
+            {
+                $this->sql = "SELECT * FROM `skill_category`";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return $this->result->num_rows;
+                }else{
+                    return false;
+                }
+            }
+            // total portfolio
+            public function total_portfolio()
+            {
+                $this->sql = "SELECT * FROM `portfolio_tbl`";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return $this->result->num_rows;
+                }else{
+                    return false;
+                }
+            }
+            // total team members
+            public function total_team_member()
+            {
+                $this->sql = "SELECT * FROM `team`";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return $this->result->num_rows;
+                }else{
+                    return false;
+                }
+            }
+            // total team members
+            public function total_blog_post()
+            {
+                $this->sql = "SELECT * FROM `blog_post`";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return $this->result->num_rows;
+                }else{
+                    return false;
+                }
+            }
+             // total message
+             public function total_message()
+             {
+                 $this->sql = "SELECT * FROM `blog_post`";
+                 $this->result = $this->con->query($this->sql);
+                 if($this->result == true){
+                     return $this->result->num_rows;
+                 }else{
+                     return false;
+                 }
+             }
+            
            
 
         // close connection
