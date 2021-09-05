@@ -1394,6 +1394,28 @@
                       return false;
                   }
              }
+            // get pricing id for edit page
+            public function get_pricing_id($id)
+            {
+                $this->sql = "SELECT * FROM `pricing` WHERE pricing_id = '$id'";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return $this->result;
+                }else{
+                    return false;
+                }
+            }
+            // update pricing table
+            public function update_pricing($id,$title,$price,$desc)
+            {
+                $this->sql = "UPDATE `pricing` SET `pricing_title`='$title',`pricing_price`='$price',`pricing_desc`='$desc' WHERE `pricing_id` = '$id'";
+                 $this->result = $this->con->query($this->sql);
+                 if($this->result == true){
+                     return true;
+                 }else{
+                     return false;
+                 }
+            }
             // ======================= total data count ===================
             // total banner
             public function total_banner()
