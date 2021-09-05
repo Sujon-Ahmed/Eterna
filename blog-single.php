@@ -18,19 +18,16 @@
     $related_blog = $obj->related_post($cat_id);
   }
 ?>
-
+  <!-- main section -->
   <main id="main">
-
     <!-- ======= Breadcrumbs ======= -->
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
-
         <ol>
           <li><a href="index.php">Home</a></li>
           <li><a href="blog.php">Blog</a></li>
         </ol>
         <h2><?php echo $title; ?></h2>
-
       </div>
     </section><!-- End Breadcrumbs -->
 

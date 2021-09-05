@@ -1,26 +1,20 @@
-<?php
-  include 'font_header.php';
-?>
-
+<?php include 'font_header.php'; ?>
+<!-- main section start -->
   <main id="main">
-
     <!-- ======= Breadcrumbs ======= -->
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
-
         <ol>
           <li><a href="index.php">Home</a></li>
           <li>Portfolio</li>
         </ol>
         <h2>Portfolio</h2>
-
       </div>
-    </section><!-- End Breadcrumbs -->
-
+    </section>
+    <!-- End Breadcrumbs -->
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio">
       <div class="container">
-
         <div class="row">
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
@@ -34,13 +28,10 @@
                 }
               }
               ?>
-             
-              <!-- <li data-filter=".filter-card">Card</li>
-              <li data-filter=".filter-web">Web</li> -->
             </ul>
           </div>
         </div>
-
+        <!-- portfolio container -->
         <div class="row portfolio-container">
             <?php
                 if($get_port_image->num_rows > 0){
@@ -54,7 +45,7 @@
                             <p><?php echo $img_row->portfolio_title; ?></p>
                             <div class="portfolio-links">
                               <a href="<?php echo 'admin/uploads/portfolio/'.$img_row->portfolio_image; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-                              <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                              <a href="portfolio-details.php" title="More Details"><i class="bx bx-link"></i></a>
                             </div>
                           </div>
                         </div>
@@ -64,14 +55,12 @@
                 }
             ?>
         </div>
-
       </div>
-    </section><!-- End Portfolio Section -->
-
+    </section>
+    <!-- End Portfolio Section -->
    <!-- ======= Clients Section ======= -->
    <section id="clients" class="clients">
       <div class="container">
-
         <div class="section-title">
           <h2>Clients</h2>
           <?php 
@@ -84,7 +73,6 @@
           }
           ?>
         </div>
-
         <div class="clients-slider swiper-container">
           <div class="swiper-wrapper align-items-center">
             <?php
@@ -101,9 +89,8 @@
           </div>
           <div class="swiper-pagination"></div>
         </div>
-
       </div>
-    </section><!-- End Clients Section -->
-
+    </section>
+    <!-- End Clients Section -->
   </main><!-- End #main -->
 <?php include 'font_footer.php'; ?>

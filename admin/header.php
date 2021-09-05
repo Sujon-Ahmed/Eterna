@@ -312,6 +312,22 @@
                     </div>
                 </div>
             </li>
+              <!-- Divider -->
+              <hr class="sidebar-divider">
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThirteen"
+                    aria-expanded="true" aria-controls="collapseThirteen">
+                    <i class="fas fa-fw fa-envelope"></i>
+                    <span>Manage Pricing</span>
+                </a>
+                <div id="collapseThirteen" class="collapse <?php if($page == 'pricing'){echo 'show';} ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Pricing</h6>
+                        <a class="collapse-item <?php if($sub_page == 'cr_pricing'){echo 'active';} ?>" href="create_pricing.php">Create</a>
+                    </div>
+                </div>
+            </li>
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>

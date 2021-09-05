@@ -69,38 +69,38 @@
               }
             ?>
            <!-- PAGINATION -->
-		<div class="blog-pagination">
-			<?php
-				$total_record = $obj->get_all_blog();
-				$total_page = ceil($total_record/$num_per_page);
-			?>
-			<ul class="justify-content-center">
-				<?php
-					if($page>1){
-						?>
-							<li>
-								<a href="blog.php?page=<?php echo $page-1;?>">Prev</a>
-							</li>
-						<?php
-					}
-					for($i=1;$i<$total_page;$i++){
-						?>
-							<li>
-								<a class="<?php if($i == $page){echo 'active';} ?>" href="blog.php?page=<?php echo $i; ?>"><?php echo $i; ?></a>
-							</li>
-						<?php
-					}
-					if($i>$page){
-						?>
-							<li>
-								<a href="blog.php?page=<?php echo $page+1;?>">Next</a>
-							</li>
-						<?php
-					}
-				?>
-			</ul>
-		</div>
-		<!-- PAGINATION -->
+          <div class="blog-pagination">
+            <?php
+              $total_record = $obj->get_all_blog();
+              $total_page = ceil($total_record/$num_per_page);
+            ?>
+            <ul class="justify-content-center">
+              <?php
+                if($page>1){
+                  ?>
+                    <li>
+                      <a href="blog.php?page=<?php echo $page-1;?>">Prev</a>
+                    </li>
+                  <?php
+                }
+                for($i=1;$i<$total_page;$i++){
+                  ?>
+                    <li>
+                      <a class="<?php if($i == $page){echo 'active';} ?>" href="blog.php?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+                    </li>
+                  <?php
+                }
+                if($i>$page){
+                  ?>
+                    <li>
+                      <a href="blog.php?page=<?php echo $page+1;?>">Next</a>
+                    </li>
+                  <?php
+                }
+              ?>
+            </ul>
+          </div>
+          <!-- PAGINATION -->
           </div><!-- End blog entries list -->
           <div class="col-lg-4">
             <div class="sidebar">

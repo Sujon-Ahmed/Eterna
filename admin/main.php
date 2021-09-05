@@ -1338,6 +1338,18 @@
                     return false;
                 }
             }
+            // ======================== pricing table =====================
+            // insert pricing
+            public function insert_pricing($title,$price,$desc)
+            {
+                $this->sql = "INSERT INTO `pricing`(`pricing_title`, `pricing_price`, `pricing_desc`) VALUES ('$title','$price','$desc')";
+                 $this->result = $this->con->query($this->sql);
+                 if($this->result == true){
+                     return true;
+                 }else{
+                     return false;
+                 }
+            }
             // ======================= total data count ===================
             // total banner
             public function total_banner()

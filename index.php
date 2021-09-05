@@ -1,6 +1,4 @@
-<?php
- include 'font_header.php';
- ?>
+<?php include 'font_header.php'; ?>
   <!-- ======= Hero Section ======= -->
   <section id="hero">
     <div class="hero-container">
@@ -36,12 +34,12 @@
         </a>
       </div>
     </div>
-  </section><!-- End Hero -->
+  </section>
+  <!-- End Hero -->
   <main id="main">
     <!-- ======= Featured Section ======= -->
     <section id="featured" class="featured">
       <div class="container">
-
         <div class="row">
           <?php
             if($card_details->num_rows > 0){
@@ -59,9 +57,9 @@
             }
           ?>
         </div>
-
       </div>
-    </section><!-- End Featured Section -->
+    </section>
+    <!-- End Featured Section -->
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container">
@@ -107,14 +105,12 @@
             }
           ?>
         </div>
-
       </div>
-    </section><!-- End Services Section -->
-
+    </section>
+    <!-- End Services Section -->
     <!-- ======= Clients Section ======= -->
     <section id="clients" class="clients">
       <div class="container">
-
         <div class="section-title">
           <h2>Clients</h2>
           <?php 
@@ -127,7 +123,6 @@
           }
           ?>
         </div>
-
         <div class="clients-slider swiper-container">
           <div class="swiper-wrapper align-items-center">
             <?php
@@ -144,10 +139,7 @@
           </div>
           <div class="swiper-pagination"></div>
         </div>
-
       </div>
     </section><!-- End Clients Section -->
-
   </main><!-- End #main -->
-
   <?php include 'font_footer.php'; ?>

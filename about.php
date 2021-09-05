@@ -61,7 +61,6 @@
     <!-- ======= Clients Section ======= -->
     <section id="clients" class="clients">
       <div class="container">
-
         <div class="section-title">
           <h2>Clients</h2>
           <?php 
@@ -74,7 +73,6 @@
           }
           ?>
         </div>
-
         <div class="clients-slider swiper-container">
           <div class="swiper-wrapper align-items-center">
             <?php
@@ -93,12 +91,11 @@
         </div>
 
       </div>
-    </section><!-- End Clients Section -->
-
+    </section>
+    <!-- End Clients Section -->
     <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials">
       <div class="container">
-
         <div class="section-title">
           <h2>Testimonials</h2>
           <?php 
@@ -123,9 +120,7 @@
                       <h3><?php echo $row_test->test_name; ?></h3>
                       <h4><?php echo $row_test->test_profession; ?></h4>
                       <p>
-                        <!-- <i style="color:royalblue;"  class="bx bxs-quote-alt-left quote-icon-left"></i> -->
                         <?php if(!empty($row_test->test_msg)){echo $row_test->test_msg;} ?>
-                        <!-- <i style="color:royalblue;" class="bx bxs-quote-alt-right quote-icon-right"></i> -->
                       </p>
                     </div>
                   </div>
@@ -134,10 +129,8 @@
             }
           ?>
         </div>
-
       </div>
-    </section><!-- End Testimonials Section -->
-
+    </section>
+    <!-- End Testimonials Section -->
   </main><!-- End #main -->
-
  <?php include 'font_footer.php'; ?>

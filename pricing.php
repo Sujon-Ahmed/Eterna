@@ -1,28 +1,21 @@
 <?php
   include 'font_header.php';
 ?>
-
   <main id="main">
-
     <!-- ======= Breadcrumbs ======= -->
     <section id="breadcrumbs" class="breadcrumbs">
       <div class="container">
-
         <ol>
           <li><a href="index.php">Home</a></li>
           <li>Pricing</li>
         </ol>
         <h2>Pricing</h2>
-
       </div>
     </section><!-- End Breadcrumbs -->
-
     <!-- ======= Pricing Section ======= -->
     <section id="pricing" class="pricing">
       <div class="container">
-
         <div class="row no-gutters">
-
           <div class="col-lg-4 box">
             <h3>Free</h3>
             <h4>$0<span>per month</span></h4>
@@ -63,10 +56,7 @@
           </div>
 
         </div>
-
       </div>
     </section><!-- End Pricing Section -->
-
   </main><!-- End #main -->
-
  <?php include 'font_footer.php'; ?>
