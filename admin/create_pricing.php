@@ -35,7 +35,10 @@
             <form action="pricing_insert.php" method="POST" id="card">
                 <div class="card position-relative shadow-sm">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Create Pricing Table</h6>
+                        <div class="d-flex justify-content-between">
+                            <h6 class="m-0 font-weight-bold text-primary">Create Pricing Table</h6>
+                            <a href="view_pricing.php" class="btn btn-primary btn-sm">View</a>
+                        </div>
                     </div>
                     <div class="card-body">
                         <!-- title -->

@@ -1350,6 +1350,50 @@
                      return false;
                  }
             }
+            // get all pricing table
+            public function get_data_pricing()
+            {
+                $this->sql = "SELECT * FROM `pricing`";
+                 $this->result = $this->con->query($this->sql);
+                 if($this->result == true){
+                     return $this->result;
+                 }else{
+                     return false;
+                 }
+            }
+            // free pricing table
+            public function free()
+            {
+                $this->sql = "SELECT * FROM `pricing` WHERE pricing_id = 1";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return $this->result;
+                }else{
+                    return false;
+                }
+            }
+            // business pricing table
+            public function business()
+            {
+                $this->sql = "SELECT * FROM `pricing` WHERE pricing_id = 2";
+                 $this->result = $this->con->query($this->sql);
+                 if($this->result == true){
+                     return $this->result;
+                 }else{
+                     return false;
+                 }
+            }
+             // developer pricing table
+             public function developer()
+             {
+                 $this->sql = "SELECT * FROM `pricing` WHERE pricing_id = 3";
+                  $this->result = $this->con->query($this->sql);
+                  if($this->result == true){
+                      return $this->result;
+                  }else{
+                      return false;
+                  }
+             }
             // ======================= total data count ===================
             // total banner
             public function total_banner()
