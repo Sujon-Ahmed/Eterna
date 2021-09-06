@@ -44,9 +44,9 @@
                         <!-- title -->
                         <label class="mb-2 mt-2" for="pricing_title">Address Title</label>
                         <input type="text" name="address_title" id="pricing_title" class="form-control" placeholder="Address title here" required />
-                        <!-- description -->
-                        <label class="mt-2" for="card_desc">Map Location</label>
-                        <textarea name="map_location" id="card_desc" cols="10" rows="5" class="form-control" placeholder="write something..."></textarea>
+                        <!-- map location -->
+                        <label class="mt-2" for="card_desc">Map Location [ Note: Just paste iframe src https link ]</label>
+                        <input type="text" name="map_location" id="pricing_title" class="form-control" placeholder="Map Location link here" required />
                         <input type="submit" name="submit" class="btn btn-primary mt-3" value="Save Changes">
                     </div>
                 </div>

@@ -1428,6 +1428,17 @@
                      return false;
                  }
             }
+            // get location
+            public function get_location()
+            {
+                $this->sql = "SELECT * FROM `address`";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return $this->result;
+                }else{
+                    return false;
+                } 
+            }
             // ======================= total data count ===================
             // total banner
             public function total_banner()
