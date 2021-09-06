@@ -1439,6 +1439,28 @@
                     return false;
                 } 
             }
+             // get location value with id
+             public function get_location_value($id)
+             {
+                 $this->sql = "SELECT * FROM `address` WHERE address_id = '$id'";
+                 $this->result = $this->con->query($this->sql);
+                 if($this->result == true){
+                     return $this->result;
+                 }else{
+                     return false;
+                 } 
+             }
+              // update map location with id
+              public function update_location($id,$title,$map)
+              {
+                  $this->sql = "UPDATE `address` SET `address_title`='$title',`map_link`='$map' WHERE `address_id` = '$id'";
+                  $this->result = $this->con->query($this->sql);
+                  if($this->result == true){
+                      return true;
+                  }else{
+                      return false;
+                  } 
+              }
             // ======================= total data count ===================
             // total banner
             public function total_banner()

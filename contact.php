@@ -1,5 +1,12 @@
 <?php
   include 'font_header.php';
+  $location = $obj->get_location();
+  if($location->num_rows > 0){
+    while($row = $location->fetch_object()){
+      $title = $row->address_title;
+      $map = $row->map_link;
+    }
+  }
 ?>
 
   <main id="main">
@@ -26,7 +33,7 @@
             <div class="info-box mb-4">
               <i class="bx bx-map"></i>
               <h3>Our Address</h3>
-              <p>Manikganj, Dhaka, Bangladesh</p>
+              <p><?php echo $title; ?></p>
             </div>
           </div>
 
@@ -51,7 +58,7 @@
         <div class="row">
 
           <div class="col-lg-6 ">
-            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d157844.35231471973!2d89.99114483740921!3d23.87092370324733!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755f603f1698647%3A0x894c2f1900643eb6!2sManikganj!5e1!3m2!1sen!2sbd!4v1630083019823!5m2!1sen!2sbd" width="100%" height="384" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <iframe class="map" src="<?php echo $map; ?>" width="100%" height="384" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
           </div>
 
           <div class="col-lg-6">
