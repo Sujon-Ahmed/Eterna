@@ -328,6 +328,21 @@
                     </div>
                 </div>
             </li>
+            <hr class="sidebar-divider">
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFourteen"
+                    aria-expanded="true" aria-controls="collapseFourteen">
+                    <i class="fas fa-fw fa-envelope"></i>
+                    <span>Manage Location</span>
+                </a>
+                <div id="collapseFourteen" class="collapse <?php if($page == 'address'){echo 'show';} ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Address Location</h6>
+                        <a class="collapse-item <?php if($sub_page == 'map'){echo 'active';} ?>" href="create_location.php">Location</a>
+                    </div>
+                </div>
+            </li>
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>

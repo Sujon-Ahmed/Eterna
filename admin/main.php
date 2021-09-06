@@ -1416,6 +1416,18 @@
                      return false;
                  }
             }
+            // =============== address =================
+            // insert address
+            public function insert_address($title,$map)
+            {
+                $this->sql = "INSERT INTO `address`(`address_title`, `map_link`) VALUES ('$title','$map')";
+                 $this->result = $this->con->query($this->sql);
+                 if($this->result == true){
+                     return true;
+                 }else{
+                     return false;
+                 }
+            }
             // ======================= total data count ===================
             // total banner
             public function total_banner()
@@ -1541,7 +1553,7 @@
              // total message
              public function total_message()
              {
-                 $this->sql = "SELECT * FROM `blog_post`";
+                 $this->sql = "SELECT * FROM `messages`";
                  $this->result = $this->con->query($this->sql);
                  if($this->result == true){
                      return $this->result->num_rows;
