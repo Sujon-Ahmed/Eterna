@@ -70,7 +70,7 @@
                                                     <a href="edit_social.php?id=<?php echo $row->social_id; ?>" class="btn btn-primary btn-sm">Edit</a>
                                                 </td>
                                                 <td>
-                                                    <a href="delete_social.php?id=<?php echo $row->social_id; ?>" class="btn btn-danger btn-sm">Delete</a>
+                                                    <a onclick="javascript:return confirm('Are You Sure?')" href="delete_social.php?id=<?php echo $row->social_id; ?>" class="btn btn-danger btn-sm">Delete</a>
                                                 </td>
                                             </tr>
                                         <?php
