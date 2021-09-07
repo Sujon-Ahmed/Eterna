@@ -42,6 +42,8 @@
   $get_port_image = $obj->get_port_cat_data();
   // method for blog category
   $get_blog_category = $obj->get_cat();
+  // get social media
+  $get_social_media = $obj->get_social();
 ?>
 <!DOCTYPE html>
 <html lang="en">

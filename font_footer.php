@@ -59,11 +59,15 @@
         <h3>About Eterna</h3>
         <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
         <div class="social-links mt-3">
-          <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-          <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-          <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-          <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-          <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+          <?php
+            if($get_social_media->num_rows > 0){
+              while($row = $get_social_media->fetch_object()){
+                ?>
+                  <a href="<?php echo $row->social_link; ?>" target="_blank" class="social"><i class="<?php echo $row->social_icon; ?>"></i></a>
+                <?php
+              }
+            }
+          ?>
         </div>
       </div>
 

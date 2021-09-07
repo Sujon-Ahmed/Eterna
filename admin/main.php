@@ -1484,6 +1484,28 @@
                     return false;
                 }
             }
+            // get social 
+            public function get_social_id($id)
+            {
+                $this->sql = "SELECT * FROM `social` WHERE social_id = '$id'";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return $this->result;
+                }else{
+                    return false;
+                }
+            }
+             // update social 
+             public function update_social($id,$name,$icon,$link)
+             {
+                 $this->sql = "UPDATE `social` SET `social_name`='$name',`social_icon`='$icon',`social_link`='$link' WHERE `social_id` = '$id'";
+                 $this->result = $this->con->query($this->sql);
+                 if($this->result == true){
+                     return true;
+                 }else{
+                     return false;
+                 }
+             }
             // ======================= total data count ===================
             // total banner
             public function total_banner()
