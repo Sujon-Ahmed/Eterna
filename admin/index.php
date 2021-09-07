@@ -254,7 +254,6 @@
         </div>
     </div>
     <!-- /.container-fluid -->
-
     </div>
     <!-- End of Main Content -->
 <?php include 'footer.php';  ?>

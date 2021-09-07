@@ -4,8 +4,6 @@
      include 'flash_data.php';
      $obj = new Main();
      $auth_id = $_SESSION['id'];
-     
- 
      if(!isset($_POST['submit'])){
          header('location:create_brand.php');
      }
@@ -16,7 +14,6 @@
              $fileExt = explode(".",$fileName);
              $fileActualExt = strtolower(end($fileExt));
              $allowed = array('jpg','jpeg','png');
- 
              if(in_array($fileActualExt,$allowed)){
                  $fileError = $_FILES["file"]["error"];
                  if($fileError == 0){
@@ -48,5 +45,4 @@
              Flash_data::error("Please Select an Image!");
              header('location:create_brand.php');
          }
- 
 ?>

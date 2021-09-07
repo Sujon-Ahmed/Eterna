@@ -22,7 +22,6 @@
     <link rel="stylesheet" href="css/toastr.css">
     <script src="js/jquery.js"></script>
     <script src="js/jquery-3.3.1.min.js"></script>
-    
     <script src="js/toastr.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     <!-- parsley cdn link -->
@@ -61,9 +60,7 @@
         ?>
         <!-- Outer Row -->
         <div class="row justify-content-center">
-
             <div class="col-xl-10 col-lg-12 col-md-9">
-
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->

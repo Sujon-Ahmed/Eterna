@@ -33,14 +33,11 @@
             color: red;
             display: block;
             width: 100%;
-            
             padding-top: 10px;
         }
     </style>
 </head>
-
 <body class="bg-gradient-primary">
-
     <div class="container">
           <!-- toastr error message -->
           <?php
@@ -65,7 +62,6 @@
                             <form action="create_account.php" method="POST" id="reg" class="user" data-parsley-validate>
                                 <div class="form-group">
                                     <input name="name" class="form-control form-control-user" id="inputFirstName" type="text" data-parsley-error-message="Enter Your Valid Name"data-parsley-pattern="[a-zA-Z ]+$" data-parsley-trigger="keyup" required placeholder="Enter your first name" />
-                                   
                                 </div>
                                 <div class="form-group">
                                     <input name="email" class="form-control form-control-user" id="inputEmail" type="email" required data-parsley-type="email" data-parsley-trigger="keyup" required data-parsley-error-message="Enter Your Valid Email" placeholder="name@example.com" />
@@ -89,26 +85,19 @@
                 </div>
             </div>
         </div>
-
     </div>
-
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-
     <script>
         $(function(){
             $('#reg').parsley();
         });
     </script>
-
 </body>
-
 </html>

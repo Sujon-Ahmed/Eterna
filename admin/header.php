@@ -17,13 +17,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
     <title>SB Admin 2 - Dashboard</title>
      <!-- Custom fonts for this template-->
      <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -58,9 +56,8 @@
     <div id="wrapper">
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -68,7 +65,6 @@
             </a>
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
-
             <!-- Nav Item - Dashboard -->
             <li class="nav-item <?php if($page == 'dashboard'){echo 'active';} ?>">
                 <a class="nav-link" href="index.php">
@@ -115,7 +111,6 @@
                         <a class="collapse-item <?php if($sub_page == 'create_card'){echo 'active';} ?>" href="create_card.php">Create Card</a>
 
                         <a class="collapse-item <?php if($sub_page == 'view_card'){echo 'active';} ?>" href="view_card.php">View Card</a>
-                        
                     </div>
                 </div>
             </li>
@@ -135,7 +130,6 @@
                         <a class="collapse-item <?php if($sub_page == 'create_about'){echo 'active';} ?>" href="create_about.php">Create About</a>
 
                         <a class="collapse-item <?php if($sub_page == 'view_about'){echo 'active';} ?>" href="view_about.php">View About</a>
-                        
                     </div>
                 </div>
             </li>
@@ -155,7 +149,6 @@
                         <a class="collapse-item <?php if($sub_page == 'create_service'){echo 'active';} ?>" href="create_service.php">Create Services</a>
 
                         <a class="collapse-item <?php if($sub_page == 'view_service'){echo 'active';} ?>" href="view_service.php">View Services</a>
-                        
                     </div>
                 </div>
             </li>

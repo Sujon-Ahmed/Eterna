@@ -1651,8 +1651,6 @@
                  }
              }
             
-           
-
         // close connection
         public function __destruct()
         {
