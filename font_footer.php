@@ -46,9 +46,7 @@
       <div class="col-lg-3 col-md-6 footer-contact">
         <h4>Contact Us</h4>
         <p>
-          A108 Adam Street <br>
-          New York, NY 535022<br>
-          United States <br><br>
+          <?php echo $title; ?> <br><br>
           <strong>Phone:</strong> <?php echo $admin_phone; ?><br>
           <strong>Email:</strong> <?php echo $admin_email; ?><br>
         </p>

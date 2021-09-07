@@ -42,6 +42,13 @@
   $get_port_image = $obj->get_port_cat_data();
   // method for blog category
   $get_blog_category = $obj->get_cat();
+  // get location
+  $get_location = $obj->get_location();
+  if($get_location->num_rows > 0){
+    while($row = $get_location->fetch_object()){
+      $title = $row->address_title;
+    }
+  }
   // get social media
   $get_social_media = $obj->get_social();
 ?>
