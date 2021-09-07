@@ -1473,6 +1473,17 @@
                     return false;
                 }
             }
+            // get social 
+            public function get_social()
+            {
+                $this->sql = "SELECT * FROM `social`";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return $this->result;
+                }else{
+                    return false;
+                }
+            }
             // ======================= total data count ===================
             // total banner
             public function total_banner()
