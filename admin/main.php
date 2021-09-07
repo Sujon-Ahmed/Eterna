@@ -1461,6 +1461,18 @@
                       return false;
                   } 
               }
+            //   ================== manage social ==============
+            // insert social 
+            public function insert_social($name,$icon,$link)
+            {
+                $this->sql = "INSERT INTO `social`(`social_name`, `social_icon`, `social_link`) VALUES ('$name','$icon','$link')";
+                $this->result = $this->con->query($this->sql);
+                if($this->result == true){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
             // ======================= total data count ===================
             // total banner
             public function total_banner()

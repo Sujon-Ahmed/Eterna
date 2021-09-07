@@ -343,6 +343,21 @@
                     </div>
                 </div>
             </li>
+            <hr class="sidebar-divider">
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFifteen"
+                    aria-expanded="true" aria-controls="collapseFifteen">
+                    <i class="fas fa-fw fa-envelope"></i>
+                    <span>Manage Social</span>
+                </a>
+                <div id="collapseFifteen" class="collapse <?php if($page == 'social'){echo 'show';} ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Social</h6>
+                        <a class="collapse-item <?php if($sub_page == 'brand'){echo 'active';} ?>" href="create_social.php">Social</a>
+                    </div>
+                </div>
+            </li>
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
