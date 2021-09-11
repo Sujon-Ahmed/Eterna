@@ -34,73 +34,81 @@
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-left-primary shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    Total Banner</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $get_total_banner; ?></div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-pager fa-2x text-gray-300"></i>
+                    <a style="text-decoration: none;" href="view_banner.php">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        Total Banner</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $get_total_banner; ?></div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-pager fa-2x text-gray-300"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-left-success shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                    Total Card</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $get_total_card; ?></div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-credit-card fa-2x text-gray-300"></i>
+                    <a style="text-decoration: none;" href="view_card.php">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                        Total Card</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $get_total_card; ?></div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-credit-card fa-2x text-gray-300"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-left-info shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total Services
-                                </div>
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col-auto">
-                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $get_total_services; ?></div>
+                    <a style="text-decoration: none;" href="view_service.php">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total Services
+                                    </div>
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col-auto">
+                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $get_total_services; ?></div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-hand-holding-medical fa-2x text-gray-300"></i>
+                                <div class="col-auto">
+                                    <i class="fas fa-hand-holding-medical fa-2x text-gray-300"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
             <!-- Pending Requests Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-left-warning shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                    Total Clients</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $get_total_clients; ?></div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-copyright fa-2x text-gray-300"></i>
+                    <a style="text-decoration: none;" href="view_brand.php">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                        Total Clients</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $get_total_clients; ?></div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-copyright fa-2x text-gray-300"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -108,73 +116,81 @@
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-left-primary shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    Total Subscribers</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $get_total_subscribers; ?></div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-bell fa-2x text-gray-300"></i>
+                    <a style="text-decoration: none;" href="view_subscriber.php">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        Total Subscribers</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $get_total_subscribers; ?></div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-bell fa-2x text-gray-300"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-left-success shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                    Total About Card</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $get_about_card; ?></div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-id-card-alt fa-2x text-gray-300"></i>
+                    <a style="text-decoration: none;" href="view_abs.php">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                        Total About Card</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $get_about_card; ?></div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-id-card-alt fa-2x text-gray-300"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-left-info shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total Testimonials
-                                </div>
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col-auto">
-                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $get_total_testimonial; ?></div>
+                    <a style="text-decoration: none;" href="view_testimonial.php">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total Testimonials
+                                    </div>
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col-auto">
+                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $get_total_testimonial; ?></div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-user-edit fa-2x text-gray-300"></i>
+                                <div class="col-auto">
+                                    <i class="fas fa-user-edit fa-2x text-gray-300"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
             <!-- Pending Requests Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-left-warning shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                    Total Skills</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $get_total_skills; ?></div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-user-graduate fa-2x text-gray-300"></i>
+                    <a style="text-decoration: none;" href="view_progress.php">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                        Total Skills</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $get_total_skills; ?></div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-user-graduate fa-2x text-gray-300"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -182,73 +198,81 @@
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-left-primary shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                    Total Portfolio</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $get_total_portfolio; ?></div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-images fa-2x text-gray-300"></i>
+                    <a style="text-decoration: none;" href="view_port_image.php">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                        Total Portfolio</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $get_total_portfolio; ?></div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-images fa-2x text-gray-300"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-left-success shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                    Total Team Member</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $get_total_team_member; ?></div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-users fa-2x text-gray-300"></i>
+                    <a style="text-decoration: none;" href="view_team.php">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                        Total Team Member</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $get_total_team_member; ?></div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-users fa-2x text-gray-300"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-left-info shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total Blog Post
-                                </div>
-                                <div class="row no-gutters align-items-center">
-                                    <div class="col-auto">
-                                        <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $get_total_blog; ?></div>
+                    <a style="text-decoration: none;" href="view_b_post.php">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total Blog Post
+                                    </div>
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col-auto">
+                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $get_total_blog; ?></div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-blog fa-2x text-gray-300"></i>
+                                <div class="col-auto">
+                                    <i class="fas fa-blog fa-2x text-gray-300"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
             <!-- Pending Requests Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-left-warning shadow h-100 py-2">
-                    <div class="card-body">
-                        <div class="row no-gutters align-items-center">
-                            <div class="col mr-2">
-                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                    Total Message</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $get_total_message; ?></div>
-                            </div>
-                            <div class="col-auto">
-                                <i class="fas fa-comments fa-2x text-gray-300"></i>
+                    <a style="text-decoration: none;" href="view_msg.php">
+                        <div class="card-body">
+                            <div class="row no-gutters align-items-center">
+                                <div class="col mr-2">
+                                    <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                        Total Message</div>
+                                    <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $get_total_message; ?></div>
+                                </div>
+                                <div class="col-auto">
+                                    <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>

@@ -311,7 +311,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThirteen"
                     aria-expanded="true" aria-controls="collapseThirteen">
-                    <i class="fas fa-fw fa-envelope"></i>
+                    <i class="fas fa-fw fa-dollar-sign"></i>
                     <span>Manage Pricing</span>
                 </a>
                 <div id="collapseThirteen" class="collapse <?php if($page == 'pricing'){echo 'show';} ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -326,7 +326,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFourteen"
                     aria-expanded="true" aria-controls="collapseFourteen">
-                    <i class="fas fa-fw fa-envelope"></i>
+                    <i class="fas fa-fw fa-map-marker-alt"></i>
                     <span>Manage Location</span>
                 </a>
                 <div id="collapseFourteen" class="collapse <?php if($page == 'address'){echo 'show';} ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
@@ -341,7 +341,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFifteen"
                     aria-expanded="true" aria-controls="collapseFifteen">
-                    <i class="fas fa-fw fa-envelope"></i>
+                    <i class="fas fa-fw fa-share-alt"></i>
                     <span>Manage Social</span>
                 </a>
                 <div id="collapseFifteen" class="collapse <?php if($page == 'social'){echo 'show';} ?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">

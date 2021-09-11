@@ -119,9 +119,7 @@
                       <img src="<?php echo 'admin/uploads/testimonial/'.$row_test->test_img; ?>" class="testimonial-img" alt="">
                       <h3><?php echo $row_test->test_name; ?></h3>
                       <h4><?php echo $row_test->test_profession; ?></h4>
-                      <p>
-                        <?php if(!empty($row_test->test_msg)){echo $row_test->test_msg;} ?>
-                      </p>
+                      <p><?php if(!empty($row_test->test_msg)){echo $row_test->test_msg;} ?></p>
                     </div>
                   </div>
                 <?php
