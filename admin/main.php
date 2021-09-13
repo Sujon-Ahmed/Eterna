@@ -340,6 +340,16 @@
                 return false;
             }
         }
+         // service delete
+         public function delete_services($id){
+            $this->sql = "DELETE FROM `services` WHERE service_id = '$id'";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return true;
+            }else{
+                return false;
+            }
+        }
         // ============== client section ===============
         // insert client description
         public function insert_client_desc($author,$client_desc){

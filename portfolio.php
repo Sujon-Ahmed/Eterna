@@ -44,7 +44,7 @@
                             <h4><?php echo $img_row->portfolio_title; ?></h4>
                             <p><?php echo $img_row->portfolio_title; ?></p>
                             <div class="portfolio-links">
-                              <a href="<?php echo 'admin/uploads/portfolio/'.$img_row->portfolio_image; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                              <a href="<?php echo 'admin/uploads/portfolio/'.$img_row->portfolio_image; ?>" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Image"><i class="bx bx-plus"></i></a>
                               <a href="portfolio-details.php" title="More Details"><i class="bx bx-link"></i></a>
                             </div>
                           </div>
