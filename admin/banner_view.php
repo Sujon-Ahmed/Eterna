@@ -10,7 +10,7 @@
                 $title = $banners->banner_title;
                 $image = $banners->banner_img;
                 $desc = $banners->banner_desc;
-                $author = $banners->admin_name;
+                // $author = $banners->admin_name;
             }
         }
     }
@@ -54,7 +54,7 @@
                             }
                         ?>
 
-                        <cite>___ <?php echo $author; ?></cite>
+                        <!-- <cite>___ <?php echo $author; ?></cite> -->
                     </div>
                 </div>
             </div>

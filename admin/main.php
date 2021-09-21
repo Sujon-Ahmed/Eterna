@@ -102,8 +102,7 @@
         }
         // get_banner
         public function get_banner($id){
-            $this->sql = "SELECT banner.*,admin.admin_id,admin.admin_name,admin.admin_photo FROM banner
-            JOIN admin ON banner.author_id = admin.admin_id WHERE author_id = '$id' ORDER BY banner_id DESC";
+            $this->sql = "SELECT * FROM `banner` ORDER BY banner_id DESC";
             $this->result = $this->con->query($this->sql);
             if($this->result == true){
                 return $this->result;
@@ -113,7 +112,7 @@
         }
         //get_single_banner
         public function get_single_banner($id){
-            $this->sql = "SELECT banner.*,admin.admin_id,admin.admin_name FROM banner JOIN admin ON banner.author_id = admin.admin_id WHERE banner_id = '$id'";
+            $this->sql = "SELECT * FROM `banner` WHERE banner_id = '$id'";
             $this->result = $this->con->query($this->sql);
             if($this->result == true){
                 return $this->result;
