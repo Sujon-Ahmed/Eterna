@@ -47,6 +47,26 @@
                 return false;
             }
         }
+        // password retrive
+        public function password_retrive($id){
+            $this->sql ="SELECT * FROM `admin` WHERE admin_id = '$id'";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return $this->result;
+            }else{
+                return false;
+            }
+        }
+         // change password
+         public function change_pass($id, $new_pass){
+            $this->sql ="UPDATE `admin` SET `admin_password`='$new_pass' WHERE admin_id = '$id'";
+            $this->result = $this->con->query($this->sql);
+            if($this->result == true){
+                return true;
+            }else{
+                return false;
+            }
+        }
         // update profile
         public function update_profile($id,$oldphoto,$name,$email,$phone,$about) {
             $this->sql = "UPDATE `admin` SET `admin_name`='$name',`admin_email`='$email',`admin_about`='$about',`admin_phone`='$phone',`admin_photo`='$oldphoto' WHERE admin_id = '$id'";

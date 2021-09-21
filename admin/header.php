@@ -555,9 +555,9 @@
                                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Settings
                                 </a>
-                                <a class="dropdown-item" href="#">
-                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Activity Log
+                                <a class="dropdown-item" href="change_password.php">
+                                    <i class="fas fa-key fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Change password
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" onclick="javascript:return confirm('Leave this page!')" href="logout.php">
