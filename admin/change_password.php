@@ -85,6 +85,7 @@
                                             <input type="password" name="new_password" class="form-control form-control-user" id="inputPassword" placeholder="New Password" data-parsley-trigger="keyup" data-parsley-minlength="6" required>
                                         </div>
                                         <input type="submit" name="submit" class="btn btn-primary btn-user btn-block" value="Update">
+                                        <a title="Home Page" href="index.php" class="btn btn-primary btn-sm py-1 mt-4"><i class="fa fa-home"></i> Home</a>
                                     </form>
                                 </div>
                             </div>
