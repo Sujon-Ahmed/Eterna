@@ -141,8 +141,8 @@
             }
         }
         // update with photo
-        public function update_with_photo_banner($author_id,$title,$banner_body,$fileNewName,$banner_id) {
-            $this->sql = "UPDATE `banner` SET `author_id`='$author_id',`banner_title`='$title',`banner_desc`='$banner_body',`banner_img`='$fileNewName' WHERE banner_id = '$banner_id'";
+        public function update_with_photo_banner($title,$banner_body,$fileNewName,$banner_id) {
+            $this->sql = "UPDATE `banner` SET `banner_title`='$title',`banner_desc`='$banner_body',`banner_img`='$fileNewName' WHERE banner_id = '$banner_id'";
 
             $this->result = $this->con->query($this->sql);
             if($this->result == true) {
@@ -154,8 +154,8 @@
             }
         }
         // update without photo
-        public function update_without_photo_banner($author_id,$title,$banner_body,$oldphoto,$banner_id) {
-            $this->sql = "UPDATE `banner` SET `author_id`='$author_id',`banner_title`='$title',`banner_desc`='$banner_body',`banner_img`='$oldphoto' WHERE banner_id = '$banner_id'";
+        public function update_without_photo_banner($title,$banner_body,$oldphoto,$banner_id) {
+            $this->sql = "UPDATE `banner` SET `banner_title`='$title',`banner_desc`='$banner_body',`banner_img`='$oldphoto' WHERE banner_id = '$banner_id'";
 
             $this->result = $this->con->query($this->sql);
             if($this->result == true) {

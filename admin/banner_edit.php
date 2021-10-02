@@ -9,7 +9,7 @@
                 $title = $banners->banner_title;
                 $image = $banners->banner_img;
                 $body = $banners->banner_desc;
-                $author = $banners->admin_name;
+                // $author = $banners->admin_name;
             }
         }
     }
