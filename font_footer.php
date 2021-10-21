@@ -82,7 +82,7 @@
     <!-- You can delete the links only if you purchased the pro version. -->
     <!-- Licensing information: https://bootstrapmade.com/license/ -->
     <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/eterna-free-multipurpose-bootstrap-template/ -->
-    This Project Develop by <a href="https://github.com/Sujon-Ahmed">Sujon Ahmed</a>
+    This Project Develop by <a target="_blank" href="https://github.com/Sujon-Ahmed">Sujon Ahmed</a>
   </div>
 </div>
 </footer><!-- End Footer -->
