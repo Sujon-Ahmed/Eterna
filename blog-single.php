@@ -76,13 +76,13 @@
 
             </article><!-- End blog entry -->
             
-            <div class="blog-author d-flex align-items-center">
+            <div class="blog-author">
               <div>
                 <h4>Comments</h4>
                 <div>
-                <div class="fb-comments" data-href="http://localhost/eterna/blog-single.php?id=1" data-width="" data-numposts="5"></div>
-                  <!-- <div class="fb-comments" data-href="http://localhost/Eterna/blog-single.php?id=<?php echo $_GET['id']; ?>" data-width="" data-numposts="5"></div> -->
+                  <div class="fb-comments" data-href="https://developers.facebook.com/localhost/eterna/blog-single.php?id=<?php echo $_GET['id']; ?>" data-width="100%" data-numposts="5"></div>
                 </div>
+                
               </div>
             </div><!-- End blog author bio -->
 
