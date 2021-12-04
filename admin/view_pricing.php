@@ -48,7 +48,6 @@
                                     <th>Price</th>
                                     <th>Created_at</th>
                                     <th>Edit</th>
-                                    <th>View</th>
                                     <th>Delete</th>
                                 </tr>
                             </thead>
@@ -65,10 +64,8 @@
                                                 <td><?php echo date('M-d-Y h:i A',strtotime($row->pricing_created)); ?></td>
                                                 <!-- edit -->
                                                 <td><a href="edit_pricing.php?id=<?php echo $row->pricing_id; ?>" class="btn btn-primary btn-sm">Edit</a></td>
-                                                <!-- details -->
-                                                <td><a href="details_pricing.php?id=<?php echo $row->pricing_id; ?>" class="btn btn-success btn-sm">View</a></td>
                                                 <!-- delete -->
-                                                <td><a href="delete_pricing.php?id=<?php echo $row->pricing_id; ?>" class="btn btn-danger btn-sm">Delete</a></td>
+                                                <td><a onclick="javascript:return confirm('Are you Sure?')" href="delete_pricing.php?id=<?php echo $row->pricing_id; ?>" class="btn btn-danger btn-sm">Delete</a></td>
                                             </tr>
                                         <?php
                                         $si++;

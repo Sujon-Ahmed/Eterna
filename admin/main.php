@@ -1445,6 +1445,16 @@
                      return false;
                  }
             }
+            // delete pricing table plan
+            public function delete_pricing_plan($id) {
+                $this->sql = "DELETE FROM `pricing` WHERE `pricing_id` = '$id'";
+                $this->result = $this->con->query($this->sql);
+                if ($this->result == true) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
             // =============== address =================
             // insert address
             public function insert_address($title,$map)
