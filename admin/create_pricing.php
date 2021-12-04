@@ -43,7 +43,7 @@
                     <div class="card-body">
                         <!-- title -->
                         <label class="mb-2 mt-2" for="pricing_title">Pricing Title</label>
-                        <input type="text" name="title" id="pricing_title" class="form-control" placeholder="Card title here" required />
+                        <input type="text" name="title" id="pricing_title" class="form-control" placeholder="Pricing title here" required />
                         <!-- price -->
                         <label class="mb-2 mt-2" for="pricing_price">Pricing Price</label>
                         <input type="number" name="price" id="pricing_price" class="form-control" placeholder="Pricing Price" required />
