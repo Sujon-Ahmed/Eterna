@@ -20,9 +20,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>SB Admin 2 - Dashboard</title>
+    <meta name="description" content="HTML, CSS, Bootstrap, Javascript, PHP, Eterna, Blogging site">
+    <meta name="author" content="Sujon Ahmed">
+    <link href="../admin/img/favicon/favicon.png" rel="icon">
+    <title>Eterna - Dashboard</title>
      <!-- Custom fonts for this template-->
      <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
         <link
@@ -58,10 +59,10 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
-                <div class="sidebar-brand-icon rotate-n-15">
+                <!-- <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3"> ETERNA</div>
+                </div> -->
+                <div class="sidebar-brand-text"><img src="../admin/img/favicon/favicon.png" class="img-fluid" alt="" width="100px" height="auto"> ETERNA</div>
             </a>
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
@@ -356,11 +357,11 @@
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
             <!-- Sidebar Message -->
-            <div class="sidebar-card d-none d-lg-flex">
+            <!-- <div class="sidebar-card d-none d-lg-flex">
                 <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
                 <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
                 <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-            </div>
+            </div> -->
         </ul>
         <!-- End of Sidebar -->
         <!-- Content Wrapper -->
