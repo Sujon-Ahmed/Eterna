@@ -1174,7 +1174,7 @@
             // get category 
             public function get_cat()
             {
-                $this->sql = "SELECT * FROM `blog_category";
+                $this->sql = "SELECT * FROM blog_category";
                   $this->result = $this->con->query($this->sql);
                   if($this->result == true){
                       return $this->result;
