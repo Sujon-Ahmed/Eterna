@@ -36,7 +36,7 @@
                                 Flash_data::success("Banner update SuccessFully");
                                 header('location:banner_edit.php?id='.$banner_id);
                             }else{
-                                Flash_data::error("Some Went Worng.Please Try Again");
+                                Flash_data::error("Something Went Wrong!");
                                 header('location:banner_edit.php?id='.$banner_id);
                             }
                         }

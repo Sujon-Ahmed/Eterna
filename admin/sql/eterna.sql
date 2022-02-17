@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 10, 2021 at 03:31 PM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.8
+-- Generation Time: Feb 17, 2022 at 07:30 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -42,8 +41,7 @@ CREATE TABLE `about` (
 --
 
 INSERT INTO `about` (`about_id`, `author_id`, `about_image`, `about_title`, `about_desc`, `about_created_at`) VALUES
-(1, 1, '612646905adc44.74223544.jpg', 'hello world this is a title', '<p><span style=\"color: rgb(68, 68, 68); font-family: \" open=\"\" sans\",=\"\" sans-serif;\"=\"\">Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</span></p><ol><li><span style=\"\" open=\"\" sans\",=\"\" sans-serif;\"=\"\"><b style=\"\"><font color=\"#424242\">This is li list one</font></b></span></li><li><span style=\"\" open=\"\" sans\",=\"\" sans-serif;\"=\"\"><b><font color=\"#424242\">This is li list two</font></b></span></li><li><span style=\"\" open=\"\" sans\",=\"\" sans-serif;\"=\"\"><b style=\"\"><font color=\"#424242\">This is li list of three</font></b></span></li></ol><p><span style=\"\" open=\"\" sans\",=\"\" sans-serif;\"=\"\">My Website link</span></p><p><a href=\"http://sujonahmed.epizy.com/\" target=\"_blank\">sujonahmed.com</a><br></p>', '2021-08-20 10:54:04'),
-(3, 1, '611fc645f0cd44.45609426.png', 'This is a title', '<p><span style=\"color: rgb(68, 68, 68); font-family: \"Open Sans\", sans-serif;\">Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</span><br></p>', '2021-08-20 21:12:05');
+(1, 2, '620e8b290587f4.19351748.jpg', 'hello world this is a title', '<p><span style=\"color: rgb(68, 68, 68); font-family: \" open=\"\" sans\",=\"\" sans-serif;\"=\"\">Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</span></p><ol><li><span style=\"\" open=\"\" sans\",=\"\" sans-serif;\"=\"\"><b style=\"\"><font color=\"#424242\">This is li list one</font></b></span></li><li><span style=\"\" open=\"\" sans\",=\"\" sans-serif;\"=\"\"><b><font color=\"#424242\">This is li list two</font></b></span></li><li><span style=\"\" open=\"\" sans\",=\"\" sans-serif;\"=\"\"><b style=\"\"><font color=\"#424242\">This is li list of three</font></b></span></li></ol>', '2021-08-20 10:54:04');
 
 -- --------------------------------------------------------
 
@@ -112,7 +110,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_id`, `admin_name`, `admin_email`, `admin_password`, `admin_about`, `admin_phone`, `admin_photo`, `admin_created_at`) VALUES
-(1, 'Sujon Ahmed', 'admin@gmail.com', 'e00cf25ad42683b3df678c61f42c6bda', 'Hi, I am Sujon Ahmed Riman', '01743405982', '611c78e3eaaf61.77361162.jpg', '2021-08-18 07:39:39');
+(3, 'Sujon Ahmed', 'sujonahmed@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Hi i am Sujon Ahmed a Full Stack Web Developer', '01743405982', '620e92df22caf0.31830136.jpg', '2022-02-18 00:23:06');
 
 -- --------------------------------------------------------
 
@@ -134,10 +132,8 @@ CREATE TABLE `banner` (
 --
 
 INSERT INTO `banner` (`banner_id`, `author_id`, `banner_title`, `banner_desc`, `banner_img`, `banner_careated_at`) VALUES
-(1, 1, 'Welcome to Eterna', '<p><span style=\"color: rgb(68, 68, 68); font-family: \"Open Sans\", sans-serif; text-align: center;\">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</span><br></p>', '6120d52a5bb7f7.91203384.png', '2021-08-18 14:08:28'),
-(2, 1, 'This is a title of blog', '<p><span style=\"color: rgb(68, 68, 68); font-family: \"Open Sans\", sans-serif; text-align: center;\">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</span><br></p>', '611cc04033a581.06943901.jpg', '2021-08-18 14:09:36'),
-(3, 1, 'This is title three', '<p><span style=\"color: rgb(68, 68, 68); font-family: \"Open Sans\", sans-serif; text-align: center;\">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</span><br></p>', '611cc062df7222.36503467.jpg', '2021-08-18 14:10:10'),
-(6, 1, 'About Eterna some', '<p><span style=\"color: rgb(68, 68, 68); font-family: \"Open Sans\", sans-serif; text-align: center;\">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</span><br></p>', '6120d58c020792.60901027.jpg', '2021-08-21 16:29:32');
+(8, 2, 'Welcome to Eterna', '<p><span style=\"text-align: center;\">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</span><br></p>', '620e921ed08b69.05969493.jpeg', '2022-02-18 00:21:18'),
+(10, 3, 'About Eterna', '<p><span style=\"text-align: center;\">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</span><br></p>', '620e9332cb53f5.94433205.png', '2022-02-18 00:25:54');
 
 -- --------------------------------------------------------
 
@@ -211,9 +207,7 @@ INSERT INTO `brands` (`brand_id`, `author_id`, `brand_img`, `brand_created_at`) 
 (5, 1, '612318e1aafba6.70002907.png', '2021-08-23 09:41:21'),
 (6, 1, '6123193110cc80.70068663.png', '2021-08-23 09:42:41'),
 (7, 1, '6123193c861db7.96889691.png', '2021-08-23 09:42:52'),
-(8, 1, '612319f8e16801.25463039.png', '2021-08-23 09:46:00'),
-(9, 1, '61231a132d5e83.59298293.png', '2021-08-23 09:46:27'),
-(11, 1, '61323f2e662ac5.47707090.png', '2021-09-03 21:28:46');
+(9, 1, '61231a132d5e83.59298293.png', '2021-08-23 09:46:27');
 
 -- --------------------------------------------------------
 
@@ -546,7 +540,7 @@ CREATE TABLE `testimonials` (
 INSERT INTO `testimonials` (`test_id`, `test_img`, `test_name`, `test_profession`, `test_msg`, `test_created_at`) VALUES
 (5, '61251c95f2cb61.17902623.jpg', 'Toukir Ahmed', 'Programmer', '<p><span style=\"color: rgb(68, 68, 68); font-family: &quot;Open Sans&quot;, sans-serif; font-style: italic;\">Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.&nbsp;</span><span class=\"bx bxs-quote-alt-right quote-icon-right\" style=\"font-variant-numeric: normal; font-variant-east-asian: normal; line-height: 1; display: inline-block; speak: none; -webkit-font-smoothing: antialiased; color: white; font-size: 26px; right: -5px; position: relative; top: 10px; font-family: boxicons !important;\"></span><br></p>', '2021-08-24 22:21:42'),
 (6, '61251cfe44fc09.71586415.jpg', 'Alamin Islam', 'Developer', '<p><span style=\"color: rgb(68, 68, 68); font-family: \"Open Sans\", sans-serif; font-style: italic;\">Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.Â </span><span class=\"bx bxs-quote-alt-right quote-icon-right\" style=\"font-variant-numeric: normal; font-variant-east-asian: normal; line-height: 1; display: inline-block; speak: none; -webkit-font-smoothing: antialiased; color: white; font-size: 26px; right: -5px; position: relative; top: 10px; font-family: boxicons !important;\"></span><br></p>', '2021-08-24 22:22:04'),
-(7, '61251f511bfe71.93660292.jpg', 'Md.Ashanaur Rahman', 'Developer', '<p><span style=\"color: rgb(68, 68, 68); font-family: &quot;Open Sans&quot;, sans-serif; font-style: italic;\">Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.&nbsp;</span><br></p>', '2021-08-24 22:33:21'),
+(7, '620e8b71c98fd7.41637282.jpg', 'Md.Ashanaur Rahman', 'Developer', '<p><span style=\"color: rgb(68, 68, 68); font-family: \"Open Sans\", sans-serif; font-style: italic;\">Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa. </span><br></p>', '2021-08-24 22:33:21'),
 (10, '61264d8db769e5.54469405.jpg', 'Sara Wilsson', 'Designer', '<p><span open=\"\" sans\",=\"\" sans-serif;=\"\" font-style:=\"\" italic;\"=\"\" style=\"color: rgb(68, 68, 68); font-family: &quot;Open Sans&quot;, sans-serif; font-style: italic;\">Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.&nbsp;</span><span class=\"bx bxs-quote-alt-right quote-icon-right\" style=\"font-variant-numeric: normal; font-variant-east-asian: normal; line-height: 1; display: inline-block; speak: none; -webkit-font-smoothing: antialiased; color: white; font-size: 26px; right: -5px; position: relative; top: 10px; font-family: boxicons !important;\"></span><br></p>', '2021-08-25 20:02:53');
 
 -- --------------------------------------------------------
@@ -744,13 +738,13 @@ ALTER TABLE `address`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `admin_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `banner`
 --
 ALTER TABLE `banner`
-  MODIFY `banner_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `banner_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `blog_category`
