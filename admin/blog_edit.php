@@ -58,7 +58,7 @@
                     <div class="card-body">
                         <!-- title -->
                         <label for="ab_title">Blog Title</label>
-                        <input type="text" name="blog_title" value="<?php echo $title; ?>" id="ab_title" class="form-control" placeholder="Blog Title" required />
+                        <input type="text" name="blog_title" value="<?= $title; ?>" id="ab_title" class="form-control" placeholder="Blog Title" required />
                         <!-- category -->
                         <!-- category -->
                         <label for="cat_name" class="mb-2 mt-2">Blog Category</label>

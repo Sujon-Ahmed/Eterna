@@ -37,7 +37,7 @@
                 return false;
             }
         }
-        // profile retrive
+        // profile retrieve
         public function profile_retrive($id){
             $this->sql ="SELECT * FROM `admin` WHERE admin_id = '$id'";
             $this->result = $this->con->query($this->sql);
@@ -47,7 +47,7 @@
                 return false;
             }
         }
-        // password retrive
+        // password retrieve
         public function password_retrive($id){
             $this->sql ="SELECT * FROM `admin` WHERE admin_id = '$id'";
             $this->result = $this->con->query($this->sql);
@@ -80,7 +80,7 @@
                 // echo 'ERROR';
             }
         }
-         // profile retrive for index
+         // profile retrieve for index
          public function profile_retrives(){
             $this->sql ="SELECT * FROM `admin`";
             $this->result = $this->con->query($this->sql);
