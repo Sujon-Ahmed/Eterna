@@ -1,1700 +1,1767 @@
 <?php
-    class Main{
-        protected $host = 'localhost';
-        protected $user = 'root';
-        protected $pass = '';
-        protected $db = 'eterna';
-        protected $con;
-        protected $sql;
-        protected $result;
-        // create connection
-        public function __construct()
-        {
-            $this->con = new mysqli($this->host,$this->user,$this->pass,$this->db);
-            // check connection
-            if($this->con->connect_error){
-                echo "connected error {$this->con->connect_error}";
-                die();
-            }
+class Main
+{
+    protected $host = 'localhost';
+    protected $user = 'root';
+    protected $pass = '';
+    protected $db = 'eterna';
+    protected $con;
+    protected $sql;
+    protected $result;
+    // create connection
+    public function __construct()
+    {
+        $this->con = new mysqli($this->host, $this->user, $this->pass, $this->db);
+        // check connection
+        if ($this->con->connect_error) {
+            echo "connected error {$this->con->connect_error}";
+            die();
         }
-         // insert data
-         public function register($name,$email,$password){
-            $this->sql ="INSERT INTO `admin`(`admin_name`, `admin_email`, `admin_password`) VALUES ('$name','$email','$password')";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return true;
-            }else{
-                return false;
-            }
+    }
+    // insert data
+    public function register($name, $email, $password)
+    {
+        $this->sql = "INSERT INTO `admin`(`admin_name`, `admin_email`, `admin_password`) VALUES ('$name','$email','$password')";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
         }
-        // check email
-        public function check_email($email){
-            $this->sql ="SELECT * FROM `admin` WHERE admin_email = '$email'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // check email
+    public function check_email($email)
+    {
+        $this->sql = "SELECT * FROM `admin` WHERE admin_email = '$email'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // profile retrieve
-        public function profile_retrive($id){
-            $this->sql ="SELECT * FROM `admin` WHERE admin_id = '$id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // profile retrieve
+    public function profile_retrive($id)
+    {
+        $this->sql = "SELECT * FROM `admin` WHERE admin_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // password retrieve
-        public function password_retrive($id){
-            $this->sql ="SELECT * FROM `admin` WHERE admin_id = '$id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // password retrieve
+    public function password_retrive($id)
+    {
+        $this->sql = "SELECT * FROM `admin` WHERE admin_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-         // change password
-         public function change_pass($id, $new_pass){
-            $this->sql ="UPDATE `admin` SET `admin_password`='$new_pass' WHERE admin_id = '$id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return true;
-            }else{
-                return false;
-            }
+    }
+    // change password
+    public function change_pass($id, $new_pass)
+    {
+        $this->sql = "UPDATE `admin` SET `admin_password`='$new_pass' WHERE admin_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
         }
-        // update profile
-        public function update_profile($id,$oldphoto,$name,$email,$phone,$about) {
-            $this->sql = "UPDATE `admin` SET `admin_name`='$name',`admin_email`='$email',`admin_about`='$about',`admin_phone`='$phone',`admin_photo`='$oldphoto' WHERE admin_id = '$id'";
+    }
+    // update profile
+    public function update_profile($id, $oldphoto, $name, $email, $phone, $about)
+    {
+        $this->sql = "UPDATE `admin` SET `admin_name`='$name',`admin_email`='$email',`admin_about`='$about',`admin_phone`='$phone',`admin_photo`='$oldphoto' WHERE admin_id = '$id'";
 
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true) {
-                return true;
-                // echo 'OK';
-            }else{
-                return false;
-                // echo 'ERROR';
-            }
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+            // echo 'OK';
+        } else {
+            return false;
+            // echo 'ERROR';
         }
-         // profile retrieve for index
-         public function profile_retrives(){
-            $this->sql ="SELECT * FROM `admin`";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // profile retrieve for index
+    public function profile_retrives()
+    {
+        $this->sql = "SELECT * FROM `admin`";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // create_banner
-        public function banner_create($author_id,$banner_title,$banner_desc,$fileNewName){
-            $this->sql ="INSERT INTO `banner`(`author_id`, `banner_title`, `banner_desc`, `banner_img`) VALUES ('$author_id','$banner_title','$banner_desc','$fileNewName')";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return true;
-            }else{
-                return false;
-            }
+    }
+    // create_banner
+    public function banner_create($author_id, $banner_title, $banner_desc, $fileNewName)
+    {
+        $this->sql = "INSERT INTO `banner`(`author_id`, `banner_title`, `banner_desc`, `banner_img`) VALUES ('$author_id','$banner_title','$banner_desc','$fileNewName')";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
         }
-        // get_banner
-        public function get_banner($id){
-            $this->sql = "SELECT * FROM `banner` ORDER BY `banner_id` DESC";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // get_banner
+    public function get_banner($id)
+    {
+        $this->sql = "SELECT * FROM `banner` ORDER BY `banner_id` DESC";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        //get_single_banner
-        public function get_single_banner($id){
-            $this->sql = "SELECT * FROM `banner` WHERE `banner_id` = '$id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    //get_single_banner
+    public function get_single_banner($id)
+    {
+        $this->sql = "SELECT * FROM `banner` WHERE `banner_id` = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // get banner id
-        public function get_banner_id($id){
-            $this->sql = "SELECT * FROM `banner` WHERE `banner_id` = '$id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // get banner id
+    public function get_banner_id($id)
+    {
+        $this->sql = "SELECT * FROM `banner` WHERE `banner_id` = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // delete banner
-        public function delete_banner($id){
-            $this->sql = "DELETE FROM `banner` WHERE `banner_id` = '$id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // delete banner
+    public function delete_banner($id)
+    {
+        $this->sql = "DELETE FROM `banner` WHERE `banner_id` = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // update with photo
-        public function update_with_photo_banner($title,$banner_body,$fileNewName,$banner_id) {
-            $this->sql = "UPDATE `banner` SET `banner_title`='$title',`banner_desc`='$banner_body',`banner_img`='$fileNewName' WHERE `banner_id` = '$banner_id'";
+    }
+    // update with photo
+    public function update_with_photo_banner($title, $banner_body, $fileNewName, $banner_id)
+    {
+        $this->sql = "UPDATE `banner` SET `banner_title`='$title',`banner_desc`='$banner_body',`banner_img`='$fileNewName' WHERE `banner_id` = '$banner_id'";
 
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true) {
-                return true;
-                // echo 'OK';
-            }else{
-                return false;
-                // echo 'ERROR';
-            }
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+            // echo 'OK';
+        } else {
+            return false;
+            // echo 'ERROR';
         }
-        // update without photo
-        public function update_without_photo_banner($title,$banner_body,$oldphoto,$banner_id) {
-            $this->sql = "UPDATE `banner` SET `banner_title`='$title',`banner_desc`='$banner_body',`banner_img`='$oldphoto' WHERE `banner_id` = '$banner_id'";
+    }
+    // update without photo
+    public function update_without_photo_banner($title, $banner_body, $oldphoto, $banner_id)
+    {
+        $this->sql = "UPDATE `banner` SET `banner_title`='$title',`banner_desc`='$banner_body',`banner_img`='$oldphoto' WHERE `banner_id` = '$banner_id'";
 
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true) {
-                return true;
-                // echo 'OK';
-            }else{
-                return false;
-                // echo 'ERROR';
-            }
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+            // echo 'OK';
+        } else {
+            return false;
+            // echo 'ERROR';
         }
-        // get banner id
-        public function get_banner_data(){
-            $this->sql = "SELECT * FROM `banner`";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // get banner id
+    public function get_banner_data()
+    {
+        $this->sql = "SELECT * FROM `banner`";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // ================ card section ===========================
-        // insert card
-        public function insert_card($card_icon,$card_title,$card_desc){
-            $this->sql = "INSERT INTO `card`(`card_icon`, `card_title`, `card_desc`) VALUES ('$card_icon','$card_title','$card_desc')";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return true;
-            }else{
-                return false;
-            }
+    }
+    // ================ card section ===========================
+    // insert card
+    public function insert_card($card_icon, $card_title, $card_desc)
+    {
+        $this->sql = "INSERT INTO `card`(`card_icon`, `card_title`, `card_desc`) VALUES ('$card_icon','$card_title','$card_desc')";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
         }
-        // get data
-        public function get_data(){
-            $this->sql = "SELECT * FROM `card`";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // get data
+    public function get_data()
+    {
+        $this->sql = "SELECT * FROM `card`";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // card details
-        public function card_details($id){
-            $this->sql = "SELECT * FROM `card` WHERE card_id = '$id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // card details
+    public function card_details($id)
+    {
+        $this->sql = "SELECT * FROM `card` WHERE card_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // card update
-        public function card_update($id,$icon,$title,$body){
-            $this->sql = "UPDATE `card` SET `card_icon`='$icon',`card_title`='$title',`card_desc`='$body' WHERE card_id = '$id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return true;
-            }else{
-                return false;
-            }
+    }
+    // card update
+    public function card_update($id, $icon, $title, $body)
+    {
+        $this->sql = "UPDATE `card` SET `card_icon`='$icon',`card_title`='$title',`card_desc`='$body' WHERE card_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
         }
-        // card delete
-        public function card_delete($id){
-            $this->sql = "DELETE FROM `card` WHERE card_id = '$id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return true;
-            }else{
-                return false;
-            }
+    }
+    // card delete
+    public function card_delete($id)
+    {
+        $this->sql = "DELETE FROM `card` WHERE card_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
         }
-        // get limit
-         public function get_data_limit(){
-            $this->sql = "SELECT * FROM `card` LIMIT 3";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
-         }
-        // ============= about section====================
-        // insert about
-        public function about_create($author_id,$about_title,$about_desc,$fileNewName){
-            $this->sql = "INSERT INTO `about`(`author_id`, `about_image`, `about_title`, `about_desc`) VALUES ('$author_id','$fileNewName','$about_title','$about_desc')";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // get limit
+    public function get_data_limit()
+    {
+        $this->sql = "SELECT * FROM `card` LIMIT 3";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // get about data
-        public function get_about(){
-            $this->sql = "SELECT * FROM `about`";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // ============= about section====================
+    // insert about
+    public function about_create($author_id, $about_title, $about_desc, $fileNewName)
+    {
+        $this->sql = "INSERT INTO `about`(`author_id`, `about_image`, `about_title`, `about_desc`) VALUES ('$author_id','$fileNewName','$about_title','$about_desc')";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // get about with id
-        public function get_about_details($id){
-            $this->sql = "SELECT * FROM `about` WHERE about_id = '$id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // get about data
+    public function get_about()
+    {
+        $this->sql = "SELECT * FROM `about`";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // update with photo
-        public function update_with_photo_about($author_id,$title,$body,$fileNewName,$about_id){
-            $this->sql = "UPDATE `about` SET `author_id`='$author_id',`about_image`='$fileNewName',`about_title`='$title',`about_desc`='$body' WHERE about_id = '$about_id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return true;
-            }else{
-                return false;
-            }
+    }
+    // get about with id
+    public function get_about_details($id)
+    {
+        $this->sql = "SELECT * FROM `about` WHERE about_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-         // update without photo
-         public function update_without_photo_about($author_id,$title,$body,$oldphoto,$about_id){
-            $this->sql = "UPDATE `about` SET `author_id`='$author_id',`about_image`='$oldphoto',`about_title`='$title',`about_desc`='$body' WHERE about_id = '$about_id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return true;
-            }else{
-                return false;
-            }
+    }
+    // update with photo
+    public function update_with_photo_about($author_id, $title, $body, $fileNewName, $about_id)
+    {
+        $this->sql = "UPDATE `about` SET `author_id`='$author_id',`about_image`='$fileNewName',`about_title`='$title',`about_desc`='$body' WHERE about_id = '$about_id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
         }
-        // delete about section
-        public function delete_about($id){
-            $this->sql = "DELETE FROM `about` WHERE about_id = '$id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return true;
-            }else{
-                return false;
-            }
+    }
+    // update without photo
+    public function update_without_photo_about($author_id, $title, $body, $oldphoto, $about_id)
+    {
+        $this->sql = "UPDATE `about` SET `author_id`='$author_id',`about_image`='$oldphoto',`about_title`='$title',`about_desc`='$body' WHERE about_id = '$about_id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
         }
-        // get about data with limit
-        public function get_about_data(){
-            $this->sql = "SELECT * FROM `about` LIMIT 1";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // delete about section
+    public function delete_about($id)
+    {
+        $this->sql = "DELETE FROM `about` WHERE about_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
         }
-        // =============== service section ====================
-        // insert service
-        public function insert_service($author_id,$icon,$title,$body){
-            $this->sql = "INSERT INTO `services`(`author_id`, `service_icon`, `service_title`, `service_desc`) VALUES ('$author_id','$icon','$title','$body')";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // get about data with limit
+    public function get_about_data()
+    {
+        $this->sql = "SELECT * FROM `about` LIMIT 1";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // get service
-        public function get_service(){
-            $this->sql = "SELECT * FROM `services`";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // =============== service section ====================
+    // insert service
+    public function insert_service($author_id, $icon, $title, $body)
+    {
+        $this->sql = "INSERT INTO `services`(`author_id`, `service_icon`, `service_title`, `service_desc`) VALUES ('$author_id','$icon','$title','$body')";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // service details
-        public function service_details($id){
-            $this->sql = "SELECT * FROM `services` WHERE service_id = '$id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // get service
+    public function get_service()
+    {
+        $this->sql = "SELECT * FROM `services`";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // service update
-        public function ser_update($author,$id,$icon,$title,$body){
-            $this->sql = "UPDATE `services` SET `author_id`='$author',`service_icon`='$icon',`service_title`='$title',`service_desc`='$body' WHERE service_id = '$id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return true;
-            }else{
-                return false;
-            }
+    }
+    // service details
+    public function service_details($id)
+    {
+        $this->sql = "SELECT * FROM `services` WHERE service_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-         // get service with limit
-         public function get_service_limit(){
-            $this->sql = "SELECT * FROM `services` LIMIT 6";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // service update
+    public function ser_update($author, $id, $icon, $title, $body)
+    {
+        $this->sql = "UPDATE `services` SET `author_id`='$author',`service_icon`='$icon',`service_title`='$title',`service_desc`='$body' WHERE service_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
         }
-         // service delete
-         public function delete_services($id){
-            $this->sql = "DELETE FROM `services` WHERE service_id = '$id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return true;
-            }else{
-                return false;
-            }
+    }
+    // get service with limit
+    public function get_service_limit()
+    {
+        $this->sql = "SELECT * FROM `services` LIMIT 6";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // ============== client section ===============
-        // insert client description
-        public function insert_client_desc($author,$client_desc){
-            $this->sql = "INSERT INTO `client_description`(`author_id`, `client_desc`) VALUES ('$author','$client_desc')";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // service delete
+    public function delete_services($id)
+    {
+        $this->sql = "DELETE FROM `services` WHERE service_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
         }
-        // get description with author
-        public function get_desc_with_author(){
-            $this->sql = "SELECT client_description.*,admin.admin_id,admin.admin_name FROM client_description JOIN admin ON client_description.author_id = admin.admin_id";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // ============== client section ===============
+    // insert client description
+    public function insert_client_desc($author, $client_desc)
+    {
+        $this->sql = "INSERT INTO `client_description`(`author_id`, `client_desc`) VALUES ('$author','$client_desc')";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // get description with author
-        public function get_desc_with_author_id($id){
-            $this->sql = "SELECT client_description.*,admin.admin_id,admin.admin_name FROM client_description JOIN admin ON client_description.author_id = admin.admin_id WHERE client_id = '$id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // get description with author
+    public function get_desc_with_author()
+    {
+        $this->sql = "SELECT client_description.*,admin.admin_id,admin.admin_name FROM client_description JOIN admin ON client_description.author_id = admin.admin_id";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // catch description
-        public function catch_desc(){
-            $this->sql = "SELECT * FROM `client_description` LIMIT 1";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // get description with author
+    public function get_desc_with_author_id($id)
+    {
+        $this->sql = "SELECT client_description.*,admin.admin_id,admin.admin_name FROM client_description JOIN admin ON client_description.author_id = admin.admin_id WHERE client_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // get desc
-         public function get_desc_data(){
-            $this->sql = "SELECT * FROM `client_description`";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // catch description
+    public function catch_desc()
+    {
+        $this->sql = "SELECT * FROM `client_description` LIMIT 1";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // update desc
-        public function update_desc($author,$id,$desc){
-            $this->sql = "UPDATE `client_description` SET `author_id`='$author',`client_desc`='$desc' WHERE client_id = '$id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return true;
-            }else{
-                return false;
-            }
+    }
+    // get desc
+    public function get_desc_data()
+    {
+        $this->sql = "SELECT * FROM `client_description`";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-         // get desc
-         public function get_desc($id){
-            $this->sql = "SELECT * FROM `client_description` WHERE client_id = '$id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // update desc
+    public function update_desc($author, $id, $desc)
+    {
+        $this->sql = "UPDATE `client_description` SET `author_id`='$author',`client_desc`='$desc' WHERE client_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
         }
-        // get desc
-        public function delete_desc($id){
-            $this->sql = "DELETE FROM `client_description` WHERE client_id = '$id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return true;
-            }else{
-                return false;
-            }
+    }
+    // get desc
+    public function get_desc($id)
+    {
+        $this->sql = "SELECT * FROM `client_description` WHERE client_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // insert brands image
-        public function insert_brands($fileNewName,$auth_id){
-            $this->sql = "INSERT INTO `brands`( `author_id`, `brand_img`) VALUES ('$auth_id','$fileNewName')";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // get desc
+    public function delete_desc($id)
+    {
+        $this->sql = "DELETE FROM `client_description` WHERE client_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
         }
-        // get brands data 
-        public function get_brands(){
-            $this->sql = "SELECT * FROM brands";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // insert brands image
+    public function insert_brands($fileNewName, $auth_id)
+    {
+        $this->sql = "INSERT INTO `brands`( `author_id`, `brand_img`) VALUES ('$auth_id','$fileNewName')";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // get brands id
-        public function get_brand_id($brand_id){
-            $this->sql = "SELECT * FROM `brands` WHERE brand_id = '$brand_id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // get brands data 
+    public function get_brands()
+    {
+        $this->sql = "SELECT * FROM brands";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-         // delete brands id
-         public function delete_brand($brand_id){
-            $this->sql = "DELETE FROM `brands` WHERE brand_id = '$brand_id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return true;
-            }else{
-                return false;
-            }
+    }
+    // get brands id
+    public function get_brand_id($brand_id)
+    {
+        $this->sql = "SELECT * FROM `brands` WHERE brand_id = '$brand_id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // subscribers
-        // insert
-        public function add_sub($email)
-        {
-            $this->sql = "INSERT INTO `subscribers`(`sub_email`) VALUES ('$email')";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // delete brands id
+    public function delete_brand($brand_id)
+    {
+        $this->sql = "DELETE FROM `brands` WHERE brand_id = '$brand_id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
         }
-        // get subscribers
-        public function get_subscriber()
-        {
-            $this->sql = "SELECT * FROM subscribers";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // subscribers
+    // insert
+    public function add_sub($email)
+    {
+        $this->sql = "INSERT INTO `subscribers`(`sub_email`) VALUES ('$email')";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // get subscriber id
-        public function get_sub_id($id)
-        {
-            $this->sql = "SELECT * FROM subscribers WHERE sub_id = '$id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // get subscribers
+    public function get_subscriber()
+    {
+        $this->sql = "SELECT * FROM subscribers";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // delete subscriber
-        public function delete_sub($id)
-        {
-            $this->sql = "DELETE FROM subscribers WHERE sub_id = '$id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return true;
-            }else{
-                return false;
-            }
+    }
+    // get subscriber id
+    public function get_sub_id($id)
+    {
+        $this->sql = "SELECT * FROM subscribers WHERE sub_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // =============== about page ================
-        // abs insert
-        public function insert_abs($icon,$value,$title,$body)
-        {
-            $this->sql = "INSERT INTO `abs`(`ab_icon`, `ab_max_value`, `ab_title`, `ab_desc`) VALUES ('$icon','$value','$title','$body')";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // delete subscriber
+    public function delete_sub($id)
+    {
+        $this->sql = "DELETE FROM subscribers WHERE sub_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
         }
-        // get about data 
-        public function get_abs_card()
-        {
-            $this->sql = "SELECT * FROM `abs`";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // =============== about page ================
+    // abs insert
+    public function insert_abs($icon, $value, $title, $body)
+    {
+        $this->sql = "INSERT INTO `abs`(`ab_icon`, `ab_max_value`, `ab_title`, `ab_desc`) VALUES ('$icon','$value','$title','$body')";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // get card with limit 
-        public function get_card_limit()
-        {
-            $this->sql = "SELECT * FROM `abs` LIMIT 4";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // get about data 
+    public function get_abs_card()
+    {
+        $this->sql = "SELECT * FROM `abs`";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // get card details
-        public function get_abs_card_details($id)
-        {
-            $this->sql = "SELECT * FROM `abs` WHERE ab_id = '$id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // get card with limit 
+    public function get_card_limit()
+    {
+        $this->sql = "SELECT * FROM `abs` LIMIT 4";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // update about card
-        public function update_abs($id,$icon,$value,$title,$desc)
-        {
-            $this->sql = "UPDATE `abs` SET `ab_icon`='$icon',`ab_max_value`='$value',`ab_title`='$title',`ab_desc`='$desc' WHERE `ab_id` = '$id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return true;
-            }else{
-                return false;
-            }
+    }
+    // get card details
+    public function get_abs_card_details($id)
+    {
+        $this->sql = "SELECT * FROM `abs` WHERE ab_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // delete about card
-        public function delete_abs($id)
-        {
-            $this->sql = "DELETE FROM `abs` WHERE ab_id = '$id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return true;
-            }else{
-                return false;
-            }
+    }
+    // update about card
+    public function update_abs($id, $icon, $value, $title, $desc)
+    {
+        $this->sql = "UPDATE `abs` SET `ab_icon`='$icon',`ab_max_value`='$value',`ab_title`='$title',`ab_desc`='$desc' WHERE `ab_id` = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
         }
-        // ================== testimonial ====================
-        // insert testimonial description
-        public function insert_test_desc($author,$body)
-        {
-            $this->sql = "INSERT INTO `testimonials_desc`(`author_id`, `testimonial_desc`) VALUES ('$author','$body')";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return true;
-            }else{
-                return false;
-            }
+    }
+    // delete about card
+    public function delete_abs($id)
+    {
+        $this->sql = "DELETE FROM `abs` WHERE ab_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
         }
-        // get data of description
-        public function get_testimonial_desc_with_author()
-        {
-            $this->sql = "SELECT testimonials_desc.*,admin.admin_id,admin.admin_name FROM testimonials_desc JOIN admin ON testimonials_desc.author_id = admin.admin_id";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // ================== testimonial ====================
+    // insert testimonial description
+    public function insert_test_desc($author, $body)
+    {
+        $this->sql = "INSERT INTO `testimonials_desc`(`author_id`, `testimonial_desc`) VALUES ('$author','$body')";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
         }
-        // details
-         // get data of description
-         public function get_testimonial_desc_with_limit()
-         {
-             $this->sql = "SELECT * FROM testimonials_desc  LIMIT 1";
-             $this->result = $this->con->query($this->sql);
-             if($this->result == true){
-                 return $this->result;
-             }else{
-                 return false;
-             }
-         }
-         // get data of description
-         public function get_testimonial_desc_with_author_id($id)
-         {
-             $this->sql = "SELECT testimonials_desc.*,admin.admin_id,admin.admin_name FROM testimonials_desc JOIN admin ON testimonials_desc.author_id = admin.admin_id WHERE testimonial_desc_id = '$id'";
-             $this->result = $this->con->query($this->sql);
-             if($this->result == true){
-                 return $this->result;
-             }else{
-                 return false;
-             }
-         }
-        //  update description
-        public function update_testimonial_desc($id,$author,$desc)
-        {
-            $this->sql = "UPDATE `testimonials_desc` SET `author_id`='$author',`testimonial_desc`='$desc' WHERE testimonial_desc_id = '$id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return true;
-            }else{
-                return false;
-            }
+    }
+    // get data of description
+    public function get_testimonial_desc_with_author()
+    {
+        $this->sql = "SELECT testimonials_desc.*,admin.admin_id,admin.admin_name FROM testimonials_desc JOIN admin ON testimonials_desc.author_id = admin.admin_id";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-         //  delete description
-         public function delete_test_desc($id)
-         {
-             $this->sql = "DELETE FROM `testimonials_desc` WHERE testimonial_desc_id = '$id'";
-             $this->result = $this->con->query($this->sql);
-             if($this->result == true){
-                 return true;
-             }else{
-                 return false;
-             }
-         }
-        // insert testimonial
-        public function insert_testimonial($name,$profession,$message,$fileNewName)
-        {
-            $this->sql = "INSERT INTO `testimonials`(`test_img`, `test_name`, `test_profession`, `test_msg`) VALUES ('$fileNewName','$name','$profession','$message')";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return true;
-            }else{
-                return false;
-            }
+    }
+    // details
+    // get data of description
+    public function get_testimonial_desc_with_limit()
+    {
+        $this->sql = "SELECT * FROM testimonials_desc  LIMIT 1";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // get testimonial
-        public function get_testimonial()
-        {
-            $this->sql = "SELECT * FROM `testimonials` LIMIT 6";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // get data of description
+    public function get_testimonial_desc_with_author_id($id)
+    {
+        $this->sql = "SELECT testimonials_desc.*,admin.admin_id,admin.admin_name FROM testimonials_desc JOIN admin ON testimonials_desc.author_id = admin.admin_id WHERE testimonial_desc_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // details testimonial
-        public function details_testimonial($id)
-        {
-            $this->sql = "SELECT * FROM `testimonials` WHERE test_id = '$id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    //  update description
+    public function update_testimonial_desc($id, $author, $desc)
+    {
+        $this->sql = "UPDATE `testimonials_desc` SET `author_id`='$author',`testimonial_desc`='$desc' WHERE testimonial_desc_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
         }
-        // update with testimonial
-        public function update_with_photo($test_id,$name,$profession,$message,$fileNewName)
-        {
-            $this->sql = "UPDATE `testimonials` SET `test_img`='$fileNewName',`test_name`='$name',`test_profession`='$profession',`test_msg`='$message' WHERE `test_id` = '$test_id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return true;
-            }else{
-                return false;
-            }
+    }
+    //  delete description
+    public function delete_test_desc($id)
+    {
+        $this->sql = "DELETE FROM `testimonials_desc` WHERE testimonial_desc_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
         }
-         // update without testimonial
-         public function update_without_photo($test_id,$name,$profession,$message,$oldphoto)
-         {
-             $this->sql = "UPDATE `testimonials` SET `test_img`='$oldphoto',`test_name`='$name',`test_profession`='$profession',`test_msg`='$message' WHERE `test_id` = '$test_id'";
-             $this->result = $this->con->query($this->sql);
-             if($this->result == true){
-                 return true;
-             }else{
-                 return false;
-             }
-         }
-          // delete testimonial
-          public function delete_testimonial($id)
-          {
-              $this->sql = "DELETE FROM `testimonials` WHERE test_id = '$id'";
-              $this->result = $this->con->query($this->sql);
-              if($this->result == true){
-                  return true;
-              }else{
-                  return false;
-              }
-          }
-        //   ==================== our skill section ======================
-        // insert our skill desc
-        public function insert_skill_desc($author,$desc)
-        {
-            $this->sql = "INSERT INTO `skill_desc`(`author_id`, `skill_desc`) VALUES ('$author','$desc')";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return true;
-            }else{
-                return false;
-            }
+    }
+    // insert testimonial
+    public function insert_testimonial($name, $profession, $message, $fileNewName)
+    {
+        $this->sql = "INSERT INTO `testimonials`(`test_img`, `test_name`, `test_profession`, `test_msg`) VALUES ('$fileNewName','$name','$profession','$message')";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
         }
-        // get our skill desc with author
-         public function get_skill_desc_with_author(){
-            $this->sql = "SELECT skill_desc.*,admin.admin_id,admin.admin_name FROM skill_desc JOIN admin ON skill_desc.author_id = admin.admin_id";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // get testimonial
+    public function get_testimonial()
+    {
+        $this->sql = "SELECT * FROM `testimonials` LIMIT 6";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-         // get our skill desc with author id
-         public function get_skill_desc_with_author_id($id){
-            $this->sql = "SELECT skill_desc.*,admin.admin_id,admin.admin_name FROM skill_desc JOIN admin ON skill_desc.author_id = admin.admin_id WHERE skill_desc_id = '$id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // details testimonial
+    public function details_testimonial($id)
+    {
+        $this->sql = "SELECT * FROM `testimonials` WHERE test_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-         // get our skill desc with limit
-         public function get_skill_desc_limit(){
-            $this->sql = "SELECT * FROM skill_desc LIMIT 1";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // update with testimonial
+    public function update_with_photo($test_id, $name, $profession, $message, $fileNewName)
+    {
+        $this->sql = "UPDATE `testimonials` SET `test_img`='$fileNewName',`test_name`='$name',`test_profession`='$profession',`test_msg`='$message' WHERE `test_id` = '$test_id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
         }
-         // update our skill desc 
-         public function update_skill_desc($id,$author,$desc){
-            $this->sql = "UPDATE `skill_desc` SET `author_id`='$author',`skill_desc`='$desc' WHERE skill_desc_id = '$id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return true;
-            }else{
-                return false;
-            }
+    }
+    // update without testimonial
+    public function update_without_photo($test_id, $name, $profession, $message, $oldphoto)
+    {
+        $this->sql = "UPDATE `testimonials` SET `test_img`='$oldphoto',`test_name`='$name',`test_profession`='$profession',`test_msg`='$message' WHERE `test_id` = '$test_id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
         }
-         // delete our skill desc 
-         public function delete_skill_desc($id){
-            $this->sql = "DELETE FROM `skill_desc` WHERE skill_desc_id = '$id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return true;
-            }else{
-                return false;
-            }
+    }
+    // delete testimonial
+    public function delete_testimonial($id)
+    {
+        $this->sql = "DELETE FROM `testimonials` WHERE test_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
         }
-        // skill content insert
-        public function insert_content($title,$body,$fileNewName)
-        {
-            $this->sql = "INSERT INTO `skill_content`(`content_title`, `content_image`, `content_desc`) VALUES ('$title','$fileNewName','$body')";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return true;
-            }else{
-                return false;
-            }
+    }
+    //   ==================== our skill section ======================
+    // insert our skill desc
+    public function insert_skill_desc($author, $desc)
+    {
+        $this->sql = "INSERT INTO `skill_desc`(`author_id`, `skill_desc`) VALUES ('$author','$desc')";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
         }
-        // get content data
-        public function get_content(){
-            $this->sql = "SELECT * FROM skill_content";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // get our skill desc with author
+    public function get_skill_desc_with_author()
+    {
+        $this->sql = "SELECT skill_desc.*,admin.admin_id,admin.admin_name FROM skill_desc JOIN admin ON skill_desc.author_id = admin.admin_id";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // get content data with id 
-        public function get_content_details($id){
-            $this->sql = "SELECT * FROM skill_content WHERE content_id = '$id'";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // get our skill desc with author id
+    public function get_skill_desc_with_author_id($id)
+    {
+        $this->sql = "SELECT skill_desc.*,admin.admin_id,admin.admin_name FROM skill_desc JOIN admin ON skill_desc.author_id = admin.admin_id WHERE skill_desc_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-        // get content data with limit for service page
-        public function get_skill_content_limit(){
-            $this->sql = "SELECT * FROM skill_content LIMIT 1";
-            $this->result = $this->con->query($this->sql);
-            if($this->result == true){
-                return $this->result;
-            }else{
-                return false;
-            }
+    }
+    // get our skill desc with limit
+    public function get_skill_desc_limit()
+    {
+        $this->sql = "SELECT * FROM skill_desc LIMIT 1";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
         }
-         // skill content update with photo
-         public function update_content_with_photo($id,$title,$body,$fileNewName)
-         {
-             $this->sql = "UPDATE `skill_content` SET `content_title`='$title',`content_image`='$fileNewName',`content_desc`='$body' WHERE `content_id` = '$id'";
-             $this->result = $this->con->query($this->sql);
-             if($this->result == true){
-                 return true;
-             }else{
-                 return false;
-             }
-         }
-         // skill content update with photo
-         public function update_content_without_photo($id,$title,$body,$oldphoto)
-         {
-             $this->sql = "UPDATE `skill_content` SET `content_title`='$title',`content_image`='$oldphoto',`content_desc`='$body' WHERE `content_id` = '$id'";
-             $this->result = $this->con->query($this->sql);
-             if($this->result == true){
-                 return true;
-             }else{
-                 return false;
-             }
-         }
-          // skill content delete
-          public function delete_content($id)
-          {
-              $this->sql = "DELETE FROM `skill_content` WHERE content_id = '$id'";
-              $this->result = $this->con->query($this->sql);
-              if($this->result == true){
-                  return true;
-              }else{
-                  return false;
-              }
-          }
-          // skill progress insert
-          public function insert_progress($name,$value)
-          {
-              $this->sql = "INSERT INTO `skill_category`(`skill_cat_name`, `skill_cat_mx_val`) VALUES ('$name','$value')";
-              $this->result = $this->con->query($this->sql);
-              if($this->result == true){
-                  return true;
-              }else{
-                  return false;
-              }
-          }
-          // get skill progress
-          public function get_progress()
-          {
-              $this->sql = "SELECT * FROM `skill_category`";
-              $this->result = $this->con->query($this->sql);
-              if($this->result == true){
-                  return $this->result;
-              }else{
-                  return false;
-              }
-          }
-            // get skill progress with id
-            public function get_progress_id($id)
-            {
-                $this->sql = "SELECT * FROM `skill_category` WHERE skill_cat_id = '$id'";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return $this->result;
-                }else{
-                    return false;
-                }
-            }
-             // update skill progress with id
-             public function update_progress($id,$name,$value)
-             {
-                 $this->sql = "UPDATE `skill_category` SET `skill_cat_name`='$name',`skill_cat_mx_val`='$value' WHERE `skill_cat_id` = '$id'";
-                 $this->result = $this->con->query($this->sql);
-                 if($this->result == true){
-                     return true;
-                 }else{
-                     return false;
-                 }
-             }
-              // delete skill progress with id
-              public function delete_progress($id)
-              {
-                  $this->sql = "DELETE FROM `skill_category` WHERE `skill_cat_id` = '$id'";
-                  $this->result = $this->con->query($this->sql);
-                  if($this->result == true){
-                      return true;
-                  }else{
-                      return false;
-                  }
-              }
-            //   ==================== portfolio ================
-            // insert category
-            public function insert_port_cat($port_cat_name,$slug)
-            {
-                $this->sql = "INSERT INTO `portfolio_cat`(`cat_name`, `slag`) VALUES ('$port_cat_name','$slug')";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return true;
-                }else{
-                    return false;
-                }
-            }
-            // get portfolio category
-            public function get_port_cat()
-            {
-                $this->sql = "SELECT * FROM `portfolio_cat`";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return $this->result;
-                }else{
-                    return false;
-                }
-            }
-            // insert portfolio image
-            public function insert_image($port_title,$port_cat,$fileNewName)
-            {
-                $this->sql = "INSERT INTO `portfolio_tbl`(`portfolio_title`, `portfolio_image`, `portfolio_cat_id`) VALUES ('$port_title','$fileNewName','$port_cat')";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return true;
-                }else{
-                    return false;
-                }
-            }
-            // get data 
-            public function get_port_cat_data()
-            {
-                $this->sql = "SELECT portfolio_tbl.*,portfolio_cat.portfolio_cat_id,portfolio_cat.cat_name,portfolio_cat.slag FROM portfolio_tbl JOIN portfolio_cat ON portfolio_tbl.portfolio_cat_id = portfolio_cat.portfolio_cat_id ORDER BY portfolio_id DESC";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return $this->result;
-                }else{
-                    return false;
-                }
-            }
-             // get portfolio category with id
-             public function get_port_cat_with_id($id)
-             {
-                 $this->sql = "SELECT * FROM `portfolio_cat` WHERE portfolio_cat_id = '$id'";
-                 $this->result = $this->con->query($this->sql);
-                 if($this->result == true){
-                     return $this->result;
-                 }else{
-                     return false;
-                 }
-             }
-              // update portfolio category with id
-              public function update_port_cat($id,$name,$slug)
-              {
-                  $this->sql = "UPDATE `portfolio_cat` SET `cat_name`='$name',`slag`='$slug' WHERE `portfolio_cat_id` = '$id'";
-                  $this->result = $this->con->query($this->sql);
-                  if($this->result == true){
-                      return true;
-                  }else{
-                      return false;
-                  }
-              }
-               // delete portfolio category with id
-               public function delete_port_cat($id)
-               {
-                   $this->sql = "DELETE FROM `portfolio_cat` WHERE `portfolio_cat_id` = '$id'";
-                   $this->result = $this->con->query($this->sql);
-                   if($this->result == true){
-                       return true;
-                   }else{
-                       return false;
-                   }
-               }
-            // get portfolio data for details
-            public function get_port_image_details($id)
-            {
-                $this->sql = "SELECT portfolio_tbl.*,portfolio_cat.cat_name FROM portfolio_tbl JOIN portfolio_cat ON portfolio_tbl.portfolio_cat_id = portfolio_cat.portfolio_cat_id WHERE `portfolio_id` = '$id'";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return $this->result;
-                }else{
-                    return false;
-                }
-            }   
-            // get portfolio data for details
-            public function get_port_details($id)
-            {
-                $this->sql = "SELECT * FROM portfolio_tbl WHERE `portfolio_id` = '$id'";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return $this->result;
-                }else{
-                    return false;
-                }
-            } 
-             // update portfolio data with photo
-             public function update_portfolio_with_photo($id,$title,$category,$fileNewName)
-             {
-                 $this->sql = "UPDATE `portfolio_tbl` SET `portfolio_title`='$title',`portfolio_image`='$fileNewName',`portfolio_cat_id`='$category' WHERE `portfolio_id` = '$id'";
-                 $this->result = $this->con->query($this->sql);
-                 if($this->result == true){
-                     return true;
-                 }else{
-                     return false;
-                 }
-             } 
-              // update portfolio data with photo
-              public function update_portfolio_with_out_photo($id,$title,$category,$oldphoto)
-              {
-                  $this->sql = "UPDATE `portfolio_tbl` SET `portfolio_title`='$title',`portfolio_image`='$oldphoto',`portfolio_cat_id`='$category' WHERE `portfolio_id` = '$id'";
-                  $this->result = $this->con->query($this->sql);
-                  if($this->result == true){
-                      return true;
-                  }else{
-                      return false;
-                  }
-              } 
-            // delete portfolio data with photo
-            public function delete_portfolio($id)
-            {
-                $this->sql = "DELETE FROM `portfolio_tbl` WHERE `portfolio_id` = '$id'";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return true;
-                }else{
-                    return false;
-                }
-            }
-            // ===================== team ==================
-            // insert team member
-            public function insert_team($name,$profession,$about,$fileNewName){
-                $this->sql = "INSERT INTO `team`(`team_m_img`, `team_m_name`, `team_m_profession`, `team_m_about`) VALUES ('$fileNewName','$name','$profession','$about')";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return true;
-                }else{
-                    return false;
-                }
-            }
-            // get team data
-            public function get_team()
-            {
-                $this->sql = "SELECT * FROM `team`";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return $this->result;
-                }else{
-                    return false;
-                }
-            }
-            // get team data details
-            public function team_details($id)
-            {
-                $this->sql = "SELECT * FROM `team` WHERE team_m_id = '$id'";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return $this->result;
-                }else{
-                    return false;
-                }
-            }
-             // get team data limit
-             public function get_team_limit()
-             {
-                 $this->sql = "SELECT * FROM `team` LIMIT 3";
-                 $this->result = $this->con->query($this->sql);
-                 if($this->result == true){
-                     return $this->result;
-                 }else{
-                     return false;
-                 }
-             }
-              // get team data limit
-              public function update_team_photo($id,$name,$profession,$about,$fileNewName)
-              {
-                  $this->sql = "UPDATE `team` SET `team_m_img`='$fileNewName',`team_m_name`='$name',`team_m_profession`='$profession',`team_m_about`='$about' WHERE `team_m_id` = '$id'";
-                  $this->result = $this->con->query($this->sql);
-                  if($this->result == true){
-                      return true;
-                  }else{
-                      return false;
-                  }
-              }
-            //   =============== contact =====================
-            public function add_msg($name,$email,$subject,$message)
-            {
-                $this->sql = "INSERT INTO `messages`(`msg_name`, `msg_email`, `msg_sub`, `msg_message`) VALUES ('$name','$email','$subject','$message')";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return true;
-                }else{
-                    return false;
-                }
-            }
-            // get all data 
-            public function get_msg_data()
-            {
-                $this->sql = "SELECT * FROM `messages`";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return $this->result;
-                }else{
-                    return false;
-                }
-            }
-             // get all message details
-             public function get_contact_msg($id)
-             {
-                 $this->sql = "SELECT * FROM `messages` WHERE msg_id = '$id'";
-                 $this->result = $this->con->query($this->sql);
-                 if($this->result == true){
-                     return $this->result;
-                 }else{
-                     return false;
-                 }
-             }
-              // delete contact message
-              public function delete_con_msg($id)
-              {
-                  $this->sql = "DELETE FROM `messages` WHERE msg_id = '$id'";
-                  $this->result = $this->con->query($this->sql);
-                  if($this->result == true){
-                      return true;
-                  }else{
-                      return false;
-                  }
-              }
-            //   ====================== blog =======================
-            //insert blog category
-            public function insert_b_cat($cat_name)
-            {
-                $this->sql = "INSERT INTO `blog_category`(`blog_cat_name`) VALUES ('$cat_name')";
-                  $this->result = $this->con->query($this->sql);
-                  if($this->result == true){
-                      return true;
-                  }else{
-                      return false;
-                  }
-            }
-            // get category 
-            public function get_cat()
-            {
-                $this->sql = "SELECT * FROM blog_category";
-                  $this->result = $this->con->query($this->sql);
-                  if($this->result == true){
-                      return $this->result;
-                  }else{
-                      return false;
-                  }
-            }
-            // get category with id
-            public function get_b_cat($id)
-            {
-                $this->sql = "SELECT * FROM `blog_category` WHERE blog_cat_id = '$id'";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return $this->result;
-                }else{
-                    return false;
-                }
-            }
-            // get category with id
-            public function update_blog_cat($id,$cat)
-            {
-                $this->sql = "UPDATE `blog_category` SET `blog_cat_name`='$cat' WHERE `blog_cat_id` = '$id'";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return true;
-                }else{
-                    return false;
-                }
-            }
-            // delete category with id
-            public function delete_b_cat($id)
-            {
-                $this->sql = "DELETE FROM `blog_category` WHERE `blog_cat_id` = '$id'";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return true;
-                }else{
-                    return false;
-                }
-            }
-            // =============== blog post ================
-            // insert blog post
-            public function insert_blog($author,$title,$category,$desc,$fileNewName)
-            {
-                $this->sql = "INSERT INTO `blog_post`(`author_id`, `category_id`, `blog_post_title`, `blog_post_desc`, `blog_post_image`) VALUES ('$author','$category','$title','$desc','$fileNewName')";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return true;
-                }else{
-                    return false;
-                }
-            }
-            // get blog data 
-            public function get_blog()
-            {
-                $this->sql = "SELECT * FROM blog_post INNER JOIN blog_category ON blog_post.category_id = blog_category.blog_cat_id";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return $this->result;
-                }else{
-                    return false;
-                }
-            }
-             // get blog data 
-             public function get_all_blog()
-             {
-                 $this->sql = "SELECT * FROM `blog_post`";
-                 $this->result = $this->con->query($this->sql);
-                 if($this->result == true){
-                     return $this->result->num_rows;
-                 }else{
-                     return false;
-                 }
-             }
-            // get all data for blog page
-            public function get_b_post($start_from,$num_per_page)
-            {
-                $this->sql = "SELECT p.blog_post_id,p.author_id,p.category_id,p.blog_post_title,p.blog_post_desc,p.blog_post_image,p.blog_post_created_at,c.blog_cat_name,a.admin_name
+    }
+    // update our skill desc 
+    public function update_skill_desc($id, $author, $desc)
+    {
+        $this->sql = "UPDATE `skill_desc` SET `author_id`='$author',`skill_desc`='$desc' WHERE skill_desc_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // delete our skill desc 
+    public function delete_skill_desc($id)
+    {
+        $this->sql = "DELETE FROM `skill_desc` WHERE skill_desc_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // skill content insert
+    public function insert_content($title, $body, $fileNewName)
+    {
+        $this->sql = "INSERT INTO `skill_content`(`content_title`, `content_image`, `content_desc`) VALUES ('$title','$fileNewName','$body')";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // get content data
+    public function get_content()
+    {
+        $this->sql = "SELECT * FROM skill_content";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
+        }
+    }
+    // get content data with id 
+    public function get_content_details($id)
+    {
+        $this->sql = "SELECT * FROM skill_content WHERE content_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
+        }
+    }
+    // get content data with limit for service page
+    public function get_skill_content_limit()
+    {
+        $this->sql = "SELECT * FROM skill_content LIMIT 1";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
+        }
+    }
+    // skill content update with photo
+    public function update_content_with_photo($id, $title, $body, $fileNewName)
+    {
+        $this->sql = "UPDATE `skill_content` SET `content_title`='$title',`content_image`='$fileNewName',`content_desc`='$body' WHERE `content_id` = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // skill content update with photo
+    public function update_content_without_photo($id, $title, $body, $oldphoto)
+    {
+        $this->sql = "UPDATE `skill_content` SET `content_title`='$title',`content_image`='$oldphoto',`content_desc`='$body' WHERE `content_id` = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // skill content delete
+    public function delete_content($id)
+    {
+        $this->sql = "DELETE FROM `skill_content` WHERE content_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // skill progress insert
+    public function insert_progress($name, $value)
+    {
+        $this->sql = "INSERT INTO `skill_category`(`skill_cat_name`, `skill_cat_mx_val`) VALUES ('$name','$value')";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // get skill progress
+    public function get_progress()
+    {
+        $this->sql = "SELECT * FROM `skill_category`";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
+        }
+    }
+    // get skill progress with id
+    public function get_progress_id($id)
+    {
+        $this->sql = "SELECT * FROM `skill_category` WHERE skill_cat_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
+        }
+    }
+    // update skill progress with id
+    public function update_progress($id, $name, $value)
+    {
+        $this->sql = "UPDATE `skill_category` SET `skill_cat_name`='$name',`skill_cat_mx_val`='$value' WHERE `skill_cat_id` = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // delete skill progress with id
+    public function delete_progress($id)
+    {
+        $this->sql = "DELETE FROM `skill_category` WHERE `skill_cat_id` = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    //   ==================== portfolio ================
+    // insert category
+    public function insert_port_cat($port_cat_name, $slug)
+    {
+        $this->sql = "INSERT INTO `portfolio_cat`(`cat_name`, `slag`) VALUES ('$port_cat_name','$slug')";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // get portfolio category
+    public function get_port_cat()
+    {
+        $this->sql = "SELECT * FROM `portfolio_cat`";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
+        }
+    }
+    // insert portfolio image
+    public function insert_image($port_title, $port_cat, $fileNewName)
+    {
+        $this->sql = "INSERT INTO `portfolio_tbl`(`portfolio_title`, `portfolio_image`, `portfolio_cat_id`) VALUES ('$port_title','$fileNewName','$port_cat')";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // get data 
+    public function get_port_cat_data()
+    {
+        $this->sql = "SELECT portfolio_tbl.*,portfolio_cat.portfolio_cat_id,portfolio_cat.cat_name,portfolio_cat.slag FROM portfolio_tbl JOIN portfolio_cat ON portfolio_tbl.portfolio_cat_id = portfolio_cat.portfolio_cat_id ORDER BY portfolio_id DESC";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
+        }
+    }
+    // get portfolio category with id
+    public function get_port_cat_with_id($id)
+    {
+        $this->sql = "SELECT * FROM `portfolio_cat` WHERE portfolio_cat_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
+        }
+    }
+    // update portfolio category with id
+    public function update_port_cat($id, $name, $slug)
+    {
+        $this->sql = "UPDATE `portfolio_cat` SET `cat_name`='$name',`slag`='$slug' WHERE `portfolio_cat_id` = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // delete portfolio category with id
+    public function delete_port_cat($id)
+    {
+        $this->sql = "DELETE FROM `portfolio_cat` WHERE `portfolio_cat_id` = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // get portfolio data for details
+    public function get_port_image_details($id)
+    {
+        $this->sql = "SELECT portfolio_tbl.*,portfolio_cat.cat_name FROM portfolio_tbl JOIN portfolio_cat ON portfolio_tbl.portfolio_cat_id = portfolio_cat.portfolio_cat_id WHERE `portfolio_id` = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
+        }
+    }
+    // get portfolio data for details
+    public function get_port_details($id)
+    {
+        $this->sql = "SELECT * FROM portfolio_tbl WHERE `portfolio_id` = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
+        }
+    }
+    // update portfolio data with photo
+    public function update_portfolio_with_photo($id, $title, $category, $fileNewName)
+    {
+        $this->sql = "UPDATE `portfolio_tbl` SET `portfolio_title`='$title',`portfolio_image`='$fileNewName',`portfolio_cat_id`='$category' WHERE `portfolio_id` = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // update portfolio data with photo
+    public function update_portfolio_with_out_photo($id, $title, $category, $oldphoto)
+    {
+        $this->sql = "UPDATE `portfolio_tbl` SET `portfolio_title`='$title',`portfolio_image`='$oldphoto',`portfolio_cat_id`='$category' WHERE `portfolio_id` = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // delete portfolio data with photo
+    public function delete_portfolio($id)
+    {
+        $this->sql = "DELETE FROM `portfolio_tbl` WHERE `portfolio_id` = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // ===================== team ==================
+    // insert team member
+    public function insert_team($name, $profession, $about, $fileNewName)
+    {
+        $this->sql = "INSERT INTO `team`(`team_m_img`, `team_m_name`, `team_m_profession`, `team_m_about`) VALUES ('$fileNewName','$name','$profession','$about')";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // get team data
+    public function get_team()
+    {
+        $this->sql = "SELECT * FROM `team`";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
+        }
+    }
+    // get team data details
+    public function team_details($id)
+    {
+        $this->sql = "SELECT * FROM `team` WHERE team_m_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
+        }
+    }
+    // get team data limit
+    public function get_team_limit()
+    {
+        $this->sql = "SELECT * FROM `team` LIMIT 3";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
+        }
+    }
+    // get team data limit
+    public function update_team_photo($id, $name, $profession, $about, $fileNewName)
+    {
+        $this->sql = "UPDATE `team` SET `team_m_img`='$fileNewName',`team_m_name`='$name',`team_m_profession`='$profession',`team_m_about`='$about' WHERE `team_m_id` = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    //   =============== contact =====================
+    public function add_msg($name, $email, $subject, $message)
+    {
+        $this->sql = "INSERT INTO `messages`(`msg_name`, `msg_email`, `msg_sub`, `msg_message`) VALUES ('$name','$email','$subject','$message')";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // get all data 
+    public function get_msg_data()
+    {
+        $this->sql = "SELECT * FROM `messages`";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
+        }
+    }
+    // get all message details
+    public function get_contact_msg($id)
+    {
+        $this->sql = "SELECT * FROM `messages` WHERE msg_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
+        }
+    }
+    // delete contact message
+    public function delete_con_msg($id)
+    {
+        $this->sql = "DELETE FROM `messages` WHERE msg_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    //   ====================== blog =======================
+    //insert blog category
+    public function insert_b_cat($cat_name)
+    {
+        $this->sql = "INSERT INTO `blog_category`(`blog_cat_name`) VALUES ('$cat_name')";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // get category 
+    public function get_cat()
+    {
+        $this->sql = "SELECT * FROM blog_category";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
+        }
+    }
+    // get category with id
+    public function get_b_cat($id)
+    {
+        $this->sql = "SELECT * FROM `blog_category` WHERE blog_cat_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
+        }
+    }
+    // get category with id
+    public function update_blog_cat($id, $cat)
+    {
+        $this->sql = "UPDATE `blog_category` SET `blog_cat_name`='$cat' WHERE `blog_cat_id` = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // delete category with id
+    public function delete_b_cat($id)
+    {
+        $this->sql = "DELETE FROM `blog_category` WHERE `blog_cat_id` = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // =============== blog post ================
+    // insert blog post
+    public function insert_blog($author, $title, $category, $desc, $fileNewName)
+    {
+        $this->sql = "INSERT INTO `blog_post`(`author_id`, `category_id`, `blog_post_title`, `blog_post_desc`, `blog_post_image`) VALUES ('$author','$category','$title','$desc','$fileNewName')";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // get blog data 
+    public function get_blog()
+    {
+        $this->sql = "SELECT * FROM blog_post INNER JOIN blog_category ON blog_post.category_id = blog_category.blog_cat_id";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
+        }
+    }
+    // get blog data 
+    public function get_all_blog()
+    {
+        $this->sql = "SELECT * FROM `blog_post`";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result->num_rows;
+        } else {
+            return false;
+        }
+    }
+    // get all data for blog page
+    public function get_b_post($start_from, $num_per_page)
+    {
+        $this->sql = "SELECT p.blog_post_id,p.author_id,p.category_id,p.blog_post_title,p.blog_post_desc,p.blog_post_image,p.blog_post_created_at,c.blog_cat_name,a.admin_name
                 FROM blog_post p INNER JOIN blog_category c
                 ON p.category_id = c.blog_cat_id
                 INNER JOIN admin a 
                 ON p.author_id = a.admin_id ORDER BY p.blog_post_id DESC limit $start_from,$num_per_page";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return $this->result;
-                }else{
-                    return false;
-                }
-            }
-            // side blog
-            public function get_b_post_side()
-            {
-                $this->sql = "SELECT p.blog_post_id,p.author_id,p.category_id,p.blog_post_title,p.blog_post_desc,p.blog_post_image,p.blog_post_created_at,c.blog_cat_name,a.admin_name
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
+        }
+    }
+    // side blog
+    public function get_b_post_side()
+    {
+        $this->sql = "SELECT p.blog_post_id,p.author_id,p.category_id,p.blog_post_title,p.blog_post_desc,p.blog_post_image,p.blog_post_created_at,c.blog_cat_name,a.admin_name
                 FROM blog_post p INNER JOIN blog_category c
                 ON p.category_id = c.blog_cat_id
                 INNER JOIN admin a 
                 ON p.author_id = a.admin_id ORDER BY p.blog_post_id DESC";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return $this->result;
-                }else{
-                    return false;
-                }
-            }
-            // get single blog data 
-            public function  get_blog_details($id)
-            {
-                $this->sql = "SELECT p.blog_post_id,p.author_id,p.category_id,p.blog_post_title,p.blog_post_desc,p.blog_post_image,p.blog_post_created_at,a.admin_name
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
+        }
+    }
+    // get single blog data 
+    public function  get_blog_details($id)
+    {
+        $this->sql = "SELECT p.blog_post_id,p.author_id,p.category_id,p.blog_post_title,p.blog_post_desc,p.blog_post_image,p.blog_post_created_at,a.admin_name
                 FROM blog_post p 
                 INNER JOIN admin a 
                 ON p.author_id = a.admin_id WHERE blog_post_id = '$id'";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return $this->result;
-                }else{
-                    return false;
-                }
-            }
-            // update blog with photo
-            public function  update_blog_photo($author,$id,$title,$category,$desc,$fileNewName)
-            {
-                $this->sql = "UPDATE `blog_post` SET `author_id`='$author',`category_id`='$category',`blog_post_title`='$title',`blog_post_desc`='$desc',`blog_post_image`='$fileNewName' WHERE `blog_post_id` = '$id'";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return true;
-                }else{
-                    return false;
-                }
-            }
-            // get all data for single blog page
-            public function get_single_blog_post($post_id)
-            {
-                $this->sql = "SELECT p.blog_post_id,p.author_id,p.category_id,p.blog_post_title,p.blog_post_desc,p.blog_post_image,p.blog_post_created_at,c.blog_cat_id,c.blog_cat_name,a.admin_name
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
+        }
+    }
+    // update blog with photo
+    public function  update_blog_photo($author, $id, $title, $category, $desc, $fileNewName)
+    {
+        $this->sql = "UPDATE `blog_post` SET `author_id`='$author',`category_id`='$category',`blog_post_title`='$title',`blog_post_desc`='$desc',`blog_post_image`='$fileNewName' WHERE `blog_post_id` = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // get all data for single blog page
+    public function get_single_blog_post($post_id)
+    {
+        $this->sql = "SELECT p.blog_post_id,p.author_id,p.category_id,p.blog_post_title,p.blog_post_desc,p.blog_post_image,p.blog_post_created_at,c.blog_cat_id,c.blog_cat_name,a.admin_name
                 FROM blog_post p INNER JOIN blog_category c
                 ON p.category_id = c.blog_cat_id
                 INNER JOIN admin a 
                 ON p.author_id = a.admin_id WHERE p.blog_post_id = '$post_id' LIMIT 10";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return $this->result;
-                }else{
-                    return false;
-                }
-            }
-            // blog delete
-            public function blog_delete($id)
-            {
-                $this->sql = "DELETE FROM `blog_post` WHERE blog_post_id = '$id'";
-                 $this->result = $this->con->query($this->sql);
-                 if($this->result == true){
-                     return true;
-                 }else{
-                     return false;
-                 }
-            }
-            // related category wise post
-            public function related_post($cat_id)
-            {
-                $this->sql = "SELECT * FROM `blog_post` WHERE category_id = '$cat_id'";
-                 $this->result = $this->con->query($this->sql);
-                 if($this->result == true){
-                     return $this->result;
-                 }else{
-                     return false;
-                 }
-            }
-            // category number
-            public function count_posts($blog_cat_id)
-            {
-                $this->sql = "SELECT category_id FROM `blog_post` WHERE category_id = '$blog_cat_id'";
-                 $this->result = $this->con->query($this->sql);
-                 if($this->result == true){
-                     return $this->result->num_rows;
-                 }else{
-                     return false;
-                 }
-            }
-            // get all data for category wise
-            public function get_b_wise_post($cat_id)
-            {
-                $this->sql = "SELECT p.blog_post_id,p.author_id,p.category_id,p.blog_post_title,p.blog_post_desc,p.blog_post_image,p.blog_post_created_at,c.blog_cat_name,a.admin_name
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
+        }
+    }
+    // blog delete
+    public function blog_delete($id)
+    {
+        $this->sql = "DELETE FROM `blog_post` WHERE blog_post_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // related category wise post
+    public function related_post($cat_id)
+    {
+        $this->sql = "SELECT * FROM `blog_post` WHERE category_id = '$cat_id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
+        }
+    }
+    // category number
+    public function count_posts($blog_cat_id)
+    {
+        $this->sql = "SELECT category_id FROM `blog_post` WHERE category_id = '$blog_cat_id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result->num_rows;
+        } else {
+            return false;
+        }
+    }
+    // get all data for category wise
+    public function get_b_wise_post($cat_id)
+    {
+        $this->sql = "SELECT p.blog_post_id,p.author_id,p.category_id,p.blog_post_title,p.blog_post_desc,p.blog_post_image,p.blog_post_created_at,c.blog_cat_name,a.admin_name
                 FROM blog_post p INNER JOIN blog_category c
                 ON p.category_id = c.blog_cat_id
                 INNER JOIN admin a 
                 ON p.author_id = a.admin_id WHERE p.category_id = '$cat_id'";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return $this->result;
-                }else{
-                    return false;
-                }
-            }
-            // ======================== pricing table =====================
-            // insert pricing
-            public function insert_pricing($title,$price,$desc)
-            {
-                $this->sql = "INSERT INTO `pricing`(`pricing_title`, `pricing_price`, `pricing_desc`) VALUES ('$title','$price','$desc')";
-                 $this->result = $this->con->query($this->sql);
-                 if($this->result == true){
-                     return true;
-                 }else{
-                     return false;
-                 }
-            }
-            // get all pricing table
-            public function get_data_pricing()
-            {
-                $this->sql = "SELECT * FROM `pricing`";
-                 $this->result = $this->con->query($this->sql);
-                 if($this->result == true){
-                     return $this->result;
-                 }else{
-                     return false;
-                 }
-            }
-            // free pricing table
-            public function free()
-            {
-                $this->sql = "SELECT * FROM `pricing` WHERE pricing_id = 1";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return $this->result;
-                }else{
-                    return false;
-                }
-            }
-            // business pricing table
-            public function business()
-            {
-                $this->sql = "SELECT * FROM `pricing` WHERE pricing_id = 2";
-                 $this->result = $this->con->query($this->sql);
-                 if($this->result == true){
-                     return $this->result;
-                 }else{
-                     return false;
-                 }
-            }
-             // developer pricing table
-             public function developer()
-             {
-                 $this->sql = "SELECT * FROM `pricing` WHERE pricing_id = 3";
-                  $this->result = $this->con->query($this->sql);
-                  if($this->result == true){
-                      return $this->result;
-                  }else{
-                      return false;
-                  }
-             }
-            // get pricing id for edit page
-            public function get_pricing_id($id)
-            {
-                $this->sql = "SELECT * FROM `pricing` WHERE pricing_id = '$id'";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return $this->result;
-                }else{
-                    return false;
-                }
-            }
-            // update pricing table
-            public function update_pricing($id,$title,$price,$desc)
-            {
-                $this->sql = "UPDATE `pricing` SET `pricing_title`='$title',`pricing_price`='$price',`pricing_desc`='$desc' WHERE `pricing_id` = '$id'";
-                 $this->result = $this->con->query($this->sql);
-                 if($this->result == true){
-                     return true;
-                 }else{
-                     return false;
-                 }
-            }
-            // delete pricing table plan
-            public function delete_pricing_plan($id) {
-                $this->sql = "DELETE FROM `pricing` WHERE `pricing_id` = '$id'";
-                $this->result = $this->con->query($this->sql);
-                if ($this->result == true) {
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-            // =============== address =================
-            // insert address
-            public function insert_address($title,$map)
-            {
-                $this->sql = "INSERT INTO `address`(`address_title`, `map_link`) VALUES ('$title','$map')";
-                 $this->result = $this->con->query($this->sql);
-                 if($this->result == true){
-                     return true;
-                 }else{
-                     return false;
-                 }
-            }
-            // get location
-            public function get_location()
-            {
-                $this->sql = "SELECT * FROM `address`";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return $this->result;
-                }else{
-                    return false;
-                } 
-            }
-             // get location value with id
-             public function get_location_value($id)
-             {
-                 $this->sql = "SELECT * FROM `address` WHERE address_id = '$id'";
-                 $this->result = $this->con->query($this->sql);
-                 if($this->result == true){
-                     return $this->result;
-                 }else{
-                     return false;
-                 } 
-             }
-              // update map location with id
-              public function update_location($id,$title,$map)
-              {
-                  $this->sql = "UPDATE `address` SET `address_title`='$title',`map_link`='$map' WHERE `address_id` = '$id'";
-                  $this->result = $this->con->query($this->sql);
-                  if($this->result == true){
-                      return true;
-                  }else{
-                      return false;
-                  } 
-              }
-            //   ================== manage social ==============
-            // insert social 
-            public function insert_social($name,$icon,$link)
-            {
-                $this->sql = "INSERT INTO `social`(`social_name`, `social_icon`, `social_link`) VALUES ('$name','$icon','$link')";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return true;
-                }else{
-                    return false;
-                }
-            }
-            // get social 
-            public function get_social()
-            {
-                $this->sql = "SELECT * FROM `social`";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return $this->result;
-                }else{
-                    return false;
-                }
-            }
-            // get social 
-            public function get_social_id($id)
-            {
-                $this->sql = "SELECT * FROM `social` WHERE social_id = '$id'";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return $this->result;
-                }else{
-                    return false;
-                }
-            }
-            // update social 
-            public function update_social($id,$name,$icon,$link)
-            {
-                $this->sql = "UPDATE `social` SET `social_name`='$name',`social_icon`='$icon',`social_link`='$link' WHERE `social_id` = '$id'";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return true;
-                }else{
-                    return false;
-                }
-            }
-            // delete social 
-            public function delete_social($id)
-            {
-                $this->sql = "DELETE FROM `social` WHERE `social_id` = '$id'";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return true;
-                }else{
-                    return false;
-                }
-            }
-            // ======================= total data count ===================
-            // total banner
-            public function total_banner()
-            {
-                $this->sql = "SELECT * FROM `banner`";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return $this->result->num_rows;
-                }else{
-                    return false;
-                }
-            }
-            // total card
-            public function total_card()
-            {
-                $this->sql = "SELECT * FROM `card`";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return $this->result->num_rows;
-                }else{
-                    return false;
-                }
-            }
-            // total services
-            public function total_services()
-            {
-                $this->sql = "SELECT * FROM `services`";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return $this->result->num_rows;
-                }else{
-                    return false;
-                }
-            }
-            // total clients
-            public function total_clients()
-            {
-                $this->sql = "SELECT * FROM `brands`";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return $this->result->num_rows;
-                }else{
-                    return false;
-                }
-            }
-            // total subscribers
-            public function total_subscribers()
-            {
-                $this->sql = "SELECT * FROM `subscribers`";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return $this->result->num_rows;
-                }else{
-                    return false;
-                }
-            }
-            // total about cards
-            public function total_ab_card()
-            {
-                $this->sql = "SELECT * FROM `abs`";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return $this->result->num_rows;
-                }else{
-                    return false;
-                }
-            }
-            // total testimonial
-            public function total_testimonials()
-            {
-                $this->sql = "SELECT * FROM `testimonials`";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return $this->result->num_rows;
-                }else{
-                    return false;
-                }
-            }
-            // total skill
-            public function total_skills()
-            {
-                $this->sql = "SELECT * FROM `skill_category`";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return $this->result->num_rows;
-                }else{
-                    return false;
-                }
-            }
-            // total portfolio
-            public function total_portfolio()
-            {
-                $this->sql = "SELECT * FROM `portfolio_tbl`";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return $this->result->num_rows;
-                }else{
-                    return false;
-                }
-            }
-            // total team members
-            public function total_team_member()
-            {
-                $this->sql = "SELECT * FROM `team`";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return $this->result->num_rows;
-                }else{
-                    return false;
-                }
-            }
-            // total team members
-            public function total_blog_post()
-            {
-                $this->sql = "SELECT * FROM `blog_post`";
-                $this->result = $this->con->query($this->sql);
-                if($this->result == true){
-                    return $this->result->num_rows;
-                }else{
-                    return false;
-                }
-            }
-             // total message
-             public function total_message()
-             {
-                 $this->sql = "SELECT * FROM `messages`";
-                 $this->result = $this->con->query($this->sql);
-                 if($this->result == true){
-                     return $this->result->num_rows;
-                 }else{
-                     return false;
-                 }
-             }
-            
-        // close connection
-        public function __destruct()
-        {
-            $this->con->close();
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
+        }
+    }
+    // ======================== pricing table =====================
+    // insert pricing
+    public function insert_pricing($title, $price, $desc)
+    {
+        $this->sql = "INSERT INTO `pricing`(`pricing_title`, `pricing_price`, `pricing_desc`) VALUES ('$title','$price','$desc')";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // get all pricing table
+    public function get_data_pricing()
+    {
+        $this->sql = "SELECT * FROM `pricing`";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
+        }
+    }
+    // free pricing table
+    public function free()
+    {
+        $this->sql = "SELECT * FROM `pricing` WHERE pricing_id = 1";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
+        }
+    }
+    // business pricing table
+    public function business()
+    {
+        $this->sql = "SELECT * FROM `pricing` WHERE pricing_id = 2";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
+        }
+    }
+    // developer pricing table
+    public function developer()
+    {
+        $this->sql = "SELECT * FROM `pricing` WHERE pricing_id = 3";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
+        }
+    }
+    // get pricing id for edit page
+    public function get_pricing_id($id)
+    {
+        $this->sql = "SELECT * FROM `pricing` WHERE pricing_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
+        }
+    }
+    // update pricing table
+    public function update_pricing($id, $title, $price, $desc)
+    {
+        $this->sql = "UPDATE `pricing` SET `pricing_title`='$title',`pricing_price`='$price',`pricing_desc`='$desc' WHERE `pricing_id` = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // delete pricing table plan
+    public function delete_pricing_plan($id)
+    {
+        $this->sql = "DELETE FROM `pricing` WHERE `pricing_id` = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // =============== address =================
+    // insert address
+    public function insert_address($title, $map)
+    {
+        $this->sql = "INSERT INTO `address`(`address_title`, `map_link`) VALUES ('$title','$map')";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // get location
+    public function get_location()
+    {
+        $this->sql = "SELECT * FROM `address`";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
+        }
+    }
+    // get location value with id
+    public function get_location_value($id)
+    {
+        $this->sql = "SELECT * FROM `address` WHERE address_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
+        }
+    }
+    // update map location with id
+    public function update_location($id, $title, $map)
+    {
+        $this->sql = "UPDATE `address` SET `address_title`='$title',`map_link`='$map' WHERE `address_id` = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
         }
     }
 
-?>
+    //   delete location
+    public function delete_location_address($id)
+    {
+        $this->sql = "DELETE FROM `address` WHERE `address_id` = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    //   ================== manage social ==============
+    // insert social 
+    public function insert_social($name, $icon, $link)
+    {
+        $this->sql = "INSERT INTO `social`(`social_name`, `social_icon`, `social_link`) VALUES ('$name','$icon','$link')";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // get social 
+    public function get_social()
+    {
+        $this->sql = "SELECT * FROM `social`";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
+        }
+    }
+    // get social 
+    public function get_social_id($id)
+    {
+        $this->sql = "SELECT * FROM `social` WHERE social_id = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result;
+        } else {
+            return false;
+        }
+    }
+    // update social 
+    public function update_social($id, $name, $icon, $link)
+    {
+        $this->sql = "UPDATE `social` SET `social_name`='$name',`social_icon`='$icon',`social_link`='$link' WHERE `social_id` = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // delete social 
+    public function delete_social($id)
+    {
+        $this->sql = "DELETE FROM `social` WHERE `social_id` = '$id'";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    // ======================= total data count ===================
+    // total banner
+    public function total_banner()
+    {
+        $this->sql = "SELECT * FROM `banner`";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result->num_rows;
+        } else {
+            return false;
+        }
+    }
+    // total card
+    public function total_card()
+    {
+        $this->sql = "SELECT * FROM `card`";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result->num_rows;
+        } else {
+            return false;
+        }
+    }
+    // total services
+    public function total_services()
+    {
+        $this->sql = "SELECT * FROM `services`";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result->num_rows;
+        } else {
+            return false;
+        }
+    }
+    // total clients
+    public function total_clients()
+    {
+        $this->sql = "SELECT * FROM `brands`";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result->num_rows;
+        } else {
+            return false;
+        }
+    }
+    // total subscribers
+    public function total_subscribers()
+    {
+        $this->sql = "SELECT * FROM `subscribers`";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result->num_rows;
+        } else {
+            return false;
+        }
+    }
+    // total about cards
+    public function total_ab_card()
+    {
+        $this->sql = "SELECT * FROM `abs`";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result->num_rows;
+        } else {
+            return false;
+        }
+    }
+    // total testimonial
+    public function total_testimonials()
+    {
+        $this->sql = "SELECT * FROM `testimonials`";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result->num_rows;
+        } else {
+            return false;
+        }
+    }
+    // total skill
+    public function total_skills()
+    {
+        $this->sql = "SELECT * FROM `skill_category`";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result->num_rows;
+        } else {
+            return false;
+        }
+    }
+    // total portfolio
+    public function total_portfolio()
+    {
+        $this->sql = "SELECT * FROM `portfolio_tbl`";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result->num_rows;
+        } else {
+            return false;
+        }
+    }
+    // total team members
+    public function total_team_member()
+    {
+        $this->sql = "SELECT * FROM `team`";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result->num_rows;
+        } else {
+            return false;
+        }
+    }
+    // total team members
+    public function total_blog_post()
+    {
+        $this->sql = "SELECT * FROM `blog_post`";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result->num_rows;
+        } else {
+            return false;
+        }
+    }
+    // total message
+    public function total_message()
+    {
+        $this->sql = "SELECT * FROM `messages`";
+        $this->result = $this->con->query($this->sql);
+        if ($this->result == true) {
+            return $this->result->num_rows;
+        } else {
+            return false;
+        }
+    }
+
+    // close connection
+    public function __destruct()
+    {
+        $this->con->close();
+    }
+}

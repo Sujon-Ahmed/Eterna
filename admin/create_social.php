@@ -49,7 +49,7 @@
                         <input type="text" name="social_icon" id="pricing_title" class="form-control" placeholder="Ex: fab fa-facebook" required />
                          <!-- social link -->
                          <label class="mb-2 mt-2" for="social_link">Social Link</label>
-                        <input type="text" name="social_link" id="pricing_title" class="form-control" placeholder="Social Line Here" required />
+                        <input type="text" name="social_link" id="pricing_title" class="form-control" placeholder="Social Link Here" required />
                         <input type="submit" name="submit" class="btn btn-primary mt-3" value="Save Changes">
                     </div>
                 </div>

@@ -47,7 +47,7 @@
                                     <th>Address</th>
                                     <th>Map</th>
                                     <th>Update</th>
-                                    <th>Edit</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -65,6 +65,7 @@
                                                 <td><?php echo date('M-d-Y h:i A',strtotime($row->address_created)); ?></td>
                                                 <td>
                                                     <a href="edit_location.php?id=<?php echo $row->address_id; ?>" class="btn btn-primary btn-sm">Edit</a>
+                                                    <a onclick="javascript:return confirm('Are You Sure?')"  href="delete_location.php?id=<?php echo $row->address_id; ?>" class="btn btn-danger btn-sm">Delete</a>
                                                 </td>
                                             </tr>
                                         <?php

@@ -17,7 +17,7 @@ A User Interface of a Blogging site. Fully responsive, mobile friendly. Have opt
 3. SQL file get admin/sql/eterna.sql
 4. Create database name eterna then import admin/sql/eterna.sql file
 5. If you can access admin dashboard then write projectName/admin
-6. admin login email: sujonahmed@gmail.com and password 123456
+6. admin login email: sujonahmed5284@gmail.com and password: 123456
 7. you can change and update everything.
 
 ### Enjoy Coding 🙂
