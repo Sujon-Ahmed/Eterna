@@ -389,6 +389,13 @@
                     </form>
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        <!-- browse frontend -->
+                        <li class="nav-item dropdown no-arrow mx-1">
+                            <a class="nav-link" href="http://localhost/personal/Eterna/" target="_blank" title="Frontend Website">
+                                <i class="fas fa-globe fa-fw"></i>
+                                <!-- Counter - Alerts -->
+                            </a>
+                        </li>
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
                             <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
@@ -412,7 +419,7 @@
                                 </form>
                             </div>
                         </li>
-                        <!-- Nav Item - Alerts -->
+                        <!-- Nav Item - Alerts -->                      
                         <li class="nav-item dropdown no-arrow mx-1">
                             <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
