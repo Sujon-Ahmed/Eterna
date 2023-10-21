@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.3
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 31, 2022 at 05:53 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 7.4.28
+-- Generation Time: Oct 21, 2023 at 03:48 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.1.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -30,9 +30,9 @@ SET time_zone = "+00:00";
 CREATE TABLE `about` (
   `about_id` int(11) NOT NULL,
   `author_id` int(11) NOT NULL,
-  `about_image` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `about_title` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `about_desc` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `about_image` varchar(80) NOT NULL,
+  `about_title` varchar(100) NOT NULL,
+  `about_desc` longtext NOT NULL,
   `about_created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -51,10 +51,10 @@ INSERT INTO `about` (`about_id`, `author_id`, `about_image`, `about_title`, `abo
 
 CREATE TABLE `abs` (
   `ab_id` int(11) NOT NULL,
-  `ab_icon` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ab_icon` varchar(30) NOT NULL,
   `ab_max_value` int(11) NOT NULL,
-  `ab_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ab_desc` varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ab_title` varchar(255) NOT NULL,
+  `ab_desc` varchar(500) NOT NULL,
   `ab_created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -76,8 +76,8 @@ INSERT INTO `abs` (`ab_id`, `ab_icon`, `ab_max_value`, `ab_title`, `ab_desc`, `a
 
 CREATE TABLE `address` (
   `address_id` int(11) NOT NULL,
-  `address_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `map_link` varchar(500) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address_title` varchar(255) NOT NULL,
+  `map_link` varchar(500) NOT NULL,
   `address_created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -86,7 +86,7 @@ CREATE TABLE `address` (
 --
 
 INSERT INTO `address` (`address_id`, `address_title`, `map_link`, `address_created`) VALUES
-(1, 'Manikganj, Dhaka, Bangladesh', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d467152.33250298415!2d89.69045506045742!3d23.831838079086044!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fe204c80c9ef8d%3A0x13211dcf59575068!2sManikganj%20District!5e0!3m2!1sen!2sbd!4v1630942884684!5m2!1sen!2sbd', '2021-09-06 21:14:14');
+(1, 'Dhaka, Bangladesh', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d233667.4993016377!2d90.25487262539737!3d23.78106723932943!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka!5e0!3m2!1sen!2sbd!4v1697894002421!5m2!1sen!2sbd', '2021-09-06 21:14:14');
 
 -- --------------------------------------------------------
 
@@ -96,12 +96,12 @@ INSERT INTO `address` (`address_id`, `address_title`, `map_link`, `address_creat
 
 CREATE TABLE `admin` (
   `admin_id` int(11) NOT NULL,
-  `admin_name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `admin_email` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `admin_password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `admin_about` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `admin_phone` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `admin_photo` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `admin_name` varchar(30) NOT NULL,
+  `admin_email` varchar(80) NOT NULL,
+  `admin_password` varchar(255) NOT NULL,
+  `admin_about` longtext NOT NULL,
+  `admin_phone` varchar(15) NOT NULL,
+  `admin_photo` varchar(80) NOT NULL,
   `admin_created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -110,7 +110,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`admin_id`, `admin_name`, `admin_email`, `admin_password`, `admin_about`, `admin_phone`, `admin_photo`, `admin_created_at`) VALUES
-(3, 'Sujon Ahmed', 'sujonahmed@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Hi i am Sujon Ahmed a Full Stack Web Developer', '01743405982', '620e92df22caf0.31830136.jpg', '2022-02-18 00:23:06');
+(3, 'Sujon Ahmed', 'sujonahmed5284@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Hi, I am Sujon Ahmed a Web Application Developer.', '01743405982', '6533cd7d98ebd9.08918850.png', '2022-02-18 00:23:06');
 
 -- --------------------------------------------------------
 
@@ -121,9 +121,9 @@ INSERT INTO `admin` (`admin_id`, `admin_name`, `admin_email`, `admin_password`, 
 CREATE TABLE `banner` (
   `banner_id` int(11) NOT NULL,
   `author_id` int(11) NOT NULL,
-  `banner_title` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `banner_desc` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `banner_img` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `banner_title` varchar(200) NOT NULL,
+  `banner_desc` longtext NOT NULL,
+  `banner_img` varchar(80) NOT NULL,
   `banner_careated_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -143,7 +143,7 @@ INSERT INTO `banner` (`banner_id`, `author_id`, `banner_title`, `banner_desc`, `
 
 CREATE TABLE `blog_category` (
   `blog_cat_id` int(11) NOT NULL,
-  `blog_cat_name` varchar(25) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `blog_cat_name` varchar(25) NOT NULL,
   `blog_cat_created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -167,9 +167,9 @@ CREATE TABLE `blog_post` (
   `blog_post_id` int(11) NOT NULL,
   `author_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
-  `blog_post_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `blog_post_desc` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
-  `blog_post_image` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `blog_post_title` varchar(255) NOT NULL,
+  `blog_post_desc` longtext NOT NULL,
+  `blog_post_image` varchar(80) NOT NULL,
   `blog_post_created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -190,7 +190,7 @@ INSERT INTO `blog_post` (`blog_post_id`, `author_id`, `category_id`, `blog_post_
 CREATE TABLE `brands` (
   `brand_id` int(11) NOT NULL,
   `author_id` int(11) NOT NULL,
-  `brand_img` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `brand_img` varchar(80) NOT NULL,
   `brand_created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -214,9 +214,9 @@ INSERT INTO `brands` (`brand_id`, `author_id`, `brand_img`, `brand_created_at`) 
 
 CREATE TABLE `card` (
   `card_id` int(11) NOT NULL,
-  `card_icon` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `card_title` varchar(200) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `card_desc` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `card_icon` varchar(15) NOT NULL,
+  `card_title` varchar(200) NOT NULL,
+  `card_desc` longtext NOT NULL,
   `card_created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -238,7 +238,7 @@ INSERT INTO `card` (`card_id`, `card_icon`, `card_title`, `card_desc`, `card_cre
 CREATE TABLE `client_description` (
   `client_id` int(11) NOT NULL,
   `author_id` int(11) NOT NULL,
-  `client_desc` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `client_desc` varchar(255) NOT NULL,
   `client_created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -257,10 +257,10 @@ INSERT INTO `client_description` (`client_id`, `author_id`, `client_desc`, `clie
 
 CREATE TABLE `messages` (
   `msg_id` int(11) NOT NULL,
-  `msg_name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `msg_email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `msg_sub` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `msg_message` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `msg_name` varchar(30) NOT NULL,
+  `msg_email` varchar(50) NOT NULL,
+  `msg_sub` varchar(255) NOT NULL,
+  `msg_message` longtext NOT NULL,
   `msg_created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -281,8 +281,8 @@ INSERT INTO `messages` (`msg_id`, `msg_name`, `msg_email`, `msg_sub`, `msg_messa
 
 CREATE TABLE `portfolio_cat` (
   `portfolio_cat_id` int(11) NOT NULL,
-  `cat_name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slag` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cat_name` varchar(30) NOT NULL,
+  `slag` varchar(30) NOT NULL,
   `cat_created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -303,8 +303,8 @@ INSERT INTO `portfolio_cat` (`portfolio_cat_id`, `cat_name`, `slag`, `cat_create
 
 CREATE TABLE `portfolio_tbl` (
   `portfolio_id` int(11) NOT NULL,
-  `portfolio_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `portfolio_image` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `portfolio_title` varchar(255) NOT NULL,
+  `portfolio_image` varchar(80) NOT NULL,
   `portfolio_cat_id` int(11) NOT NULL,
   `portfolio_img_created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -332,9 +332,9 @@ INSERT INTO `portfolio_tbl` (`portfolio_id`, `portfolio_title`, `portfolio_image
 
 CREATE TABLE `pricing` (
   `pricing_id` int(11) NOT NULL,
-  `pricing_title` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pricing_title` varchar(50) NOT NULL,
   `pricing_price` int(11) NOT NULL,
-  `pricing_desc` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pricing_desc` longtext NOT NULL,
   `pricing_created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -356,9 +356,9 @@ INSERT INTO `pricing` (`pricing_id`, `pricing_title`, `pricing_price`, `pricing_
 CREATE TABLE `services` (
   `service_id` int(11) NOT NULL,
   `author_id` int(11) NOT NULL,
-  `service_icon` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `service_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `service_desc` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `service_icon` varchar(30) NOT NULL,
+  `service_title` varchar(255) NOT NULL,
+  `service_desc` longtext NOT NULL,
   `service_created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -383,7 +383,7 @@ INSERT INTO `services` (`service_id`, `author_id`, `service_icon`, `service_titl
 
 CREATE TABLE `skill_category` (
   `skill_cat_id` int(11) NOT NULL,
-  `skill_cat_name` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `skill_cat_name` varchar(15) NOT NULL,
   `skill_cat_mx_val` int(11) NOT NULL,
   `skill_cat_created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -406,9 +406,9 @@ INSERT INTO `skill_category` (`skill_cat_id`, `skill_cat_name`, `skill_cat_mx_va
 
 CREATE TABLE `skill_content` (
   `content_id` int(11) NOT NULL,
-  `content_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `content_image` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `content_desc` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content_title` varchar(255) NOT NULL,
+  `content_image` varchar(80) NOT NULL,
+  `content_desc` longtext NOT NULL,
   `content_created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -428,7 +428,7 @@ INSERT INTO `skill_content` (`content_id`, `content_title`, `content_image`, `co
 CREATE TABLE `skill_desc` (
   `skill_desc_id` int(11) NOT NULL,
   `author_id` int(11) NOT NULL,
-  `skill_desc` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `skill_desc` longtext NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -448,9 +448,9 @@ INSERT INTO `skill_desc` (`skill_desc_id`, `author_id`, `skill_desc`, `created_a
 
 CREATE TABLE `social` (
   `social_id` int(11) NOT NULL,
-  `social_name` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `social_icon` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `social_link` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `social_name` varchar(80) NOT NULL,
+  `social_icon` varchar(50) NOT NULL,
+  `social_link` varchar(255) NOT NULL,
   `social_created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -471,7 +471,7 @@ INSERT INTO `social` (`social_id`, `social_name`, `social_icon`, `social_link`, 
 
 CREATE TABLE `subscribers` (
   `sub_id` int(11) NOT NULL,
-  `sub_email` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `sub_email` varchar(80) NOT NULL,
   `sub_time` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -499,10 +499,10 @@ INSERT INTO `subscribers` (`sub_id`, `sub_email`, `sub_time`) VALUES
 
 CREATE TABLE `team` (
   `team_m_id` int(11) NOT NULL,
-  `team_m_img` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `team_m_name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `team_m_profession` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `team_m_about` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `team_m_img` varchar(80) NOT NULL,
+  `team_m_name` varchar(30) NOT NULL,
+  `team_m_profession` varchar(50) NOT NULL,
+  `team_m_about` longtext NOT NULL,
   `team_m_created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -523,10 +523,10 @@ INSERT INTO `team` (`team_m_id`, `team_m_img`, `team_m_name`, `team_m_profession
 
 CREATE TABLE `testimonials` (
   `test_id` int(11) NOT NULL,
-  `test_img` varchar(80) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `test_name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `test_profession` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `test_msg` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `test_img` varchar(80) NOT NULL,
+  `test_name` varchar(30) NOT NULL,
+  `test_profession` varchar(50) NOT NULL,
+  `test_msg` longtext NOT NULL,
   `test_created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -549,7 +549,7 @@ INSERT INTO `testimonials` (`test_id`, `test_img`, `test_name`, `test_profession
 CREATE TABLE `testimonials_desc` (
   `testimonial_desc_id` int(11) NOT NULL,
   `author_id` int(11) NOT NULL,
-  `testimonial_desc` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `testimonial_desc` longtext NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -729,7 +729,7 @@ ALTER TABLE `abs`
 -- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
-  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `address_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `admin`
